@@ -1,0 +1,359 @@
+---
+import i18next, { t } from "i18next";
+import { localizePath } from "astro-i18next";
+import Hamburger from "./Hamburger.astro";
+
+const { pathname } = Astro.url;
+---
+
+<header class="main-header">
+  <a href={localizePath("/")} class="logo hover-link--color">
+    <div aria-label="Logo">Chaoli</div>
+  </a>
+  <nav class="main-nav">
+    <ul class="nav-list">
+      <li>
+        <a href={localizePath("/")} class="link">{t("site.home")}</a>
+      </li>
+      <li class="dropdown">
+        <a class="link link--dropdown">
+          {t("site.work")}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+          </svg>
+        </a>
+        <ul class="submenu" role="menu">
+          <li>
+            <a href={localizePath("/games/")} class="link submenu-item"
+              >{t("site.games")}</a
+            >
+          </li>
+          <li>
+            <a href={localizePath("/art/")} class="link submenu-item"
+              >{t("site.art")}</a
+            >
+          </li>
+          <li>
+            <a href={localizePath("/photos/")} class="link submenu-item"
+              >{t("site.photos")}</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href={localizePath("/tools/")} class="link">{t("site.tools")}</a>
+      </li>
+      <li>
+        <a href={localizePath("/blog/")} class="link">{t("site.blog")}</a>
+      </li>
+      <li>
+        <a href={localizePath("/about/")} class="link">{t("site.about")}</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="toggles">
+    {
+      i18next.language === "zh" ? (
+        <a
+          href={localizePath(pathname, "en")}
+          class="hover-link--color"
+          title="Switch to English">
+          EN
+        </a>
+      ) : (
+        <a
+          href={localizePath(pathname, "zh")}
+          class="hover-link--color"
+          title="切换为中文">
+          中文
+        </a>
+      )
+    }
+    <!-- <button class="button hover-link--color" title="Dark Mode">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24">
+        <path
+          d="M11.01 3.05C6.51 3.54 3 7.36 3 12a9 9 0 0 0 9 9c4.63 0 8.45-3.5 8.95-8c.09-.79-.78-1.42-1.54-.95A5.403 5.403 0 0 1 11.1 7.5c0-1.06.31-2.06.84-2.89c.45-.67-.04-1.63-.93-1.56z"
+          fill="currentColor"></path>
+      </svg>
+    </button> -->
+    <!-- <button class="button button-mobile-nav" type="button" title="Menu">
+      Menu
+    </button> -->
+    <Hamburger />
+  </div>
+  <nav class="mobile-nav">
+    <ul class="mobile-nav-list">
+      <li>
+        <a
+          href={localizePath("/")}
+          class="hover-link--underline mobile-nav-link">
+          {t("site.home")}
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a
+          href={localizePath("/games/")}
+          class="hover-link--underline mobile-nav-link">
+          {t("site.games")}
+        </a>
+      </li>
+      <li>
+        <a
+          href={localizePath("/art/")}
+          class="hover-link--underline mobile-nav-link">
+          {t("site.art")}
+        </a>
+      </li>
+      <li>
+        <a
+          href={localizePath("/photos/")}
+          class="hover-link--underline mobile-nav-link">
+          {t("site.photos")}
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a
+          href={localizePath("/tools/")}
+          class="hover-link--underline mobile-nav-link">
+          {t("site.tools")}
+        </a>
+      </li>
+      <li>
+        <a
+          href={localizePath("/blog/")}
+          class="hover-link--underline mobile-nav-link">
+          {t("site.blog")}
+        </a>
+      </li>
+      <li>
+        <a
+          href={localizePath("/about/")}
+          class="hover-link--underline mobile-nav-link">
+          {t("site.about")}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script lang="ts">
+  const mobileNav = document.querySelector(".mobile-nav");
+  const mobileNavButton = document.querySelector(".button-mobile-nav");
+  let mobileNavOpen = false;
+  if (!mobileNav || !mobileNavButton) {
+    throw new Error("Element not found!");
+  }
+
+  mobileNavButton.addEventListener("click", toggleNav);
+
+  function toggleNav() {
+    mobileNavOpen = !mobileNavOpen;
+    mobileNav.classList.toggle("open");
+    mobileNavButton.classList.toggle("is-active");
+    mobileNavButton.ariaExpanded = mobileNavOpen ? "true" : "false";
+  }
+</script>
+
+<style lang="scss">
+  .main-header {
+    padding: 0 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    width: 100%;
+
+    z-index: 2;
+
+    // TODO
+    background-color: rgba(255, 255, 255, 0.8);
+
+    backdrop-filter: blur(15px);
+
+    transition: all 0.3s;
+  }
+  body.sticky .main-header {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-list,
+  .toggles {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    // gap: 1.5rem;
+  }
+  .toggles {
+    gap: 2rem;
+  }
+  .link {
+    position: relative;
+
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: var(--color-primary);
+      width: 100%;
+      height: 0.2rem;
+      transform: scaleX(0);
+      transform-origin: left;
+      // transition: transform 0.3s ease-out;
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+        transform-origin 0s 0.4s;
+    }
+    &:hover::after,
+    &:active::after {
+      transform: scaleX(1);
+      transform-origin: right;
+    }
+  }
+  .link--dropdown {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .icon {
+      width: 1rem;
+    }
+  }
+  .dropdown {
+    position: relative;
+
+    .submenu {
+      list-style: none;
+
+      background: #fff;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 120%;
+      transition: all 0.2s ease 0s;
+      visibility: hidden;
+      width: 100%;
+      z-index: 9;
+      text-align: left;
+    }
+
+    &:hover .submenu {
+      opacity: 1;
+      top: 100%;
+      visibility: visible;
+    }
+  }
+  .submenu-item {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    font-family: serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+
+    background-color: var(--color-background);
+    padding: 2rem 3rem;
+    overflow: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.2s ease-out;
+
+    /* opacity: 0; */
+    pointer-events: none;
+    visibility: hidden;
+
+    .mobile-nav-list {
+      padding-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      width: 100%;
+
+      transform: translateX(-10%);
+      opacity: 0;
+      transition: all 0.2s 0.2s;
+    }
+  }
+  .mobile-nav-link {
+    display: block;
+  }
+  .divider {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0.2rem;
+      background-color: var(--color-surface);
+    }
+  }
+
+  @media (max-width: 72em) {
+    .toggles {
+      gap: 1rem;
+    }
+    .main-nav {
+      display: none;
+    }
+    .mobile-nav.open {
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      transform: scaleY(1);
+
+      /* opacity: 1; */
+      pointer-events: auto;
+      visibility: visible;
+
+      .mobile-nav-list {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  @media (max-width: 48em) {
+    .main-header {
+      padding: 1rem;
+    }
+    .toggles {
+      gap: 0.5rem;
+    }
+  }
+</style>

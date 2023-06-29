@@ -1,0 +1,65 @@
+---
+import { t, changeLanguage } from "i18next";
+import SubPageLayout from "../layouts/SubPageLayout.astro";
+
+changeLanguage("zh");
+
+const columns = [
+    ["cat", "cats"],
+    ["snow", "mountain"],
+    ["moon", "village"],
+];
+---
+
+<SubPageLayout titleKey="site.photos">
+  <div class="container gallery">
+    {
+      columns.map((column) => (
+        <div class="column">
+          {column.map((imgName) => (
+            <a
+              class="link image-item"
+              target="_blank"
+              href={`/images/photos/${imgName}.jpg`}>
+              <img src={`/images/photos/${imgName}.jpg`} alt="" />
+            </a>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</SubPageLayout>
+
+<style lang="scss">
+  .gallery {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .image-item {
+    padding: 0;
+  }
+  .image-item img {
+    display: block;
+    width: 100%;
+
+    border-radius: 0.5rem;
+
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 48em) {
+    .gallery {
+      flex-direction: column;
+    }
+  }
+</style>

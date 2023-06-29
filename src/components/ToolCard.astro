@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon";
+import { t, changeLanguage } from "i18next";
+
+export interface Props {
+  titleKey: string;
+  href: string;
+  icon: string;
+}
+
+const { titleKey, href, icon } = Astro.props;
+---
+
+<a class="link tool-card" href={href}>
+  <Icon name={icon} class="icon" />
+  <p class="title">{t(titleKey)}</p>
+</a>
+
+<style lang="scss">
+  .tool-card {
+    display: block;
+    padding: 1rem;
+
+    text-align: center;
+
+    background-color: var(--color-on-primary);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 0 0.2rem var(--color-primary);
+    }
+
+    &:hover .icon {
+      color: var(--color-primary);
+    }
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  .icon {
+    width: 2rem;
+    transition: color 0.3s;
+  }
+</style>

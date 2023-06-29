@@ -1,0 +1,73 @@
+---
+import { t, changeLanguage } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Icon } from "astro-icon";
+import GameLayout from "../../../layouts/GameLayout.astro";
+
+changeLanguage("en");
+---
+
+<GameLayout
+  gameKey="sb"
+  bannerSrc="/images/sb/SB.webp"
+  gameLink="https://gitee.com/dubhe-team/game-jam/"
+  srcLink="https://gitee.com/dubhe-team/game-jam/"
+  pubDate="2022-1-16"
+  textColor="#111"
+  backgroundColor="#f4ebda"
+  foregroundColor="#f4ebda"
+  primaryColor="#269ffc"
+  primaryDarkColor="#ceb78a"
+  onPrimaryColor="white"
+  surfaceColor="#ceb78a">
+  <p>
+    {t("games.sb.intro")}
+  </p>
+  <div slot="info-main">
+    <section>
+      <header class="flex-gap-s mb-s">
+        <img class="heading-icon" src="/images/sb/秦半两.webp" alt="秦半两" />
+        <h2>{t("games.howToPlay")}</h2>
+      </header>
+      <p>
+        {t("games.sb.howTo1")}
+      </p>
+      <p>
+        {t("games.sb.howTo2")}
+      </p>
+    </section>
+    <section>
+      <header class="flex-gap-s mb-s">
+        <img class="heading-icon" src="/images/sb/纸币.webp" alt="纸币" />
+        <h2>{t("games.note")}</h2>
+      </header>
+      <p>{t("games.sb.note")}</p>
+    </section>
+  </div>
+  <span slot="platforms">
+    <Icon name="mdi:microsoft-windows" title="Windows" />
+  </span>
+  <span slot="language">中文</span>
+  <ul slot="team">
+    <Trans i18nKey="games.sb.team">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </Trans>
+  </ul>
+  <img
+    class="side-img"
+    slot="side-img"
+    src="/images/sb/古代人举手.webp"
+    alt=""
+  />
+</GameLayout>
+
+<style>
+  .side-img {
+    max-width: 10rem;
+  }
+</style>

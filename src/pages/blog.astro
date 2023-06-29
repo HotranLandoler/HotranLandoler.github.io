@@ -1,0 +1,34 @@
+---
+import { t, changeLanguage } from "i18next";
+import SubPageLayout from "../layouts/SubPageLayout.astro";
+import BlogCard from "../components/BlogCard.astro";
+
+changeLanguage("zh");
+
+const allPosts = await Astro.glob("../pages/posts/*.md");
+---
+
+<SubPageLayout titleKey="site.blog">
+  <div class="container">
+    <ul class="posts">
+      {
+        allPosts.map((post) => (
+          <li>
+            <BlogCard post={post} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</SubPageLayout>
+
+<style>
+  .container {
+    max-width: 48rem;
+  }
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>

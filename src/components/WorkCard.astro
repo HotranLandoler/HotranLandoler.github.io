@@ -1,0 +1,45 @@
+---
+export interface Props {
+  href: string;
+  imgSrc: string;
+  title: string;
+}
+
+const { href, imgSrc, title } = Astro.props;
+---
+
+<div>
+  <a href={href} class="link work-card mb-s" title={title}>
+    <img src={imgSrc} alt={title} class="work-img" />
+  </a>
+  <p class="work-title">{title}</p>
+</div>
+
+<style lang="scss">
+  .work-card {
+    display: block;
+    overflow: hidden;
+    padding: 0;
+
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+  }
+  .work-img {
+    display: block;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+  .work-title {
+    padding-left: 1rem;
+
+    font-family: serif;
+    font-size: 1.5rem;
+  }
+</style>

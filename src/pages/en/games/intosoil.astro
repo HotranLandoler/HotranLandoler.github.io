@@ -1,0 +1,98 @@
+---
+import { t, changeLanguage } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Icon } from "astro-icon";
+import GameLayout from "../../../layouts/GameLayout.astro";
+
+changeLanguage("en");
+
+const surfaceColor = "#e7923c";
+---
+
+<GameLayout
+  gameKey="intoSoil"
+  bannerSrc="/images/into-soil/IntoSoil.webp"
+  gameLink="https://uma-studio.itch.io/into-soil"
+  srcLink="https://gitee.com/merak-team/ggj-2023"
+  pubDate="2023-2-5"
+  textColor="#0B3C48"
+  backgroundColor="#A0EFB8"
+  foregroundColor="#faa54f"
+  primaryColor="#e9ed18"
+  primaryDarkColor="#2c8e6d"
+  onPrimaryColor="#0B3C48"
+  surfaceColor={surfaceColor}>
+  <p>
+    {t("games.intoSoil.intro")}
+  </p>
+  <div slot="info-main">
+    <section>
+      <header class="flex-gap-s mb-s">
+        <img
+          class="heading-icon"
+          src="/images/into-soil/mineIcon.png"
+          alt="Mineral"
+        />
+        <h2>{t("games.howToPlay")}</h2>
+      </header>
+      <p>
+        {t("games.intoSoil.howTo")}
+      </p>
+    </section>
+    <section>
+      <header class="flex-gap-s mb-s">
+        <img
+          class="heading-icon"
+          src="/images/into-soil/starIcon.png"
+          alt="Star"
+        />
+        <h2>{t("games.note")}</h2>
+      </header>
+      <p>
+        <Trans i18nKey="games.intoSoil.note">
+          <a
+            class="base-link"
+            target="_blank"
+            href="https://www.bilibili.com/video/BV1d24y1W7QS/?share_source=copy_web&vd_source=8c6b88c7f59f3cc09cc01d957f647680">
+            0
+          </a>
+        </Trans>
+      </p>
+      <iframe
+        class="video"
+        src="https://player.bilibili.com/player.html?aid=694277439&bvid=BV1d24y1W7QS&cid=1006267514&page=1&autoplay=0"
+        allow="fullscreen"
+        title="Bilibili video for IntoSoil">
+      </iframe>
+    </section>
+  </div>
+  <span slot="platforms">
+    <Icon name="mdi:microsoft-windows" title="Windows" />
+    <Icon name="simple-icons:webgl" title="Web" />
+  </span>
+  <span slot="language">中文, English</span>
+  <ul slot="team">
+    <Trans i18nKey="games.intoSoil.team">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </Trans>
+  </ul>
+  <img
+    class="pixel side-img"
+    slot="side-img"
+    src="/images/into-soil/treeM.png"
+    alt=""
+  />
+</GameLayout>
+
+<style define:vars={{ surfaceColor }}>
+  .side-img {
+    width: 40%;
+  }
+  .video {
+    background-color: var(--surfaceColor);
+  }
+</style>

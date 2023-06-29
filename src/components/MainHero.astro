@@ -1,0 +1,87 @@
+---
+import { t } from "i18next";
+import { localizePath } from "astro-i18next";
+import { Icon } from "astro-icon";
+---
+
+<section class="hero-section hero-container">
+  <div class="container">
+    <div class="hero-left">
+      <h1 class="hero-heading">{t("homepage.heroHeading")}</h1>
+      <p class="hero-text">{t("homepage.heroDesc")}</p>
+      <div class="links">
+        <a href={localizePath("/about/")} class="link--primary about-me">
+          <span class="text-icon-container">
+            {t("homepage.aboutme")}
+            <Icon name="mdi:arrow-right" />
+          </span>
+        </a>
+        <a href={localizePath("/resume/")} class="link--outlined about-me">
+          <span class="text-icon-container">
+            {t("site.resume")}
+            <Icon name="mdi:arrow-right" />
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .hero-section {
+    padding: 8rem 0 5rem 0;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+
+    // background-color: #f7f4ed;
+    // font-family: serif;
+    &::after {
+      content: "";
+      position: absolute;
+      right: 6rem;
+      top: 0;
+      background-color: var(--color-primary);
+      width: 15rem;
+      height: 18rem;
+      box-shadow: 4rem 4rem 0 0 #ff2f007e;
+    }
+  }
+  .hero-heading {
+    margin-bottom: 1rem;
+
+    font-size: 2.5rem;
+    font-weight: normal;
+    line-height: 1.1;
+  }
+  .hero-text {
+    font-size: 1.5rem;
+    line-height: 2;
+    margin-bottom: 2rem;
+  }
+  .about-me {
+    .icon {
+      width: 1rem;
+    }
+  }
+  .links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @media (max-width: 48em) {
+    .hero-section {
+      padding-bottom: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+</style>

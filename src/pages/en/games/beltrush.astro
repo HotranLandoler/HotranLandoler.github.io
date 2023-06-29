@@ -1,0 +1,101 @@
+---
+import { t, changeLanguage } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Icon } from "astro-icon";
+import GameLayout from "../../../layouts/GameLayout.astro";
+
+changeLanguage("en");
+
+const gameKey = "beltRush";
+const surfaceColor = "#5779d5";
+---
+
+<GameLayout
+  gameKey={gameKey}
+  bannerSrc="/images/belt-rush/BeltRush.webp"
+  gameLink="https://uma-studio.itch.io/belt-rush"
+  srcLink="https://gitee.com/dubhe-team/ld53"
+  pubDate="2023-5-2"
+  textColor="white"
+  backgroundColor="#6587e3"
+  foregroundColor="#6587e3"
+  primaryColor="#ffd37a"
+  primaryDarkColor="#ffb658"
+  onPrimaryColor="#222"
+  surfaceColor={surfaceColor}>
+  <p>
+    {t(`games.${gameKey}.intro`)}
+  </p>
+  <div slot="info-main">
+    <iframe
+      class="mb-m video"
+      src="//player.bilibili.com/player.html?aid=825964426&bvid=BV1Ag4y1L7s8&cid=1124747994&page=1&autoplay=0"
+      allow="fullscreen"
+      title="Bilibili video for IntoSoil">
+    </iframe>
+    <section>
+      <header class="flex-gap-s mb-s">
+        <img
+          class="heading-icon"
+          src="/images/belt-rush/tape.webp"
+          alt="Tape"
+        />
+        <h2>{t("games.howToPlay")}</h2>
+      </header>
+      <p>
+        {t(`games.${gameKey}.howTo`)}
+      </p>
+    </section>
+    <section>
+      <header class="flex-gap-s mb-s">
+        <img
+          class="heading-icon"
+          src="/images/belt-rush/triangle.webp"
+          alt="Triangle"
+        />
+        <h2>{t("games.note")}</h2>
+      </header>
+      <p>
+        <Trans i18nKey={`games.${gameKey}.note`}>
+          <a
+            class="base-link"
+            target="_blank"
+            href="https://ldjam.com/events/ludum-dare/53/belt-rush">
+            0
+          </a>
+        </Trans>
+      </p>
+    </section>
+  </div>
+  <span slot="platforms">
+    <Icon name="mdi:microsoft-windows" title="Windows" />
+    <Icon name="simple-icons:webgl" title="Web" />
+    <Icon name="mdi:android-head" title="Android" />
+    <Icon name="mdi:linux" title="Linux" />
+    <Icon name="mdi:apple" title="macOS" />
+  </span>
+  <span slot="language">English</span>
+  <ul slot="team">
+    <Trans i18nKey={`games.${gameKey}.team`}>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </Trans>
+  </ul>
+  <img
+    class="side-img"
+    slot="side-img"
+    src="/images/belt-rush/pack.webp"
+    alt=""
+  />
+</GameLayout>
+
+<style define:vars={{ surfaceColor }}>
+  .side-img {
+    max-width: 6rem;
+  }
+  .video {
+    background-color: var(--surfaceColor);
+  }
+</style>

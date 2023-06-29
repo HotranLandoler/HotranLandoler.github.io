@@ -1,0 +1,229 @@
+---
+import { t } from "i18next";
+import { localizePath } from "astro-i18next";
+import { Icon } from "astro-icon";
+import BaseLayout from "./BaseLayout.astro";
+
+export interface Props {
+  gameKey: string;
+  bannerSrc: string;
+  gameLink: string;
+  srcLink: string;
+  pubDate: string;
+  textColor: string;
+  backgroundColor: string;
+  foregroundColor: string;
+  primaryColor: string;
+  primaryDarkColor: string;
+  onPrimaryColor: string;
+  surfaceColor: string;
+}
+
+const {
+  gameKey,
+  bannerSrc,
+  gameLink,
+  srcLink,
+  pubDate,
+  textColor,
+  backgroundColor,
+  foregroundColor,
+  primaryColor,
+  primaryDarkColor,
+  onPrimaryColor,
+  surfaceColor,
+} = Astro.props;
+---
+
+<BaseLayout title={t(`games.${gameKey}.title`)}>
+  <main class="game">
+    <div class="container mb-m">
+      <img class="banner" src={bannerSrc} alt="Game banner" />
+      <article>
+        <header class="flex-gap-s mb-m">
+          <h1 class="title">{t(`games.${gameKey}.title`)}</h1>
+          <a
+            class="link--primary text-icon-container button-play"
+            target="_blank"
+            href={gameLink}>
+            {t(`games.${gameKey}.action`)}
+            <Icon name="mdi:arrow-right" />
+          </a>
+        </header>
+        <slot />
+        <div class="info">
+          <slot name="info-main" />
+          <aside class="info-side">
+            <table class="info-table">
+              <tbody>
+                <tr>
+                  <td>{t("games.genre")}</td>
+                  <td>{t(`games.${gameKey}.genre`)}</td>
+                </tr>
+                <tr>
+                  <td>{t("games.platform")}</td>
+                  <td><slot name="platforms" /></td>
+                </tr>
+                <tr>
+                  <td>{t("language")}</td>
+                  <td><slot name="language" /></td>
+                </tr>
+                <tr>
+                  <td>{t("games.engine")}</td>
+                  <td>Unity</td>
+                </tr>
+                <tr>
+                  <td>{t("games.pubDate")}</td>
+                  <td><time>{pubDate}</time></td>
+                </tr>
+                <tr>
+                  <td>{t("games.sessionTime")}</td>
+                  <td>{t(`games.${gameKey}.session`)}</td>
+                </tr>
+                <tr>
+                  <td>{t("games.controls")}</td>
+                  <td>{t(`games.${gameKey}.controls`)}</td>
+                </tr>
+                <tr>
+                  <td>{t("games.src")}</td>
+                  <td>
+                    <a class="base-link" target="_blank" href={srcLink}>
+                      {t("games.repo")}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>{t("games.team")}</td>
+                  <td>
+                    <slot name="team" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="img-side-container">
+              <slot name="side-img" />
+            </div>
+          </aside>
+        </div>
+      </article>
+    </div>
+    <div class="text-center">
+      <a href={localizePath("/games/")} class="hover-link more-games">
+        <span class="text-icon-container">
+          <Icon name="mdi:arrow-left" />
+          {t("games.moregames")}
+        </span>
+      </a>
+    </div>
+  </main>
+</BaseLayout>
+
+<style
+  lang="scss"
+  define:vars={{
+    textColor,
+    foregroundColor,
+    backgroundColor,
+    primaryColor,
+    primaryDarkColor,
+    onPrimaryColor,
+    surfaceColor,
+  }}
+>
+  main {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+
+    color: var(--textColor);
+
+    background-color: var(--backgroundColor);
+  }
+  article {
+    padding: 2rem;
+    padding-top: 0;
+  }
+  .game {
+    :global(p) {
+      margin-bottom: 1.5rem;
+
+      line-height: 2;
+    }
+
+    :global(.base-link:link),
+    :global(.base-link:visited) {
+      color: var(--primaryColor);
+    }
+  }
+
+  .container {
+    max-width: 48rem;
+    padding: 0;
+
+    background-color: var(--foregroundColor);
+    border-radius: 0.5rem;
+  }
+  .banner {
+    aspect-ratio: 2 / 1;
+    display: block;
+    margin-bottom: 2rem;
+    width: 100%;
+
+    background-color: var(--backgroundColor);
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .button-play {
+    margin-left: auto;
+
+    color: var(--onPrimaryColor);
+
+    background-color: var(--primaryColor);
+
+    &:hover {
+      background-color: var(--primaryDarkColor);
+    }
+  }
+  .info {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+  }
+  .info-side {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+  }
+  .info-table {
+    padding: 1rem;
+
+    background-color: var(--surfaceColor);
+    border-radius: 0.5rem;
+  }
+  .info-table td {
+    padding: 0.5rem;
+
+    &:first-child {
+      font-weight: bold;
+      text-align: right;
+      vertical-align: top;
+    }
+  }
+  .img-side-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .more-games {
+    color: var(--textColor);
+
+    border-color: var(--primaryColor);
+  }
+
+  @media (max-width: 32em) {
+    .info {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>

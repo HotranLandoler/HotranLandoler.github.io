@@ -1,0 +1,142 @@
+{
+  "fullname": "LOU Chaoli",
+  "language": "Language",
+  "site": {
+    "title": "Chaoli",
+    "description": "Personal website of LOU Chaoli. I'm an indie game developer who also loves art, photography and traveling.",
+    "home": "Home",
+    "work": "Work",
+    "games": "Games",
+    "art": "Art",
+    "photos": "Photos",
+    "tools": "Tools",
+    "blog": "Blog",
+    "about": "About",
+    "resume": "Resume",
+    "links": "Links",
+    "contact": "Contact"
+  },
+  "homepage": {
+    "heroHeading": "Hey there, I'm LOU Chaoli, an indie game developer.",
+    "heroDesc": "I make games, and also love art, photography and travel.",
+    "aboutme": "About me",
+    "workHeading": "My Work",
+    "workSubheading": "Games & Art & Photos",
+    "blogHeading": "Blog",
+    "blogSubheading": "My Ideas",
+    "morePosts": "More Posts",
+    "toolsHeading": "Toolbox",
+    "toolsSubheading": "Sometimes useful",
+    "moreTools": "More Tools"
+  },
+  "games": {
+    "genre": "Genre",
+    "platform": "Platform",
+    "engine": "Engine",
+    "pubDate": "Release date",
+    "sessionTime": "Average session",
+    "controls": "Inputs",
+    "src": "Source",
+    "repo": "Code repo",
+    "team": "Team",
+    "howToPlay": "How To Play",
+    "note": "Note",
+    "moregames": "More Games",
+    "cquHorror": {
+      "title": "CQU Horror",
+      "desc": "Try to survive in a dangerous campus",
+      "action": "Download",
+      "genre": "Horror, Shooter",
+      "session": "About an hour",
+      "controls": "Keyboard, Mouse",
+      "intro": "Years after graduating from CQU, Cheng You followed his hobby and became a private detective. One day, he receives an anonymous commission letter inviting him to return to his alma mater to investigate a mysterious case. And when Cheng You arrives at the once familiar place, he finds that everything that happens is beyond his imagination...",
+      "howTo1": "Use arrow keys to control movement, right mouse button to aim, left mouse button to shoot, middle mouse button to switch weapons, TAB key to open backpack, mouse click to use items.",
+      "howTo2": "Find weapons and supplies you need, try to survive in a campus full of mysterious creatures, and find out the truth behind the scenes ......",
+      "note1": "This is my first near-complete (though only the first chapter is finished) indie game. This game was initially made as a course project for my game design course in June 2021. My team member ZJX was inspired by the board game Arkham Horror，and had the idea of making a Cthulhu-style horror game where stories happen in a campus. I spent two weeks making and submitting a demo for the game, and then continued development together with ZJX during the summer break, eventually releasing the first chapter of the game.",
+      "note2": "The game's art resources were made using Asprite, and the music and sounds were purchased from Audio Jungle. The art style was partly influenced by aarthificial's Astortion game dev logs. In addition, I would like to express special thanks to TKC and YJ for their financial sponsorship.",
+      "team": "<0>Chaoli: Coding, Art</0><1>ZJX: Design</1><2>Mr.Haoren: Design</2><3>HYW: Design</3>"
+    },
+    "sb": {
+      "title": "Coin Era",
+      "desc": "Play with your friend, and feel the power of money",
+      "action": "Download",
+      "genre": "Action",
+      "session": "5 min",
+      "controls": "Keyboard / Gamepad",
+      "intro": "From ancient times to modern times, human society has slowly evolved. Money has witnessed the productivity that drives society. In 1P vs. 2P mode, players need to improve their economic factors within 5 minutes to make their own era evolve, and at the end of time, the different evolutionary states of both players may bring different game endings.",
+      "howTo1": "According to the key prompt, both players can move, jump, pick up gold coins, store gold coins and throw gold coins. During the game, depending on the era the player is in, different kinds of coins will fall from the sky, you need to seize the opportunity to receive the coins, if you miss and get hit by the coins, you will lose your life. After your life goes down to zero, you will regress back to the previous era and lose half of your wealth, while your opponent's wealth will be doubled. ",
+      "howTo2": "After receiving the coins, players can choose to store the coins to increase their wealth, or try to attack or help another player by throwing the coins in their hands. As soon as the wealth reaches a certain threshold, you can move on to the next era. At the end of the game, there will be different endings depending on the era both players are in.",
+      "note": "This is my first entry from a game jam (Chongqing College Joint GameJam in early 2022). Our team was named Dubhe Team. The theme of the jam is Treasure. After discussion, our team decided to make a game of picking up coins & throwing them, and further gave it some connotations about human social development.",
+      "team": "<0>Megrez: Art, Music</0><1>抱羊羊: Art</1><2>Chaoli: Coding</2><3>枕流: Coding</3><4>蝾螈: Coding</4><5>棂惩: Advisor</5>"
+    },
+    "intoSoil": {
+      "title": "Into Soil",
+      "desc": "Play as a tree and put the roots deep into the soil...",
+      "action": "Play Now",
+      "genre": "Brain Training",
+      "session": "5 min",
+      "controls": "Mouse",
+      "intro": "'As big as a tree's canopy is, its root system is as big as it can be'. the roots of the tree crawl in the ground and grow to a resource-rich place, and the tree will slowly grow.",
+      "howTo": "Mouse click to make tree roots grow and fork, collect underground water and mineral resources for growth. Try to plan your route wisely to go deeper.",
+      "note": "Entry by Merak Team for Global Game Jam 2023 Hangzhou. the theme of the Jam is 'Roots', so we designed a game to plan the growth path of tree roots. We tried to innovate the art style(Thanks to the Xbr Shader by llapuras) and got a good response after it was published on <0>Bilibili</0>.",
+      "team": "<0>Megrez: Art, Music</0><1>汪一二中: Design</1><2>Chaoli: Coding</2><3>Muzeee: Sound</3><4>抱羊羊: Mascot</4>"
+    },
+    "beltRush": {
+      "title": "Belt Rush",
+      "desc": "Test your reaction speed by sorting packages!",
+      "action": "Play Now",
+      "genre": "Casual",
+      "session": "3 min",
+      "controls": "Mouse / Touch",
+      "intro": "In this game, some packages are coming from a conveyor belt, and you need to put them on appropriate belts (match by **COLOR**). Try not to make wrong matches (also if you don’t make a decision in time the package will be dropped into the trash bin) and get fired by the boss. A correct match gives you one score.",
+      "howTo": "Click the target belt on the left to put the incoming package.",
+      "note": "Entry for 2023 Ludum Dare 53 Jam, also my first time to join Ludum Dare. The jam theme was Deliver, and our team  discussed over and over before making the decision to make a simple package sorting mini-game. Because of the simple control method, it is easy to achieve cross-platform (currently only iOS is not available). The game ended up with an overall rating of 3.989 and a ranking of 186 (see <0>Ludum Dare page</0>). In addition to the team members listed, I would also like to thank 汪一二中 and 枕流 for their help in game design.",
+      "team": "<0>Megrez: Art, Menu Music</0><1>Xiu Xiaoqing: Art</1><2>Chaoli: Coding</2><3>Mr. Salamander: Coding</3>"
+    }
+  },
+  "tools": {
+    "namesFight": {
+      "title": "Name Fight"
+    },
+    "pomodoro": {
+      "title": "Pomodoro"
+    },
+    "unitConverter": {
+      "title": "Unit Converter"
+    },
+    "random": {
+      "title": "Random",
+      "dice": "Dice",
+      "int": "Integer",
+      "throw": "Roll Dice",
+      "decideHelper": "Help you decide",
+      "addBelow": "Add your options below",
+      "makeDecide": "Decide!",
+      "add": "Add",
+      "clear": "Clear",
+      "remove": "Remove",
+      "optionTip": "Pizza / Sushi"
+    }
+  },
+  "about": {
+    "heading": "I'm LOU Chaoli, an indie game developer from Zhejiang, China.",
+    "intro1": "I love programming and creating art. I strongly believe that programming and art can be combined to create endless possibilities, one of which is games. While novels and comics provide a vivid story, games provide the interactivity to make it all feel like being there: imagine walking in a world of your own creation.",
+    "intro2": "I'm passionate about creating fun games. In addition, I appreciate beautiful and functional interaction design, high-performance software, and clear and easy-to-maintain code. In my free time, I like to read, draw, photograph, and travel.",
+    "iLike": "What I like",
+    "hobbies": "<0>Astronomy</0><1>Old buildings</1><2>History</2><3>Spiders</3>",
+    "imLearning": "What I'm learning",
+    "learning": "<0>Frontend Development</0><1>Spanish</1><2>Piano</2>"
+  },
+  "resume": {
+    "profession": "Student",
+    "edu": "Education",
+    "edu1": "Chongqing University, Master of Electronic Information",
+    "eduTime1": "Expected June 2025",
+    "edu2": "Chongqing Univerisity, BSE",
+    "eduTime2": "June 2022",
+    "skills": "Skills",
+    "programLang": "Programming languages",
+    "frontend": "Frontend",
+    "gamedev": "Gamedev"
+  }
+}

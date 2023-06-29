@@ -1,0 +1,62 @@
+---
+import { t } from "i18next";
+
+export interface Props {
+  gameKey: string;
+  imgSrc: string;
+  href: string;
+}
+
+const { gameKey, imgSrc, href } = Astro.props;
+---
+
+<a class="link" href={href}>
+  <div class="game-card">
+    <img src={imgSrc} alt="" />
+    <div class="info">
+      <p class="game-title">{t(`games.${gameKey}.title`)}</p>
+      <p class="game-desc">{t(`games.${gameKey}.desc`)}</p>
+    </div>
+  </div>
+</a>
+
+<style lang="scss">
+  img {
+    aspect-ratio: 3 / 4;
+
+    display: block;
+    width: 100%;
+  }
+  .link {
+    display: block;
+    padding: 0;
+  }
+  .game-card {
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.3s;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    &:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.15);
+    }
+  }
+  .game-title {
+    font-size: 1.5rem;
+    // font-weight: bold;
+
+    margin-bottom: 0.5rem;
+  }
+  .info {
+    padding: 0.7rem 0.8rem 0.8rem 0.8rem;
+    position: relative;
+
+    // background-color: #222;
+    // color: white;
+  }
+</style>

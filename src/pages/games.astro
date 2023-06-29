@@ -1,0 +1,51 @@
+---
+import { t, changeLanguage } from "i18next";
+import { Icon } from "astro-icon";
+import SubPageLayout from "../layouts/SubPageLayout.astro";
+import GameCard from "../components/GameCard.astro";
+
+changeLanguage("zh");
+---
+
+<SubPageLayout titleKey="site.games">
+  <div class="container games">
+    <GameCard
+      gameKey="cquHorror"
+      imgSrc="/images/cqu-horror/cquhorrorCard.webp"
+      href="/games/cquhorror"
+    />
+    <GameCard gameKey="sb" imgSrc="/images/sb/SBCard.webp" href="/games/sb" />
+    <GameCard
+      gameKey="intoSoil"
+      imgSrc="/images/into-soil/IntoSoilCard.webp"
+      href="/games/intosoil"
+    />
+    <GameCard
+      gameKey="beltRush"
+      imgSrc="/images/belt-rush/BeltRushCard.webp"
+      href="/games/beltrush"
+    />
+  </div>
+</SubPageLayout>
+
+<style>
+  .games {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 60em) {
+    .games {
+      max-width: 40rem;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 40em) {
+    .games {
+      max-width: 24rem;
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,94 @@
+---
+import { t, changeLanguage } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Icon } from "astro-icon";
+import GameLayout from "../../layouts/GameLayout.astro";
+
+changeLanguage("zh");
+---
+
+<GameLayout
+  gameKey="cquHorror"
+  bannerSrc="/images/cqu-horror/cqu-horror-title.webp"
+  gameLink="https://github.com/HotranLandoler/CQU-Horror"
+  srcLink="https://github.com/HotranLandoler/CQU-Horror"
+  pubDate="2021-8-20"
+  textColor="white"
+  backgroundColor="#020202"
+  foregroundColor="#272216"
+  primaryColor="#a97f4d"
+  primaryDarkColor="#433120"
+  onPrimaryColor="white"
+  surfaceColor="#080e0a">
+  <p>
+    {t("games.cquHorror.intro")}
+  </p>
+  <div class="center divider-container mb-m">
+    <img
+      class="pixel divider"
+      src="/images/cqu-horror/SkillUnlock.png"
+      alt=""
+    />
+  </div>
+  <div slot="info-main">
+    <section>
+      <header class="flex-gap-s mb-s">
+        <img
+          class="heading-icon pixel"
+          src="/images/cqu-horror/HP.png"
+          alt="Health"
+        />
+        <h2>{t("games.howToPlay")}</h2>
+      </header>
+      <p>
+        {t("games.cquHorror.howTo1")}
+      </p>
+      <p>
+        {t("games.cquHorror.howTo2")}
+      </p>
+    </section>
+    <section>
+      <header class="flex-gap-s mb-s">
+        <img
+          class="heading-icon pixel"
+          src="/images/cqu-horror/San.png"
+          alt="Sanity"
+        />
+        <h2>{t("games.note")}</h2>
+      </header>
+      <p>{t("games.cquHorror.note1")}</p>
+      <p>{t("games.cquHorror.note2")}</p>
+    </section>
+  </div>
+  <span slot="platforms">
+    <Icon name="mdi:microsoft-windows" title="Windows" />
+  </span>
+  <span slot="language">中文</span>
+  <ul slot="team">
+    <Trans i18nKey="games.cquHorror.team">
+      <li>楼朝立：程序，美术</li>
+      <li>ZJX：主策划</li>
+      <li>Mr.Haoren：策划</li>
+      <li>HYW：策划</li>
+    </Trans>
+  </ul>
+  <img
+    class="pixel side-img"
+    slot="side-img"
+    src="/images/cqu-horror/CY_look.png"
+    alt=""
+  />
+</GameLayout>
+
+<style>
+  .divider-container {
+    max-width: 10rem;
+  }
+  .divider {
+    display: block;
+    width: 100%;
+  }
+  .side-img {
+    width: 25%;
+  }
+</style>
