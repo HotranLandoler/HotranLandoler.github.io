@@ -80,7 +80,7 @@ function specialAction(
         Math.random() * (data.healRange[1] - data.healRange[0]) +
           data.healRange[0]
       );
-      setHp(1 - rounder, players[rounder].hp + healNum);
+      setHp(rounder, players[rounder].hp + healNum);
       onLogAdded(
         `${who}${heal}, 恢复了<strong class="heal">${healNum}</strong>点生命！`
       );
