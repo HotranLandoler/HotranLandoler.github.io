@@ -106,8 +106,8 @@ const { pathname } = Astro.url;
   </div>
   <div class="bottom-row" lang="en">
     <div class="container">
-      <p>© 2023 LOU Chaoli</p>
-      <p class="made-with">Made with Astro.js</p>
+      <p><small>© 2023 LOU Chaoli</small></p>
+      <p class="made-with"><small>Made with Astro.js</small></p>
     </div>
   </div>
 </footer>
@@ -145,7 +145,7 @@ const { pathname } = Astro.url;
   }
 
   .bottom-row {
-    color: white;
+    color: var(--color-on-primary);
     background-color: var(--color-primary);
     padding: 2rem 0;
 
