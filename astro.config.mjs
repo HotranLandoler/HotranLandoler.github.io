@@ -7,4 +7,5 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   integrations: [astroI18next(), svelte()],
   site: "https://HotranLandoler.github.io",
+  scopedStyleStrategy: "class",
 });

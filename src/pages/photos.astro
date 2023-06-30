@@ -5,9 +5,9 @@ import SubPageLayout from "../layouts/SubPageLayout.astro";
 changeLanguage("zh");
 
 const columns = [
-    ["cat", "cats"],
-    ["snow", "mountain"],
-    ["moon", "village"],
+  ["cat", "cats"],
+  ["snow", "mountain"],
+  ["moon", "village"],
 ];
 ---
 
@@ -31,6 +31,9 @@ const columns = [
 </SubPageLayout>
 
 <style lang="scss">
+  .container {
+    max-width: 72rem;
+  }
   .gallery {
     display: flex;
     gap: 0.5rem;
