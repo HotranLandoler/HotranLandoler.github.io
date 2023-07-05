@@ -20,8 +20,8 @@ const columns = [
             <a
               class="link image-item"
               target="_blank"
-              href={`/images/photos/${imgName}.jpg`}>
-              <img src={`/images/photos/${imgName}.jpg`} alt="" />
+              href={`/images/photos/${imgName}-1500.jpg`}>
+              <img src={`/images/photos/${imgName}-1500.jpg`} width="1500" alt="" />
             </a>
           ))}
         </div>
@@ -31,6 +31,9 @@ const columns = [
 </SubPageLayout>
 
 <style lang="scss">
+  .container {
+    max-width: 72rem;
+  }
   .gallery {
     display: flex;
     gap: 0.5rem;
