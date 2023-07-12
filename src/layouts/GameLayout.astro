@@ -54,52 +54,40 @@ const {
         <div class="info">
           <slot name="info-main" />
           <aside class="info-side">
-            <table class="info-table">
-              <tbody>
-                <tr>
-                  <td>{t("games.genre")}</td>
-                  <td>{t(`games.${gameKey}.genre`)}</td>
-                </tr>
-                <tr>
-                  <td>{t("games.platform")}</td>
-                  <td><slot name="platforms" /></td>
-                </tr>
-                <tr>
-                  <td>{t("language")}</td>
-                  <td><slot name="language" /></td>
-                </tr>
-                <tr>
-                  <td>{t("games.engine")}</td>
-                  <td>Unity</td>
-                </tr>
-                <tr>
-                  <td>{t("games.pubDate")}</td>
-                  <td><time>{pubDate}</time></td>
-                </tr>
-                <tr>
-                  <td>{t("games.sessionTime")}</td>
-                  <td>{t(`games.${gameKey}.session`)}</td>
-                </tr>
-                <tr>
-                  <td>{t("games.controls")}</td>
-                  <td>{t(`games.${gameKey}.controls`)}</td>
-                </tr>
-                <tr>
-                  <td>{t("games.src")}</td>
-                  <td>
-                    <a class="base-link" target="_blank" href={srcLink}>
-                      {t("games.repo")}
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>{t("games.team")}</td>
-                  <td>
-                    <slot name="team" />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <dl class="info-meta">
+              <dt>{t("games.genre")}</dt>
+              <dd>{t(`games.${gameKey}.genre`)}</dd>
+
+              <dt>{t("games.platform")}</dt>
+              <dd><slot name="platforms" /></dd>
+
+              <dt>{t("language")}</dt>
+              <dd><slot name="language" /></dd>
+
+              <dt>{t("games.engine")}</dt>
+              <dd>Unity</dd>
+
+              <dt>{t("games.pubDate")}</dt>
+              <dd><time>{pubDate}</time></dd>
+
+              <dt>{t("games.sessionTime")}</dt>
+              <dd>{t(`games.${gameKey}.session`)}</dd>
+
+              <dt>{t("games.controls")}</dt>
+              <dd>{t(`games.${gameKey}.controls`)}</dd>
+
+              <dt>{t("games.src")}</dt>
+              <dd>
+                <a class="base-link" target="_blank" href={srcLink}>
+                  {t("games.repo")}
+                </a>
+              </dd>
+
+              <dt>{t("games.team")}</dt>
+              <dd>
+                <slot name="team" />
+              </dd>
+            </dl>
             <div class="img-side-container">
               <slot name="side-img" />
             </div>
@@ -194,21 +182,26 @@ const {
     grid-template-rows: auto 1fr;
     gap: 1rem;
   }
-  .info-table {
+
+  .info-meta {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    align-items: flex-start;
     padding: 1rem;
 
     background-color: var(--surfaceColor);
     border-radius: 0.5rem;
   }
-  .info-table td {
+  .info-meta dt,
+  .info-meta dd {
+    display: inline-block;
     padding: 0.5rem;
-
-    &:first-child {
-      font-weight: bold;
-      text-align: right;
-      vertical-align: top;
-    }
   }
+  .info-meta dt {
+    font-weight: bold;
+    text-align: right;
+  }
+
   .img-side-container {
     display: flex;
     justify-content: center;
