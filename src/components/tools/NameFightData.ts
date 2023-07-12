@@ -1,5 +1,5 @@
 export const nameFightData = {
-  modifiers: ["柔弱", "普通", "强力的", "威力惊人"],
+  modifiers: ["柔弱", "普通", "强力", "威力惊人"],
   mods: [0.5, 1.0, 2.0, 3.0],
   special_actions: ["Idle", "Heal", "咬", "天谴"],
   heals: ["思考了生命的意义", "喝了一杯奶茶", "喝下了神秘药水"],
