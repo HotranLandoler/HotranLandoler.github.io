@@ -1,11 +1,8 @@
 ---
-layout: ../../layouts/PostLayout.astro
-title: "Unity开发规范"
+title: Unity开发规范
+slug: unity-style-guide
 pubDate: 2023-06-04
-description: "UMa工作室拟采用的Unity游戏开发规范，版本v0.1"
-image:
-  url: "https://astro.build/assets/blog/astro-1-release-update/cover.jpeg"
-  alt: "The Astro logo with the word One."
+description: UMa工作室拟采用的Unity游戏开发规范，版本v0.1
 tags: ["gamedev", "unity"]
 ---
 

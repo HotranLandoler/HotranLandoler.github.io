@@ -1,19 +1,20 @@
 ---
-import type { MarkdownInstance } from "astro";
-
 export interface Props {
-  post: MarkdownInstance<Record<string, any>>;
+  url: string;
+  title: string;
+  pubDate: Date;
+  desc: string;
 }
 
-const { post } = Astro.props;
+const { url, title, pubDate, desc } = Astro.props;
 ---
 
-<a href={post.url} class="link card" title={post.frontmatter.title}>
+<a href={url} class="link card" title={title}>
   <div class="card-header">
-    <h3 class="card-title">{post.frontmatter.title}</h3>
-    <p class="pub-date"><time>{post.frontmatter.pubDate.slice(0, 10)}</time></p>
+    <h3 class="card-title">{title}</h3>
+    <p class="pub-date"><time>{pubDate.toDateString()}</time></p>
   </div>
-  <p>{post.frontmatter.description}</p>
+  <p>{desc}</p>
 </a>
 
 <style lang="scss">
