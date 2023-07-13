@@ -92,6 +92,18 @@
       "howTo": "Click the target belt on the left to put the incoming package.",
       "note": "Entry for 2023 Ludum Dare 53 Jam, also my first time to join Ludum Dare. The jam theme was Deliver, and our team  discussed over and over before making the decision to make a simple package sorting mini-game. Because of the simple control method, it is easy to achieve cross-platform (currently only iOS is not available). The game ended up with an overall rating of 3.989 and a ranking of 186 (see <0>Ludum Dare page</0>). In addition to the team members listed, I would also like to thank 汪一二中 and 枕流 for their help in game design.",
       "team": "<0>Megrez: Art, Menu Music</0><1>Xiu Xiaoqing: Art</1><2>Chaoli: Coding</2><3>Mr. Salamander: Coding</3>"
+    },
+    "touchex": {
+      "title": "地下邮电",
+      "desc": "Play an underground eletrician!",
+      "action": "Play Now",
+      "genre": "Action",
+      "session": "5 min",
+      "controls": "Keyboard, Mouse",
+      "intro": "There is such a group of cute and weird creatures, they live in the dark underground, and need electricity to live. You are a little monster who can safely touch the circuit to conduct electricity! Use your ability to play underground electrician, bring them light and become friends with them!",
+      "howTo": "By swinging your body and controlling the grasping of both hands, you will be able to deliver electricity to all corners of the underground world via various cables. Objective of the game: supply power to 3 NPCs living in different areas!",
+      "note": "Entry for 2023 CiGA Game Jam Shenzhen Nanshan Station by UMa Team. The theme was Touch. After discussion (until the next morning) we made decisions on the game mechanics. Discarded ideas included: 1. Slime ACT, when on different terrains you get different effects. 2. Multiplayer PONG, where the ball can stick to other balls. The finished product shows a good effect, while there are some flaws: the bug of hand going through the cable, level complexity and other factors lead to greater difficulty.",
+      "team": "<0>Megrez: Art</0><1>Xiu Xiaoqing: Art</1><2>Raul7: Design</2><3>Fengbai: Design</3><4>Rapier: Music</4><5>Chaoli: Coding</5>"
     }
   },
   "tools": {

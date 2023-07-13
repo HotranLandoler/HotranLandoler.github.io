@@ -4,6 +4,8 @@ import { Icon } from "astro-icon";
 import SubPageLayout from "../layouts/SubPageLayout.astro";
 import GameCard from "../components/GameCard.astro";
 
+import touchex from "../images/touchex/TouchExCard.webp";
+
 changeLanguage("zh");
 ---
 
@@ -25,6 +27,7 @@ changeLanguage("zh");
       imgSrc="/images/belt-rush/BeltRushCard.webp"
       href="/games/beltrush"
     />
+    <GameCard gameKey="touchex" imgSrc={touchex} href="/games/touchex" />
   </div>
 </SubPageLayout>
 
@@ -34,7 +37,7 @@ changeLanguage("zh");
   }
   .games {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
   }
 
