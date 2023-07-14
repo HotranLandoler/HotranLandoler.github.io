@@ -1,9 +1,9 @@
 ---
 import { t, changeLanguage } from "i18next";
+import { localizePath } from "astro-i18next";
 import { Icon } from "astro-icon";
 import SubPageLayout from "../layouts/SubPageLayout.astro";
 import GameCard from "../components/GameCard.astro";
-
 import touchex from "../images/touchex/TouchExCard.webp";
 
 changeLanguage("zh");
@@ -14,20 +14,28 @@ changeLanguage("zh");
     <GameCard
       gameKey="cquHorror"
       imgSrc="/images/cqu-horror/cquhorrorCard.webp"
-      href="/games/cquhorror"
+      href={localizePath("/games/cquhorror")}
     />
-    <GameCard gameKey="sb" imgSrc="/images/sb/SBCard.webp" href="/games/sb" />
+    <GameCard
+      gameKey="sb"
+      imgSrc="/images/sb/SBCard.webp"
+      href={localizePath("/games/sb")}
+    />
     <GameCard
       gameKey="intoSoil"
       imgSrc="/images/into-soil/IntoSoilCard.webp"
-      href="/games/intosoil"
+      href={localizePath("/games/intosoil")}
     />
     <GameCard
       gameKey="beltRush"
       imgSrc="/images/belt-rush/BeltRushCard.webp"
-      href="/games/beltrush"
+      href={localizePath("/games/beltrush")}
     />
-    <GameCard gameKey="touchex" imgSrc={touchex} href="/games/touchex" />
+    <GameCard
+      gameKey="touchex"
+      imgSrc={touchex}
+      href={localizePath("/games/touchex")}
+    />
   </div>
 </SubPageLayout>
 
