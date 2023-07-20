@@ -148,8 +148,12 @@ ol {
 .hover-link--color {
   @extend .link;
 
+  font-size: 1.2rem;
+
+  border-radius: 0.5rem;
+
   &:hover {
-    color: var(--color-primary);
+    background-color: var(--color-surface);
   }
 }
 

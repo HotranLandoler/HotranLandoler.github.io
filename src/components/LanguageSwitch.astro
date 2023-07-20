@@ -1,0 +1,17 @@
+---
+import i18next from "i18next";
+import { localizePath } from "astro-i18next";
+
+const { pathname } = Astro.url;
+
+const title = i18next.language == "zh" ? "Switch to English" : "切换为中文";
+const text = i18next.language == "zh" ? "EN" : "中文";
+const targetLocale = i18next.language == "zh" ? "en" : "zh";
+---
+
+<a
+  href={localizePath(pathname, targetLocale)}
+  class="hover-link--color"
+  title={title}>
+  {text}
+</a>

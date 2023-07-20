@@ -2,8 +2,7 @@
 import i18next, { t } from "i18next";
 import { localizePath } from "astro-i18next";
 import Hamburger from "./Hamburger.astro";
-
-const { pathname } = Astro.url;
+import LanguageSwitch from "./LanguageSwitch.astro";
 ---
 
 <header class="main-header">
@@ -61,23 +60,7 @@ const { pathname } = Astro.url;
     </ul>
   </nav>
   <div class="toggles">
-    {
-      i18next.language === "zh" ? (
-        <a
-          href={localizePath(pathname, "en")}
-          class="hover-link--color"
-          title="Switch to English">
-          EN
-        </a>
-      ) : (
-        <a
-          href={localizePath(pathname, "zh")}
-          class="hover-link--color"
-          title="切换为中文">
-          中文
-        </a>
-      )
-    }
+    <LanguageSwitch />
     <!-- <button class="button hover-link--color" title="Dark Mode">
       <svg
         xmlns="http://www.w3.org/2000/svg"
