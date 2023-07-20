@@ -77,6 +77,10 @@ const { frontmatter } = Astro.props;
     li {
       line-height: 2;
 
+      &::marker {
+        color: var(--color-primary);
+      }
+
       p {
         margin-bottom: 0;
       }
