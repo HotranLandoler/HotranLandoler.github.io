@@ -11,13 +11,13 @@ const { gameKey, imgSrc, href } = Astro.props;
 ---
 
 <a class="link" href={href}>
-  <div class="game-card">
+  <figure class="game-card">
     <img src={imgSrc} alt="" />
-    <div class="info">
+    <figcaption class="info">
       <p class="game-title">{t(`games.${gameKey}.title`)}</p>
       <p class="game-desc">{t(`games.${gameKey}.desc`)}</p>
-    </div>
-  </div>
+    </figcaption>
+  </figure>
 </a>
 
 <style lang="scss">
