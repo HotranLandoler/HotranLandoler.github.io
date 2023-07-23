@@ -92,6 +92,13 @@ ol {
   transition: all 0.2s;
 }
 
+.link--card {
+  @extend .link;
+
+  display: block;
+  padding: 0;
+}
+
 .link--primary {
   @extend .link;
   // border: 2px solid var(--color-primary);

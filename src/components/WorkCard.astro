@@ -8,7 +8,7 @@ export interface Props {
 const { href, imgSrc, title } = Astro.props;
 ---
 
-<a href={href} class="link work-card mb-s" title={title}>
+<a href={href} class="link--card mb-s" title={title}>
   <figure>
     <img src={imgSrc} alt={title} class="work-img" />
     <figcaption class="work-title">{title}</figcaption>
@@ -16,10 +16,6 @@ const { href, imgSrc, title } = Astro.props;
 </a>
 
 <style lang="scss">
-  .work-card {
-    display: block;
-    padding: 0;
-  }
   .work-img {
     display: block;
     aspect-ratio: 1 / 1;

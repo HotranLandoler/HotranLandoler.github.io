@@ -10,7 +10,7 @@ export interface Props {
 const { gameKey, imgSrc, href } = Astro.props;
 ---
 
-<a class="link" href={href}>
+<a class="link--card" href={href}>
   <figure class="game-card">
     <img src={imgSrc} alt="" />
     <figcaption class="info">
@@ -26,10 +26,6 @@ const { gameKey, imgSrc, href } = Astro.props;
 
     display: block;
     width: 100%;
-  }
-  .link {
-    display: block;
-    padding: 0;
   }
   .game-card {
     box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);

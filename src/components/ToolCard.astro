@@ -11,14 +11,13 @@ export interface Props {
 const { titleKey, href, icon } = Astro.props;
 ---
 
-<a class="link tool-card" href={href}>
+<a class="link--card tool-card" href={href}>
   <Icon name={icon} class="icon" />
   <p class="title">{t(titleKey)}</p>
 </a>
 
 <style lang="scss">
   .tool-card {
-    display: block;
     padding: 1rem;
 
     text-align: center;
