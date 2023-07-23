@@ -8,7 +8,7 @@ const { pathname } = Astro.url;
 
 <footer class="main-footer">
   <div class="container footer-grid">
-    <div>
+    <div class="logo-area">
       <a href={localizePath("/")} class="logo hover-link--color">
         <div aria-label="Logo">Chaoli</div>
       </a>
@@ -67,7 +67,7 @@ const { pathname } = Astro.url;
     <div class="footer-contact">
       <p class="footer-heading">{t("site.contact")}</p>
       <address>
-        <ul class="mb-s">
+        <ul class="emails">
           <li>
             <a
               href="mailto:louchaoli@stu.cqu.edu.cn"
@@ -191,6 +191,9 @@ const { pathname } = Astro.url;
   .icon-img {
     filter: grayscale(100%);
   }
+  .emails {
+    margin-bottom: 1rem;
+  }
 
   @media (max-width: 60em) {
     .footer-grid {
@@ -199,9 +202,9 @@ const { pathname } = Astro.url;
   }
 
   @media (max-width: 48em) {
-    .container {
-      max-width: 40rem;
-    }
+    // .container {
+    //   max-width: 40rem;
+    // }
     .footer-grid {
       grid-template-columns: 1fr 1fr;
       row-gap: 0;
@@ -210,18 +213,17 @@ const { pathname } = Astro.url;
   }
 
   @media (max-width: 28em) {
-    .footer-grid {
+    address {
       display: flex;
-      flex-direction: column;
-      gap: 0;
+      gap: 3rem;
+      align-items: flex-start;
     }
-    .bottom-row .container {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
+    .logo-area,
+    .footer-contact {
+      grid-column: span 2;
     }
-    .made-with {
-      margin-left: 0;
+    .emails {
+      margin-bottom: 0;
     }
   }
 </style>
