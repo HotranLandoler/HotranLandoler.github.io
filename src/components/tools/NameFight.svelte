@@ -120,8 +120,8 @@
     border-radius: 10rem;
 
     &:hover {
-      background-color: #82202b;
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+      // background-color: #82202b;
+      box-shadow: 0 0.5rem 1.5rem rgba(240, 55, 83, 0.5);
     }
 
     &:disabled {

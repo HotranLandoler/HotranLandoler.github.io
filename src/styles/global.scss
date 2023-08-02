@@ -1,13 +1,15 @@
 @import "./globalVar.scss";
 
 :root {
-  --color-background: #{$color-white};
-  --color-on-background: #{$color-gray-dark};
-  --color-surface: #ebf4f4;
+  --color-background: #f5f9ff;
+  --color-on-background: #011432;
+  --color-surface: white;
   --color-surface-translucent: #{$color-milk};
-  --color-primary: #{$color-green};
-  --color-on-primary: #{$color-white};
-  --color-primary-dark: #{$color-green-dark};
+  --color-primary: #fcc66e;
+  --color-on-primary: #011432;
+  --color-primary-shadow: rgba(252, 198, 110, 0.5);
+  --color-primary-dark: #fa9c05;
+  --color-secondary: #cde0fe;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,7 +64,7 @@ ol {
 
 .base-link:link,
 .base-link:visited {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
 
   &:hover {
     text-decoration: none;
@@ -110,11 +112,19 @@ ol {
   // border: 2px solid var(--color-primary);
   background-color: var(--color-primary);
 
-  opacity: 1;
-
-  &:hover,
-  &:active {
+  &:hover {
     // background-color: var(--color-primary-dark);
+    box-shadow: 0 0.5rem 1.5rem var(--color-primary-shadow);
+  }
+}
+
+.link--secondary {
+  @extend .link--primary;
+
+  background-color: var(--color-secondary);
+
+  &:hover {
+    box-shadow: none;
     opacity: 0.75;
   }
 }
@@ -166,7 +176,7 @@ ol {
   border-radius: 0.5rem;
 
   &:hover {
-    background-color: var(--color-surface);
+    background-color: var(--color-secondary);
   }
 }
 
@@ -254,7 +264,7 @@ ol {
 
 .subheading {
   display: block;
-  color: var(--color-primary);
+  // color: var(--color-primary-dark);
   font-size: 1rem;
   text-transform: uppercase;
   margin-bottom: 0.5rem;

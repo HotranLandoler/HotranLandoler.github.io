@@ -34,14 +34,13 @@ const { frontmatter } = Astro.props;
 
     .post-header {
       // background-color: var(--color-surface);
-      border-bottom: 2px solid var(--color-surface);
+      border-bottom: 2px solid var(--color-secondary);
       margin-bottom: 2rem;
       padding: 1rem 1rem 0 0;
     }
 
-    a:link,
-    a:visited {
-      color: var(--color-primary);
+    a {
+      color: var(--color-primary-dark);
 
       &:hover {
         text-decoration: none;
@@ -78,7 +77,7 @@ const { frontmatter } = Astro.props;
       line-height: 2;
 
       &::marker {
-        color: var(--color-primary);
+        color: var(--color-secondary);
       }
 
       p {

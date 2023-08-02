@@ -66,12 +66,14 @@ const allPosts = await getCollection("posts");
               ))
             }
           </ul>
-          <a href={localizePath("/blog/")} class="hover-link more-tools">
-            <span class="text-icon-container">
+          <div class="more-tools">
+            <a
+              href={localizePath("/blog/")}
+              class="link--primary text-icon-container">
               {t("homepage.morePosts")}
               <Icon name="mdi:arrow-right" />
-            </span>
-          </a>
+            </a>
+          </div>
         </div>
       </section>
       <!-- 工具箱 -->
@@ -106,12 +108,14 @@ const allPosts = await getCollection("posts");
             icon="mdi:dice"
           />
         </div>
-        <a href={localizePath("/tools/")} class="hover-link more-tools">
-          <span class="text-icon-container">
+        <div class="more-tools">
+          <a
+            href={localizePath("/tools/")}
+            class="link--primary text-icon-container">
             {t("homepage.moreTools")}
             <Icon name="mdi:arrow-right" />
-          </span>
-        </a>
+          </a>
+        </div>
       </section>
     </div>
   </main>
@@ -150,7 +154,7 @@ const allPosts = await getCollection("posts");
     gap: 0.5rem;
   }
   .tool-section {
-    background-color: #f0f5e5;
+    background-color: var(--color-surface);
     border-radius: 1rem;
     padding: 2rem;
   }
@@ -158,7 +162,10 @@ const allPosts = await getCollection("posts");
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+  }
+  .more-tools {
+    text-align: right;
   }
 
   @media (max-width: 48em) {
