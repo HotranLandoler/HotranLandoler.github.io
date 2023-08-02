@@ -101,16 +101,21 @@ ol {
 
 .link--primary {
   @extend .link;
-  // border: 2px solid var(--color-primary);
-  border-radius: 50px;
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
-  font-size: 1.2rem;
   padding: 0.5rem 1.6rem;
+
+  font-size: 1.2rem;
+  color: var(--color-on-primary);
+
+  border-radius: 50px;
+  // border: 2px solid var(--color-primary);
+  background-color: var(--color-primary);
+
+  opacity: 1;
 
   &:hover,
   &:active {
-    background-color: var(--color-primary-dark);
+    // background-color: var(--color-primary-dark);
+    opacity: 0.75;
   }
 }
 
@@ -124,8 +129,9 @@ ol {
 
   &:hover,
   &:active {
-    background-color: var(--color-primary);
-    color: var(--color-on-primary);
+    // background-color: var(--color-primary);
+    // color: var(--color-on-primary);
+    opacity: 0.75;
   }
 }
 
