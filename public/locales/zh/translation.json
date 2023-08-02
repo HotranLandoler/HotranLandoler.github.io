@@ -14,7 +14,9 @@
     "about": "关于",
     "resume": "简历",
     "links": "链接",
-    "contact": "联系我"
+    "contact": "联系我",
+    "notFound": "页面未找到",
+    "backHome": "回到主页"
   },
   "homepage": {
     "heroHeading": "你好，我是楼朝立，一个独立游戏开发者。",

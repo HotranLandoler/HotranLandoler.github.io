@@ -1,0 +1,38 @@
+---
+import { Icon } from "astro-icon";
+import { t, changeLanguage } from "i18next";
+import { localizePath } from "astro-i18next";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="404">
+  <main class="container">
+    <Icon name="mdi:emoticon-sad-outline" class="icon" />
+    <h2 class="mb-m">{t("site.notFound")}</h2>
+    <a href={localizePath("/")} class="link--primary text-icon-container">
+      {t("site.backHome")}
+      <Icon name="mdi:arrow-left" />
+    </a>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+
+    text-align: center;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: normal;
+  }
+  .icon {
+    width: 5rem;
+
+    color: #999;
+  }
+  .container {
+    max-width: 32rem;
+  }
+</style>
