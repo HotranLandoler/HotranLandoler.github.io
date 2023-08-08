@@ -6,62 +6,63 @@ import LanguageSwitch from "./LanguageSwitch.astro";
 ---
 
 <header class="main-header">
-  <a href={localizePath("/")} class="logo hover-link--color">
-    <div aria-label="Logo">Chaoli</div>
-  </a>
-  <nav class="main-nav">
-    <ul class="nav-list">
-      <li>
-        <a href={localizePath("/")} class="link">{t("site.home")}</a>
-      </li>
-      <li class="dropdown">
-        <a class="link link--dropdown">
-          {t("site.work")}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="icon">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
-          </svg>
-        </a>
-        <ul class="submenu" role="menu">
-          <li>
-            <a href={localizePath("/games/")} class="link submenu-item"
-              >{t("site.games")}</a
-            >
-          </li>
-          <li>
-            <a href={localizePath("/art/")} class="link submenu-item"
-              >{t("site.art")}</a
-            >
-          </li>
-          <li>
-            <a href={localizePath("/photos/")} class="link submenu-item"
-              >{t("site.photos")}</a
-            >
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href={localizePath("/tools/")} class="link">{t("site.tools")}</a>
-      </li>
-      <li>
-        <a href={localizePath("/blog/")} class="link">{t("site.blog")}</a>
-      </li>
-      <li>
-        <a href={localizePath("/about/")} class="link">{t("site.about")}</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="toggles">
-    <LanguageSwitch />
-    <!-- <button class="button hover-link--color" title="Dark Mode">
+  <div class="container">
+    <a href={localizePath("/")} class="hover-link--color logo">
+      <div aria-label="Logo">Chaoli</div>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li>
+          <a href={localizePath("/")} class="link">{t("site.home")}</a>
+        </li>
+        <li class="dropdown">
+          <a class="link link--dropdown">
+            {t("site.work")}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="icon">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+            </svg>
+          </a>
+          <ul class="submenu" role="menu">
+            <li>
+              <a href={localizePath("/games/")} class="link submenu-item"
+                >{t("site.games")}</a
+              >
+            </li>
+            <li>
+              <a href={localizePath("/art/")} class="link submenu-item"
+                >{t("site.art")}</a
+              >
+            </li>
+            <li>
+              <a href={localizePath("/photos/")} class="link submenu-item"
+                >{t("site.photos")}</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href={localizePath("/tools/")} class="link">{t("site.tools")}</a>
+        </li>
+        <li>
+          <a href={localizePath("/blog/")} class="link">{t("site.blog")}</a>
+        </li>
+        <li>
+          <a href={localizePath("/about/")} class="link">{t("site.about")}</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="toggles">
+      <LanguageSwitch />
+      <!-- <button class="button hover-link--color" title="Dark Mode">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -73,66 +74,67 @@ import LanguageSwitch from "./LanguageSwitch.astro";
           fill="currentColor"></path>
       </svg>
     </button> -->
-    <!-- <button class="button button-mobile-nav" type="button" title="Menu">
+      <!-- <button class="button button-mobile-nav" type="button" title="Menu">
       Menu
     </button> -->
-    <Hamburger />
+      <Hamburger />
+    </div>
+    <nav class="mobile-nav">
+      <ul class="mobile-nav-list">
+        <li>
+          <a
+            href={localizePath("/")}
+            class="hover-link--underline mobile-nav-link">
+            {t("site.home")}
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a
+            href={localizePath("/games/")}
+            class="hover-link--underline mobile-nav-link">
+            {t("site.games")}
+          </a>
+        </li>
+        <li>
+          <a
+            href={localizePath("/art/")}
+            class="hover-link--underline mobile-nav-link">
+            {t("site.art")}
+          </a>
+        </li>
+        <li>
+          <a
+            href={localizePath("/photos/")}
+            class="hover-link--underline mobile-nav-link">
+            {t("site.photos")}
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a
+            href={localizePath("/tools/")}
+            class="hover-link--underline mobile-nav-link">
+            {t("site.tools")}
+          </a>
+        </li>
+        <li>
+          <a
+            href={localizePath("/blog/")}
+            class="hover-link--underline mobile-nav-link">
+            {t("site.blog")}
+          </a>
+        </li>
+        <li>
+          <a
+            href={localizePath("/about/")}
+            class="hover-link--underline mobile-nav-link">
+            {t("site.about")}
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <nav class="mobile-nav">
-    <ul class="mobile-nav-list">
-      <li>
-        <a
-          href={localizePath("/")}
-          class="hover-link--underline mobile-nav-link">
-          {t("site.home")}
-        </a>
-      </li>
-      <li class="divider"></li>
-      <li>
-        <a
-          href={localizePath("/games/")}
-          class="hover-link--underline mobile-nav-link">
-          {t("site.games")}
-        </a>
-      </li>
-      <li>
-        <a
-          href={localizePath("/art/")}
-          class="hover-link--underline mobile-nav-link">
-          {t("site.art")}
-        </a>
-      </li>
-      <li>
-        <a
-          href={localizePath("/photos/")}
-          class="hover-link--underline mobile-nav-link">
-          {t("site.photos")}
-        </a>
-      </li>
-      <li class="divider"></li>
-      <li>
-        <a
-          href={localizePath("/tools/")}
-          class="hover-link--underline mobile-nav-link">
-          {t("site.tools")}
-        </a>
-      </li>
-      <li>
-        <a
-          href={localizePath("/blog/")}
-          class="hover-link--underline mobile-nav-link">
-          {t("site.blog")}
-        </a>
-      </li>
-      <li>
-        <a
-          href={localizePath("/about/")}
-          class="hover-link--underline mobile-nav-link">
-          {t("site.about")}
-        </a>
-      </li>
-    </ul>
-  </nav>
 </header>
 
 <script lang="ts">
@@ -155,12 +157,6 @@ import LanguageSwitch from "./LanguageSwitch.astro";
 
 <style lang="scss">
   .main-header {
-    padding: 0 3rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
     position: fixed;
     width: 100%;
 
@@ -175,6 +171,16 @@ import LanguageSwitch from "./LanguageSwitch.astro";
   }
   body.sticky .main-header {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .nav-list,
@@ -334,7 +340,8 @@ import LanguageSwitch from "./LanguageSwitch.astro";
 
   @media (max-width: 48em) {
     .main-header {
-      padding: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
   }
 </style>

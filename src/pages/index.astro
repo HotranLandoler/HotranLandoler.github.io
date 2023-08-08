@@ -47,33 +47,31 @@ const allPosts = await getCollection("posts");
     <div class="grid-blog-toolbox container">
       <!-- 博客 -->
       <section class="blog-section">
-        <div class="container">
-          <header>
-            <span class="subheading">{t("homepage.blogSubheading")}</span>
-            <h2 class="heading-secondary">{t("homepage.blogHeading")}</h2>
-          </header>
-          <ul class="posts">
-            {
-              allPosts.map((post) => (
-                <li>
-                  <BlogCard
-                    url={"/posts/" + post.slug}
-                    title={post.data.title}
-                    pubDate={post.data.pubDate}
-                    desc={post.data.description}
-                  />
-                </li>
-              ))
-            }
-          </ul>
-          <div class="more-tools">
-            <a
-              href={localizePath("/blog/")}
-              class="link--primary text-icon-container">
-              {t("homepage.morePosts")}
-              <Icon name="mdi:arrow-right" />
-            </a>
-          </div>
+        <header>
+          <span class="subheading">{t("homepage.blogSubheading")}</span>
+          <h2 class="heading-secondary">{t("homepage.blogHeading")}</h2>
+        </header>
+        <ul class="posts">
+          {
+            allPosts.map((post) => (
+              <li>
+                <BlogCard
+                  url={"/posts/" + post.slug}
+                  title={post.data.title}
+                  pubDate={post.data.pubDate}
+                  desc={post.data.description}
+                />
+              </li>
+            ))
+          }
+        </ul>
+        <div class="more-tools">
+          <a
+            href={localizePath("/blog/")}
+            class="link--primary text-icon-container">
+            {t("homepage.morePosts")}
+            <Icon name="mdi:arrow-right" />
+          </a>
         </div>
       </section>
       <!-- 工具箱 -->

@@ -12,13 +12,13 @@ import { Icon } from "astro-icon";
       <div class="links">
         <a
           href={localizePath("/about/")}
-          class="link--primary text-icon-container about-me">
+          class="link--primary text-icon-container action-link">
           {t("homepage.aboutme")}
           <Icon name="mdi:arrow-right" />
         </a>
         <a
           href={localizePath("/resume/")}
-          class="link--secondary text-icon-container about-me">
+          class="link--secondary text-icon-container action-link">
           {t("site.resume")}
           <Icon name="mdi:arrow-right" />
         </a>
@@ -60,7 +60,7 @@ import { Icon } from "astro-icon";
     line-height: 2;
     margin-bottom: 2rem;
   }
-  .about-me {
+  .action-link {
     [astro-icon] {
       transition: transform 0.3s;
     }
@@ -84,6 +84,14 @@ import { Icon } from "astro-icon";
       &::after {
         display: none;
       }
+    }
+  }
+  @media (max-width: 28em) {
+    .links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      text-align: center;
     }
   }
 </style>
