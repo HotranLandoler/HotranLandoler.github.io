@@ -1,15 +1,16 @@
 @import "./globalVar.scss";
 
 :root {
-  --color-background: #f5f9ff;
+  --color-background: white;
   --color-on-background: #011432;
   --color-surface: white;
   --color-surface-translucent: #{$color-milk};
-  --color-primary: #fcc66e;
-  --color-on-primary: #011432;
-  --color-primary-shadow: rgba(252, 198, 110, 0.5);
-  --color-primary-dark: #fa9c05;
-  --color-secondary: #cde0fe;
+  --color-primary: oklch(65.19% 0.207 6.96);
+  --color-on-primary: white;
+  --color-primary-shadow: oklch(65.19% 0.207 6.96 / 0.5);
+  --color-primary-dark: oklch(65.19% 0.207 6.96);
+  --color-secondary: oklch(92.5% 0.043 166.75);
+  --color-on-secondary: #011432;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -120,6 +121,8 @@ ol {
 
 .link--secondary {
   @extend .link--primary;
+
+  color: var(--color-on-secondary);
 
   background-color: var(--color-secondary);
 
