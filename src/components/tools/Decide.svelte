@@ -31,6 +31,8 @@
   let decideResult = "";
   let optionInput = "";
   let options: Option[] = [];
+  $: isOptionInputEmpty = optionInput === "";
+  $: isOptionsEmpty = options.length === 0;
 
   function dice() {
     const result = Math.random() * (diceTo - diceFrom) + diceFrom;
@@ -125,7 +127,7 @@
     <button
       class="center button-primary button-decide"
       type="button"
-      disabled={options.length === 0}
+      disabled={isOptionsEmpty}
       on:click={decide}
     >
       {trans.makeDecide}
@@ -142,7 +144,7 @@
     <button
       class="button-primary"
       type="button"
-      disabled={optionInput === ""}
+      disabled={isOptionInputEmpty}
       on:click={addOption}
       title={trans.add}
     >
@@ -151,7 +153,7 @@
     <button
       class="button-primary"
       type="button"
-      disabled={options.length === 0}
+      disabled={isOptionsEmpty}
       on:click={clearOptions}
       title={trans.clear}
     >
