@@ -158,11 +158,7 @@
     color: white;
 
     // background-color: rgb(250, 100, 100);
-    background: linear-gradient(
-      to right,
-      rgb(250, 100, 100) 50%,
-      rgb(100, 160, 250) 50%
-    );
+    background: linear-gradient(to right, #fc5b5b 50%, #5a92fa 50%);
     background-size: 200% 100%;
     background-position: left;
     border-radius: 2rem;
