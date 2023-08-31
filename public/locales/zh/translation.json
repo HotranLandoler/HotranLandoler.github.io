@@ -113,7 +113,12 @@
       "title": "姓名大战"
     },
     "pomodoro": {
-      "title": "番茄钟"
+      "title": "番茄钟",
+      "start": "开始",
+      "pause": "暂停",
+      "skip": "跳过",
+      "working": "工作时间",
+      "break": "小憩一下"
     },
     "unitConverter": {
       "title": "单位转换"

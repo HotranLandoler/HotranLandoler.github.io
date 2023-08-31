@@ -113,7 +113,12 @@
       "title": "Name Fight"
     },
     "pomodoro": {
-      "title": "Pomodoro"
+      "title": "Pomodoro",
+      "start": "Start",
+      "pause": "Pause",
+      "skip": "Skip",
+      "working": "Focus time",
+      "break": "Time for a break"
     },
     "unitConverter": {
       "title": "Unit Converter"
