@@ -11,7 +11,7 @@ export interface Props {
 const { titleKey, href, icon } = Astro.props;
 ---
 
-<a class="link--card tool-card" href={href}>
+<a class="link--card tool-card" href={href} transition:name={titleKey}>
   <Icon name={icon} class="icon" />
   <p class="title">{t(titleKey)}</p>
 </a>

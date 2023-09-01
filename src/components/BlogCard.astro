@@ -9,7 +9,7 @@ export interface Props {
 const { url, title, pubDate, desc } = Astro.props;
 ---
 
-<a href={url} class="link--card" title={title}>
+<a href={url} class="link--card" title={title} transition:name={title}>
   <article class="card">
     <div class="card-header">
       <h3 class="card-title">{title}</h3>
