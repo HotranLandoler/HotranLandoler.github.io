@@ -1,10 +1,15 @@
 ---
 import { t, changeLanguage } from "i18next";
 import { localizePath } from "astro-i18next";
-import { Icon } from "astro-icon";
+
 import SubPageLayout from "../layouts/SubPageLayout.astro";
 import GameCard from "../components/GameCard.astro";
-import touchex from "../images/touchex/TouchExCard.webp";
+
+import cquhorrorCard from "../images/cqu-horror/cquhorrorCard.webp";
+import sbCard from "../images/sb/SBCard.webp";
+import intoSoilCard from "../images/into-soil/IntoSoilCard.webp";
+import beltRushCard from "../images/belt-rush/BeltRushCard.webp";
+import touchexCard from "../images/touchex/TouchExCard.webp";
 
 changeLanguage("zh");
 ---
@@ -13,27 +18,27 @@ changeLanguage("zh");
   <div class="container games">
     <GameCard
       gameKey="cquHorror"
-      imgSrc="/images/cqu-horror/cquhorrorCard.webp"
+      imgSrc={cquhorrorCard}
       href={localizePath("/games/cquhorror")}
     />
     <GameCard
       gameKey="sb"
-      imgSrc="/images/sb/SBCard.webp"
+      imgSrc={sbCard}
       href={localizePath("/games/sb")}
     />
     <GameCard
       gameKey="intoSoil"
-      imgSrc="/images/into-soil/IntoSoilCard.webp"
+      imgSrc={intoSoilCard}
       href={localizePath("/games/intosoil")}
     />
     <GameCard
       gameKey="beltRush"
-      imgSrc="/images/belt-rush/BeltRushCard.webp"
+      imgSrc={beltRushCard}
       href={localizePath("/games/beltrush")}
     />
     <GameCard
       gameKey="touchex"
-      imgSrc={touchex}
+      imgSrc={touchexCard}
       href={localizePath("/games/touchex")}
     />
   </div>

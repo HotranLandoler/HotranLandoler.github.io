@@ -1,8 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import { t, changeLanguage } from "i18next";
 import { Trans } from "astro-i18next/components";
 import { Icon } from "astro-icon";
 import GameLayout from "../../layouts/GameLayout.astro";
+
 import banner from "../../images/touchex/TouchEx.webp";
 import icon1 from "../../images/touchex/TouchPlayer.webp";
 import icon2 from "../../images/touchex/TouchHand.webp";
@@ -31,7 +33,7 @@ const gameKey = "touchex";
   <div slot="info-main">
     <section>
       <header class="flex-gap-s mb-s">
-        <img class="heading-icon" src={icon1} alt="戴帽子的黑色史莱姆" />
+        <Image class="heading-icon" src={icon1} alt="戴帽子的黑色史莱姆" />
         <h2>{t("games.howToPlay")}</h2>
       </header>
       <p>
@@ -40,7 +42,7 @@ const gameKey = "touchex";
     </section>
     <section>
       <header class="flex-gap-s mb-s">
-        <img class="heading-icon" src={icon2} alt="红色的手" />
+        <Image class="heading-icon" src={icon2} alt="红色的手" />
         <h2>{t("games.note")}</h2>
       </header>
       <p>{t(`games.${gameKey}.note`)}</p>
