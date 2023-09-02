@@ -1,8 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import { t, changeLanguage } from "i18next";
 import { Trans } from "astro-i18next/components";
 import { Icon } from "astro-icon";
 import GameLayout from "../../../layouts/GameLayout.astro";
+import banner from "../../../images/belt-rush/BeltRush.webp";
+import icon1 from "../../../images/belt-rush/tape.webp";
+import icon2 from "../../../images/belt-rush/triangle.webp";
 
 changeLanguage("en");
 
@@ -12,7 +16,7 @@ const surfaceColor = "#5779d5";
 
 <GameLayout
   gameKey={gameKey}
-  bannerSrc="/images/belt-rush/BeltRush.webp"
+  bannerSrc={banner}
   gameLink="https://uma-studio.itch.io/belt-rush"
   srcLink="https://gitee.com/dubhe-team/ld53"
   pubDate="2023-5-2"
@@ -35,9 +39,9 @@ const surfaceColor = "#5779d5";
     </iframe>
     <section>
       <header class="flex-gap-s mb-s">
-        <img
+        <Image
           class="heading-icon"
-          src="/images/belt-rush/tape.webp"
+          src={icon1}
           alt="Tape"
         />
         <h2>{t("games.howToPlay")}</h2>
@@ -48,9 +52,9 @@ const surfaceColor = "#5779d5";
     </section>
     <section>
       <header class="flex-gap-s mb-s">
-        <img
+        <Image
           class="heading-icon"
-          src="/images/belt-rush/triangle.webp"
+          src={icon2}
           alt="Triangle"
         />
         <h2>{t("games.note")}</h2>

@@ -1,15 +1,19 @@
 ---
+import { Image } from "astro:assets";
 import { t, changeLanguage } from "i18next";
 import { Trans } from "astro-i18next/components";
 import { Icon } from "astro-icon";
 import GameLayout from "../../../layouts/GameLayout.astro";
+import banner from "../../../images/cqu-horror/cqu-horror-title.webp";
+import icon1 from "../../../images/cqu-horror/HP.png";
+import icon2 from "../../../images/cqu-horror/San.png";
 
 changeLanguage("en");
 ---
 
 <GameLayout
   gameKey="cquHorror"
-  bannerSrc="/images/cqu-horror/cqu-horror-title.webp"
+  bannerSrc={banner}
   gameLink="https://github.com/HotranLandoler/CQU-Horror"
   srcLink="https://github.com/HotranLandoler/CQU-Horror"
   pubDate="2021-8-20"
@@ -33,9 +37,9 @@ changeLanguage("en");
   <div slot="info-main">
     <section>
       <header class="flex-gap-s mb-s">
-        <img
+        <Image
           class="heading-icon pixel"
-          src="/images/cqu-horror/HP.png"
+          src={icon1}
           alt="Health"
         />
         <h2>{t("games.howToPlay")}</h2>
@@ -49,9 +53,9 @@ changeLanguage("en");
     </section>
     <section>
       <header class="flex-gap-s mb-s">
-        <img
+        <Image
           class="heading-icon pixel"
-          src="/images/cqu-horror/San.png"
+          src={icon2}
           alt="Sanity"
         />
         <h2>{t("games.note")}</h2>

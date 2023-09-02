@@ -1,15 +1,19 @@
 ---
+import { Image } from "astro:assets";
 import { t, changeLanguage } from "i18next";
 import { Trans } from "astro-i18next/components";
 import { Icon } from "astro-icon";
 import GameLayout from "../../../layouts/GameLayout.astro";
+import banner from "../../../images/sb/SB.webp";
+import icon1 from "../../../images/sb/\u79E6\u534A\u4E24.webp";
+import icon2 from "../../../images/sb/\u7EB8\u5E01.webp";
 
 changeLanguage("en");
 ---
 
 <GameLayout
   gameKey="sb"
-  bannerSrc="/images/sb/SB.webp"
+  bannerSrc={banner}
   gameLink="https://gitee.com/dubhe-team/game-jam/"
   srcLink="https://gitee.com/dubhe-team/game-jam/"
   pubDate="2022-1-16"
@@ -26,7 +30,7 @@ changeLanguage("en");
   <div slot="info-main">
     <section>
       <header class="flex-gap-s mb-s">
-        <img class="heading-icon" src="/images/sb/秦半两.webp" alt="秦半两" />
+        <Image class="heading-icon" src={icon1} alt="秦半两" />
         <h2>{t("games.howToPlay")}</h2>
       </header>
       <p>
@@ -38,7 +42,7 @@ changeLanguage("en");
     </section>
     <section>
       <header class="flex-gap-s mb-s">
-        <img class="heading-icon" src="/images/sb/纸币.webp" alt="纸币" />
+        <Image class="heading-icon" src={icon2} alt="纸币" />
         <h2>{t("games.note")}</h2>
       </header>
       <p>{t("games.sb.note")}</p>

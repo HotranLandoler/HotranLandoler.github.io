@@ -1,8 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import { t, changeLanguage } from "i18next";
 import { Trans } from "astro-i18next/components";
 import { Icon } from "astro-icon";
 import GameLayout from "../../../layouts/GameLayout.astro";
+import banner from "../../../images/into-soil/IntoSoil.webp";
+import icon1 from "../../../images/into-soil/mineIcon.png";
+import icon2 from "../../../images/into-soil/starIcon.png";
 
 changeLanguage("en");
 
@@ -11,7 +15,7 @@ const surfaceColor = "#e7923c";
 
 <GameLayout
   gameKey="intoSoil"
-  bannerSrc="/images/into-soil/IntoSoil.webp"
+  bannerSrc={banner}
   gameLink="https://uma-studio.itch.io/into-soil"
   srcLink="https://gitee.com/merak-team/ggj-2023"
   pubDate="2023-2-5"
@@ -28,9 +32,9 @@ const surfaceColor = "#e7923c";
   <div slot="info-main">
     <section>
       <header class="flex-gap-s mb-s">
-        <img
+        <Image
           class="heading-icon"
-          src="/images/into-soil/mineIcon.png"
+          src={icon1}
           alt="Mineral"
         />
         <h2>{t("games.howToPlay")}</h2>
@@ -41,9 +45,9 @@ const surfaceColor = "#e7923c";
     </section>
     <section>
       <header class="flex-gap-s mb-s">
-        <img
+        <Image
           class="heading-icon"
-          src="/images/into-soil/starIcon.png"
+          src={icon2}
           alt="Star"
         />
         <h2>{t("games.note")}</h2>
