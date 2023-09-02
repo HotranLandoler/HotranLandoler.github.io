@@ -21,6 +21,10 @@
     content: string;
   }
 
+  // For #key block so that every decide action triggers an animation
+  let diceId = 0;
+  let decideId = 0;
+
   let uid = 1;
 
   let diceFrom = 1;
@@ -37,11 +41,13 @@
   function dice() {
     const result = Math.random() * (diceTo - diceFrom) + diceFrom;
     diceResult = diceInt ? result.toFixed(0) : result.toFixed(4);
+    diceId++;
   }
 
   function decide() {
     const [result] = getRandomElement(options);
     decideResult = result.content;
+    decideId++;
   }
 
   function addOption() {
@@ -109,20 +115,24 @@
       {trans.throw}
     </button>
     <span><slot name="right-arrow-icon" /></span>
-    <strong class="dice-result text-center">{diceResult}</strong>
+    {#key diceId}
+      <strong class="dice-result text-center">{diceResult}</strong>
+    {/key}
   </div>
 </fieldset>
 
 <fieldset class="field-set">
   <legend>{trans.decideHelper}</legend>
 
-  <div class="decide-result text-center mb-s">
-    {#if decideResult !== ""}
-      <strong>{decideResult}</strong>
-    {:else}
-      {trans.addBelow}
-    {/if}
-  </div>
+  {#key decideId}
+    <div class="decide-result text-center mb-s">
+      {#if decideResult !== ""}
+        <strong>{decideResult}</strong>
+      {:else}
+        {trans.addBelow}
+      {/if}
+    </div>
+  {/key}
   <div class="mb-s">
     <button
       class="center button-primary button-decide"
@@ -187,17 +197,17 @@
 </fieldset>
 
 <style lang="scss">
-  // @keyframes pop {
-  //   from {
-  //     transform: scale(1);
-  //   }
-  //   50% {
-  //     transform: scale(1.5);
-  //   }
-  //   to {
-  //     transform: scale(1);
-  //   }
-  // }
+  @keyframes pop {
+    from {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
 
   fieldset {
     border: 2px solid #ccc;
@@ -235,6 +245,8 @@
   .dice-result,
   .decide-result {
     font-size: 2rem;
+
+    animation: pop 0.3s ease-out;
   }
   .decide-result {
     color: #ccc;
