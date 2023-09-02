@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+// import { ViewTransitions } from "astro:transitions";
 import i18next, { t } from "i18next";
 import { HeadHrefLangs } from "astro-i18next/components";
 import "../styles/global.scss";
@@ -23,7 +23,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={t("site.description")} />
     <HeadHrefLangs />
-    <ViewTransitions />
+    <!-- <ViewTransitions /> -->
     <title>{t("site.title")} | {title}</title>
   </head>
   <body>
