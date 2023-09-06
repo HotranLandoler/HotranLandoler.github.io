@@ -139,10 +139,8 @@ const {
       line-height: 2;
     }
 
-    :global(.base-link:link),
-    :global(.base-link:visited) {
-      color: var(--primaryColor);
-    }
+    --color-primary: var(--primaryColor);
+    --color-primary-dark: var(--primaryColor);
   }
 
   .container {
@@ -170,10 +168,6 @@ const {
     color: var(--onPrimaryColor);
 
     background-color: var(--primaryColor);
-
-    &:hover {
-      background-color: var(--primaryDarkColor);
-    }
   }
   .info {
     display: grid;
