@@ -7,6 +7,7 @@ import GameLayout from "../../../layouts/GameLayout.astro";
 import banner from "../../../images/into-soil/IntoSoil.webp";
 import icon1 from "../../../images/into-soil/mineIcon.png";
 import icon2 from "../../../images/into-soil/starIcon.png";
+import sideImg from "../../../images/into-soil/treeM.png";
 
 changeLanguage("en");
 
@@ -84,10 +85,10 @@ const surfaceColor = "#e7923c";
       <li></li>
     </Trans>
   </ul>
-  <img
+  <Image
     class="pixel side-img"
     slot="side-img"
-    src="/images/into-soil/treeM.png"
+    src={sideImg}
     alt=""
   />
 </GameLayout>

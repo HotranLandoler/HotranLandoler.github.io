@@ -5,8 +5,10 @@ import { Trans } from "astro-i18next/components";
 import { Icon } from "astro-icon";
 import GameLayout from "../../layouts/GameLayout.astro";
 import banner from "../../images/cqu-horror/cqu-horror-title.webp";
+import divider from "../../images/cqu-horror/SkillUnlock.png";
 import icon1 from "../../images/cqu-horror/HP.png";
 import icon2 from "../../images/cqu-horror/San.png";
+import sideImg from "../../images/cqu-horror/CY_look.png";
 
 changeLanguage("zh");
 ---
@@ -28,9 +30,9 @@ changeLanguage("zh");
     {t("games.cquHorror.intro")}
   </p>
   <div class="center divider-container mb-m">
-    <img
+    <Image
       class="pixel divider"
-      src="/images/cqu-horror/SkillUnlock.png"
+      src={divider}
       alt=""
     />
   </div>
@@ -76,10 +78,10 @@ changeLanguage("zh");
       <li>HYW：策划</li>
     </Trans>
   </ul>
-  <img
+  <Image
     class="pixel side-img"
     slot="side-img"
-    src="/images/cqu-horror/CY_look.png"
+    src={sideImg}
     alt=""
   />
 </GameLayout>
@@ -91,6 +93,7 @@ changeLanguage("zh");
   .divider {
     display: block;
     width: 100%;
+    height: auto;
   }
   .side-img {
     width: 25%;

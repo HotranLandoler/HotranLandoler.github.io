@@ -7,6 +7,7 @@ import GameLayout from "../../layouts/GameLayout.astro";
 import banner from "../../images/belt-rush/BeltRush.webp";
 import icon1 from "../../images/belt-rush/tape.webp";
 import icon2 from "../../images/belt-rush/triangle.webp";
+import sideImg from "../../images/belt-rush/pack.webp";
 
 changeLanguage("zh");
 
@@ -87,10 +88,10 @@ const surfaceColor = "#5779d5";
       <li></li>
     </Trans>
   </ul>
-  <img
+  <Image
     class="side-img"
     slot="side-img"
-    src="/images/belt-rush/pack.webp"
+    src={sideImg}
     alt=""
   />
 </GameLayout>
