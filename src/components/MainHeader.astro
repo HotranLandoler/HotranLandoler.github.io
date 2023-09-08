@@ -3,13 +3,12 @@ import i18next, { t } from "i18next";
 import { localizePath } from "astro-i18next";
 import Hamburger from "./Hamburger.astro";
 import LanguageSwitch from "./LanguageSwitch.astro";
+import Logo from "./Logo.astro";
 ---
 
 <header class="main-header">
   <div class="container">
-    <a href={localizePath("/")} class="hover-link--color logo">
-      <div aria-label="Logo">Chaoli</div>
-    </a>
+    <Logo />
     <nav class="main-nav">
       <ul class="nav-list">
         <li>
@@ -178,10 +177,6 @@ import LanguageSwitch from "./LanguageSwitch.astro";
     align-items: center;
     justify-content: space-between;
     max-width: 72rem;
-  }
-  .logo {
-    padding-left: 0;
-    padding-right: 0;
   }
 
   .nav-list,
