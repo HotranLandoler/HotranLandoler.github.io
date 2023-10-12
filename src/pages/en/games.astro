@@ -8,6 +8,7 @@ import sbCard from "../../images/sb/SBCard.webp";
 import intoSoilCard from "../../images/into-soil/IntoSoilCard.webp";
 import beltRushCard from "../../images/belt-rush/BeltRushCard.webp";
 import touchexCard from "../../images/touchex/TouchExCard.webp";
+import deadZoneCard from "../../images/dead-zone/DeadZoneCard.jpg";
 
 changeLanguage("en");
 ---
@@ -39,16 +40,21 @@ changeLanguage("en");
       imgSrc={touchexCard}
       href={localizePath("/games/touchex")}
     />
+    <GameCard
+      gameKey="deadzone"
+      imgSrc={deadZoneCard}
+      href={localizePath("/games/deadzone")}
+    />
   </div>
 </SubPageLayout>
 
 <style>
   .container {
-    max-width: 72rem;
+    max-width: 48rem;
   }
   .games {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 
