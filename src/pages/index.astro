@@ -12,6 +12,7 @@ import ToolCard from "../components/ToolCard.astro";
 changeLanguage("zh");
 
 const allPosts = await getCollection("posts");
+const firstPosts = allPosts.slice(0, 2);
 ---
 
 <BaseLayout title={t("site.home")}>
@@ -53,7 +54,7 @@ const allPosts = await getCollection("posts");
         </header>
         <ul class="posts">
           {
-            allPosts.map((post) => (
+            firstPosts.map((post) => (
               <li>
                 <BlogCard
                   url={"/posts/" + post.slug}
