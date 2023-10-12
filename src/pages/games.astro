@@ -2,12 +2,15 @@
 import { t, changeLanguage } from "i18next";
 import { localizePath } from "astro-i18next";
 import SubPageLayout from "../layouts/SubPageLayout.astro";
+
 import GameCard from "../components/GameCard.astro";
+
 import cquhorrorCard from "../images/cqu-horror/cquhorrorCard.webp";
 import sbCard from "../images/sb/SBCard.webp";
 import intoSoilCard from "../images/into-soil/IntoSoilCard.webp";
 import beltRushCard from "../images/belt-rush/BeltRushCard.webp";
 import touchexCard from "../images/touchex/TouchExCard.webp";
+import deadZoneCard from "../images/dead-zone/DeadZoneCard.jpg";
 
 changeLanguage("zh");
 ---
@@ -39,16 +42,21 @@ changeLanguage("zh");
       imgSrc={touchexCard}
       href={localizePath("/games/touchex")}
     />
+    <GameCard
+      gameKey="deadzone"
+      imgSrc={deadZoneCard}
+      href={localizePath("/games/deadzone")}
+    />
   </div>
 </SubPageLayout>
 
 <style>
   .container {
-    max-width: 72rem;
+    max-width: 48rem;
   }
   .games {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 

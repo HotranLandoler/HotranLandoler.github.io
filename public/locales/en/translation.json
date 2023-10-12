@@ -106,6 +106,18 @@
       "howTo": "By swinging your body and controlling the grasping of both hands, you will be able to deliver electricity to all corners of the underground world via various cables. Objective of the game: supply power to 3 NPCs living in different areas!",
       "note": "Entry for 2023 CiGA Game Jam Shenzhen Nanshan Station by UMa Team. The theme was Touch. After discussion (until the next morning) we made decisions on the game mechanics. Discarded ideas included: 1. Slime ACT, when on different terrains you get different effects. 2. Multiplayer PONG, where the ball can stick to other balls. The finished product shows a good effect, while there are some flaws: the bug of hand going through the cable, level complexity and other factors lead to greater difficulty.",
       "team": "<0>Megrez: Art</0><1>Xiu Xiaoqing: Art</1><2>Raul7: Design</2><3>Fengbai: Design</3><4>Rapier: Music</4><5>Chaoli: Coding</5>"
+    },
+    "deadzone": {
+      "title": "Dead Zone",
+      "desc": "Awesome shooter game",
+      "action": "Play Now",
+      "genre": "Shooter",
+      "session": "5 min",
+      "controls": "Keyboard, Mouse",
+      "intro": "A large wave of enemies are attacking you. Their deaths will generate impassable Dead Zones. Use your weapon to survive in this dangerous place!",
+      "howTo": "Use keyboard WASD to move, left mouse button to shoot, right mouse button to use special skill to clear Dead Zones.",
+      "note": "Entry for Ludum Dare 54 Jam. The theme of the jam is Limited Space. The main highlight of the game is artistic innovation: using shader to create dead zone effects.",
+      "team": "<0>Megrez: Art</0><1>Chaoli: Coding</1>"
     }
   },
   "tools": {

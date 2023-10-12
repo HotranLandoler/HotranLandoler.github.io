@@ -1,0 +1,83 @@
+---
+import { Image } from "astro:assets";
+import { t, changeLanguage } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Icon } from "astro-icon";
+import GameLayout from "../../layouts/GameLayout.astro";
+import banner from "../../images/dead-zone/DeadZone.webp";
+import icon1 from "../../images/dead-zone/dead-zone-circle.webp";
+import icon2 from "../../images/dead-zone/dead-zone-triangle.webp";
+import sideImg from "../../images/belt-rush/pack.webp";
+
+changeLanguage("zh");
+
+const gameKey = "deadzone";
+const surfaceColor = "#30294b";
+---
+
+<GameLayout
+  gameKey={gameKey}
+  bannerSrc={banner}
+  gameLink="https://uma-studio.itch.io/dead-zone"
+  srcLink="https://gitee.com/uma-studio/ld54"
+  pubDate="2023-10-2"
+  textColor="white"
+  backgroundColor="#13111a"
+  foregroundColor="#13111a"
+  primaryColor="#d14682"
+  primaryDarkColor="#e55a96"
+  onPrimaryColor="#fff"
+  surfaceColor={surfaceColor}>
+  <p>
+    {t(`games.${gameKey}.intro`)}
+  </p>
+  <div slot="info-main">
+    <section>
+      <header class="flex-gap-s mb-s">
+        <Image
+          class="heading-icon"
+          src={icon1}
+          alt="Tape"
+        />
+        <h2>{t("games.howToPlay")}</h2>
+      </header>
+      <p>
+        {t(`games.${gameKey}.howTo`)}
+      </p>
+    </section>
+    <section>
+      <header class="flex-gap-s mb-s">
+        <Image
+          class="heading-icon"
+          src={icon2}
+          alt="Triangle"
+        />
+        <h2>{t("games.note")}</h2>
+      </header>
+      <p>
+        {t(`games.${gameKey}.note`)}
+      </p>
+    </section>
+  </div>
+  <span slot="platforms">
+    <Icon name="mdi:microsoft-windows" title="Windows" />
+    <Icon name="simple-icons:webgl" title="Web" />
+    <Icon name="mdi:apple" title="macOS" />
+  </span>
+  <span slot="language">English</span>
+  <ul slot="team">
+    <Trans i18nKey={`games.${gameKey}.team`}>
+      <li></li>
+      <li></li>
+    </Trans>
+  </ul>
+</GameLayout>
+
+<style define:vars={{ surfaceColor }}>
+  .side-img {
+    max-width: 6rem;
+  }
+  .video {
+    background-color: var(--surfaceColor);
+  }
+</style>
