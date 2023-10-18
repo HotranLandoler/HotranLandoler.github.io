@@ -20,6 +20,8 @@
   --font-size-h3: calc(var(--font-size-h4) * var(--font-size-scale));
   --font-size-h2: calc(var(--font-size-h3) * var(--font-size-scale));
   --font-size-h1: calc(var(--font-size-h2) * var(--font-size-scale));
+
+  --border-radius-s: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -88,6 +90,19 @@ small {
 img {
   width: 100%;
   max-width: 100%;
+}
+
+div:has(> input[type="checkbox"]) {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  accent-color: var(--color-primary);
 }
 
 .center {
@@ -289,7 +304,7 @@ img {
   border-radius: 2rem;
 
   &:hover {
-    background-color: var(--color-primary-dark);
+    box-shadow: 0 0.5rem 1.5rem var(--color-primary-shadow);
   }
 
   &:disabled {

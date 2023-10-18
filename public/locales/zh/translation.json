@@ -147,6 +147,12 @@
       "clear": "清空",
       "remove": "删除",
       "optionTip": "吃饭/吃面"
+    },
+    "spacecleaner": {
+      "title": "空格消除",
+      "inputText": "输入文字",
+      "cleanLineBreaks": "消除换行符",
+      "clean": "消除并复制"
     }
   },
   "about": {

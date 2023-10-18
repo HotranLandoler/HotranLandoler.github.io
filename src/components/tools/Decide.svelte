@@ -219,11 +219,6 @@
   legend {
     font-size: 1.2rem;
   }
-  .checkbox {
-    width: 1.5rem;
-
-    accent-color: var(--color-primary);
-  }
   .nowrap {
     white-space: nowrap;
   }
@@ -231,10 +226,6 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-  }
-  .int-box {
-    display: flex;
-    gap: 0.5rem;
   }
   .output {
     display: grid;
