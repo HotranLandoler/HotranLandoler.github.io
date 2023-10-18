@@ -33,7 +33,7 @@ import { Icon } from "astro-icon";
   }
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     position: relative;
     max-width: 72rem;
 
@@ -52,14 +52,10 @@ import { Icon } from "astro-icon";
   }
   .hero-heading {
     margin-bottom: 1rem;
-
-    font-size: 2.5rem;
-    font-weight: normal;
     line-height: 1.1;
   }
   .hero-text {
-    font-size: 1.5rem;
-    line-height: 2;
+    font-size: var(--font-size-h4);
     margin-bottom: 2rem;
   }
   .action-link {
