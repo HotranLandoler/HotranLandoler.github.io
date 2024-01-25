@@ -92,11 +92,11 @@ img {
   max-width: 100%;
 }
 
-div:has(> input[type="checkbox"]) {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
+// div:has(> input[type="checkbox"]) {
+//   display: flex;
+//   justify-content: center;
+//   gap: 0.5rem;
+// }
 
 input[type="checkbox"] {
   width: 1.5rem;
@@ -126,6 +126,19 @@ input[type="checkbox"] {
   &:hover {
     text-decoration: none;
   }
+}
+
+.flex {
+  display: flex;
+}
+.align-items-center {
+  align-items: center;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.gap-s {
+  gap: 0.5rem;
 }
 
 .flex-gap-s {

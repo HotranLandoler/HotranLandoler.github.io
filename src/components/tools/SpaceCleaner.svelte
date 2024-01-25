@@ -28,7 +28,7 @@
     placeholder={trans.inputText}
     bind:value={input}
   />
-  <div class="mb-m">
+  <div class="flex gap-s justify-content-center mb-m">
     <input
       id="clean-line-breaks"
       type="checkbox"

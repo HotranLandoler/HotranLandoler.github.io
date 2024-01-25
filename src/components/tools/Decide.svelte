@@ -94,7 +94,7 @@
       type="number"
       bind:value={diceTo}
     />
-    <div class="int-box">
+    <div class="int-box flex gap-s">
       <input
         id="int"
         name="int"
