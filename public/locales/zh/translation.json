@@ -118,6 +118,18 @@
       "howTo": "键盘WASD移动，鼠标控制射击方向，左键射击，右键使用特殊技能清除死亡地带。",
       "note": "2023年Ludum Dare 54 Jam作品，Jam主题为Limited Space。游戏的主要亮点是美术上的创新：使用Shader制作的死亡地带特效。",
       "team": "<0>Megrez: 美术</0><1>楼朝立：程序</1>"
+    },
+    "poopybird": {
+      "title": "Poopy Bird",
+      "desc": "Poop poop",
+      "action": "马上开玩",
+      "genre": "射击",
+      "session": "2分钟",
+      "controls": "键盘，鼠标",
+      "intro": "一只小鸟将要展开一场惊心动魄的旅程！",
+      "howTo": "键盘WASD移动，鼠标控制射击方向。",
+      "note": "2024年Global Game Jam北京火箭拳站作品，主题为Make Me Laugh。作为一个粪游戏，游玩体验十分解压。",
+      "team": "<0>RabbitKingdom：策划，美术</0><1>Megrez：美术，音乐</1><2>沐雨：程序</2><3>楼朝立：程序</3>"
     }
   },
   "tools": {
