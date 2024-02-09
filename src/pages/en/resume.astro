@@ -1,7 +1,7 @@
 ---
 import { t, changeLanguage } from "i18next";
 import SubPageLayout from "../../layouts/SubPageLayout.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 changeLanguage("en");
 ---
@@ -94,7 +94,7 @@ changeLanguage("en");
   section {
     padding-bottom: 2rem;
   }
-  [astro-icon] {
+  [data-icon] {
     color: var(--color-primary-dark);
   }
   .container {

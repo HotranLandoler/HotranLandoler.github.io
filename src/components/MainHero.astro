@@ -1,7 +1,7 @@
 ---
 import { t } from "i18next";
 import { localizePath } from "astro-i18next";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <section class="hero-section hero-container">
@@ -59,10 +59,10 @@ import { Icon } from "astro-icon";
     margin-bottom: 2rem;
   }
   .action-link {
-    [astro-icon] {
+    [data-icon] {
       transition: transform 0.3s;
     }
-    &:hover [astro-icon] {
+    &:hover [data-icon] {
       transform: translateX(20%);
     }
   }

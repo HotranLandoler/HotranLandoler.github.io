@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import i18next, { t } from "i18next";
 import { localizePath } from "astro-i18next";
 import Logo from "./Logo.astro";
@@ -178,8 +178,6 @@ const { pathname } = Astro.url;
   }
   .icon,
   .icon-img {
-    width: 2rem;
-
     color: var(--color-on-background);
 
     opacity: 0.5;
