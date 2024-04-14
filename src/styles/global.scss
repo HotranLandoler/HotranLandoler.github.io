@@ -1,5 +1,9 @@
 @import "./globalVar.scss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --color-background: white;
   --color-on-background: #011432;

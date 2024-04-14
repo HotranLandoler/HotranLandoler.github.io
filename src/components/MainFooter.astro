@@ -8,7 +8,7 @@ const { pathname } = Astro.url;
 ---
 
 <footer class="main-footer">
-  <div class="container footer-grid">
+  <div class="footer-grid container">
     <div class="logo-area">
       <Logo />
       <p class="mb-m">{t("site.description")}</p>
@@ -108,9 +108,9 @@ const { pathname } = Astro.url;
     </div>
   </div>
   <div class="bottom-row" lang="en">
-    <div class="container">
-      <p><small>© 2023 LOU Chaoli</small></p>
-      <p class="made-with"><small>Made with Astro.js</small></p>
+    <div class="container flex">
+      <small>© 2023 LOU Chaoli</small>
+      <small class="ml-auto">Made with Astro.js</small>
     </div>
   </div>
 </footer>
@@ -155,10 +155,6 @@ const { pathname } = Astro.url;
     color: var(--color-on-primary);
     background-color: var(--color-primary);
     padding: 2rem 0;
-
-    .container {
-      display: flex;
-    }
   }
 
   .made-with {
