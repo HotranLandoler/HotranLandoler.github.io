@@ -12,7 +12,7 @@ const { titleKey, href, icon } = Astro.props;
 ---
 
 <a class="link--card tool-card" href={href}>
-  <Icon name={icon} class="icon" />
+  <Icon name={icon} class="icon mx-auto" />
   <p class="title">{t(titleKey)}</p>
 </a>
 

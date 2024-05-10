@@ -39,7 +39,7 @@ const {
 
 <BaseLayout title={t(`games.${gameKey}.title`)}>
   <main class="game">
-    <div class="container mb-m">
+    <div class="mb-m container">
       <Image class="banner" src={bannerSrc} alt="Game banner" />
       <article>
         <header class="flex-gap-s mb-m">
@@ -61,7 +61,7 @@ const {
               <dd>{t(`games.${gameKey}.genre`)}</dd>
 
               <dt>{t("games.platform")}</dt>
-              <dd><slot name="platforms" /></dd>
+              <dd class="platforms"><slot name="platforms" /></dd>
 
               <dt>{t("language")}</dt>
               <dd><slot name="language" /></dd>
@@ -216,6 +216,10 @@ const {
   }
   :global(.side-img) {
     height: auto;
+  }
+
+  .platforms :global(span) {
+    display: flex;
   }
 
   @media (max-width: 32em) {

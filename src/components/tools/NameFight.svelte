@@ -59,21 +59,19 @@
   }
 </script>
 
-<section class="health-section">
+<section class="health-section mb-4">
   <div class="fighter">
     <input
-      class="focus-outline input-outlined name-input text-center"
+      class="focus-outline input-outlined name-input text-center mb-2"
       type="text"
-      bind:value={fighters[0].name}
-    />
+      bind:value={fighters[0].name} />
     <progress class="hp-bar" max={maxHp} value={fighters[0].hp} />
   </div>
   <div class="fighter">
     <input
-      class="focus-outline input-outlined name-input text-center"
+      class="focus-outline input-outlined name-input text-center mb-2"
       type="text"
-      bind:value={fighters[1].name}
-    />
+      bind:value={fighters[1].name} />
     <progress class="hp-bar flipx" max={maxHp} value={fighters[1].hp} />
   </div>
 </section>
@@ -81,8 +79,7 @@
   <button
     class="center button start-button"
     on:click={onStartClick}
-    disabled={isFighting}
-  >
+    disabled={isFighting}>
     Start!
   </button>
 </section>
@@ -108,7 +105,6 @@
   .hp-bar {
     display: block;
     width: 100%;
-    height: 3rem;
   }
   .start-button {
     padding: 0.5rem 2rem;

@@ -24,16 +24,14 @@
 
 <article>
   <textarea
-    class="focus-outline"
+    class="focus-outline border-2 border-gray-400"
     placeholder={trans.inputText}
-    bind:value={input}
-  />
+    bind:value={input} />
   <div class="flex gap-s justify-content-center mb-m">
     <input
       id="clean-line-breaks"
       type="checkbox"
-      bind:value={cleanLineBreaks}
-    />
+      bind:value={cleanLineBreaks} />
     <label for="clean-line-breaks">{trans.cleanLb}</label>
   </div>
   <button type="button" class="button-primary center" on:click={clean}>
@@ -44,9 +42,7 @@
       viewBox="0 0 24 24"
       ><path
         fill="currentColor"
-        d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1Z"
-      /></svg
-    >
+        d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1Z" /></svg>
     {trans.clean}
   </button>
 </article>

@@ -87,6 +87,9 @@ p {
 h1 {
   font-size: var(--font-size-h1);
 }
+h2 {
+  @apply text-3xl;
+}
 small {
   font-size: calc(var(--font-size-base) / var(--font-size-scale));
 }
