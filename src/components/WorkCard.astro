@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
+
 export interface Props {
   href: string;
-  imgSrc: string;
+  imgSrc: ImageMetadata;
   title: string;
 }
 
@@ -10,7 +12,7 @@ const { href, imgSrc, title } = Astro.props;
 
 <a href={href} class="link--card mb-s" title={title}>
   <figure>
-    <img src={imgSrc} alt={title} class="work-img" />
+    <Image src={imgSrc} alt={title} class="work-img" format="avif" />
     <figcaption class="work-title">{title}</figcaption>
   </figure>
 </a>

@@ -9,6 +9,10 @@ import WorkCard from "../components/WorkCard.astro";
 import BlogCard from "../components/BlogCard.astro";
 import ToolCard from "../components/ToolCard.astro";
 
+import gamesImage from "~/images/诡校奇谈.webp";
+import artImage from "~/images/Island.webp";
+import photosImage from "~/images/photos.webp";
+
 changeLanguage("zh");
 
 const allPosts = await getCollection("posts");
@@ -28,17 +32,17 @@ const firstPosts = allPosts.slice(0, 2);
         <div class="works">
           <WorkCard
             href={localizePath("/games/")}
-            imgSrc="/images/诡校奇谈.webp"
+            imgSrc={gamesImage}
             title={t("site.games")}
           />
           <WorkCard
             href={localizePath("/art/")}
-            imgSrc="/images/Island.webp"
+            imgSrc={artImage}
             title={t("site.art")}
           />
           <WorkCard
             href={localizePath("/photos/")}
-            imgSrc="/images/photos.webp"
+            imgSrc={photosImage}
             title={t("site.photos")}
           />
         </div>
