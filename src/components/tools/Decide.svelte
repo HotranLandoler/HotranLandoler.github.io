@@ -75,8 +75,7 @@
     <input
       class="focus-outline input-outlined random-number-input"
       type="number"
-      bind:value={diceFrom}
-    />
+      bind:value={diceFrom} />
     <span class="to">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -85,23 +84,19 @@
         viewBox="0 0 24 24"
         ><path
           fill="currentColor"
-          d="M2 15s0-6 6-6c4 0 4.5 3.5 7.5 3.5c4 0 4-3.5 4-3.5H22s0 6-6 6c-4 0-5.5-3.5-7.5-3.5c-4 0-4 3.5-4 3.5H2"
-        /></svg
-      >
+          d="M2 15s0-6 6-6c4 0 4.5 3.5 7.5 3.5c4 0 4-3.5 4-3.5H22s0 6-6 6c-4 0-5.5-3.5-7.5-3.5c-4 0-4 3.5-4 3.5H2" /></svg>
     </span>
     <input
       class="focus-outline input-outlined random-number-input"
       type="number"
-      bind:value={diceTo}
-    />
+      bind:value={diceTo} />
     <div class="int-box flex gap-s">
       <input
         id="int"
         name="int"
         class="checkbox"
         type="checkbox"
-        bind:checked={diceInt}
-      />
+        bind:checked={diceInt} />
       <label for="int" class="nowrap">{trans.int}</label>
     </div>
   </div>
@@ -109,14 +104,13 @@
     <button
       class="button-primary text-icon-container"
       type="button"
-      on:click={dice}
-    >
+      on:click={dice}>
       <slot name="dice-icon" />
       {trans.throw}
     </button>
     <span><slot name="right-arrow-icon" /></span>
     {#key diceId}
-      <strong class="dice-result text-center">{diceResult}</strong>
+      <strong class="dice-result text-center animate-pop">{diceResult}</strong>
     {/key}
   </div>
 </fieldset>
@@ -125,7 +119,7 @@
   <legend>{trans.decideHelper}</legend>
 
   {#key decideId}
-    <div class="decide-result text-center mb-s">
+    <div class="decide-result text-center mb-s animate-pop">
       {#if decideResult !== ""}
         <strong>{decideResult}</strong>
       {:else}
@@ -138,8 +132,7 @@
       class="center button-primary button-decide"
       type="button"
       disabled={isOptionsEmpty}
-      on:click={decide}
-    >
+      on:click={decide}>
       {trans.makeDecide}
     </button>
   </div>
@@ -149,15 +142,13 @@
       type="text"
       placeholder={trans.optionTip}
       maxlength="15"
-      bind:value={optionInput}
-    />
+      bind:value={optionInput} />
     <button
       class="button-primary"
       type="button"
       disabled={isOptionInputEmpty}
       on:click={addOption}
-      title={trans.add}
-    >
+      title={trans.add}>
       <slot name="add-icon" />
     </button>
     <button
@@ -165,8 +156,7 @@
       type="button"
       disabled={isOptionsEmpty}
       on:click={clearOptions}
-      title={trans.clear}
-    >
+      title={trans.clear}>
       <slot name="clear-icon" />
     </button>
   </div>
@@ -178,8 +168,7 @@
           class="button button-remove"
           type="button"
           on:click={() => removeOption(option.id)}
-          title={trans.remove}
-        >
+          title={trans.remove}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -187,9 +176,7 @@
             viewBox="0 0 24 24"
             ><path
               fill="currentColor"
-              d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12Z"
-            /></svg
-          >
+              d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12Z" /></svg>
         </button>
       </li>
     {/each}
@@ -197,18 +184,6 @@
 </fieldset>
 
 <style lang="scss">
-  @keyframes pop {
-    from {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.5);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-
   fieldset {
     border: 2px solid #ccc;
     border-radius: 5px;
@@ -236,8 +211,6 @@
   .dice-result,
   .decide-result {
     font-size: 2rem;
-
-    animation: pop 0.3s ease-out;
   }
   .decide-result {
     color: #ccc;

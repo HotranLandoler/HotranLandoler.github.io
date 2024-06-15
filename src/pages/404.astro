@@ -9,7 +9,7 @@ changeLanguage("zh");
 
 <BaseLayout title="404">
   <main class="container">
-    <Icon name="mdi:emoticon-sad-outline" class="icon" />
+    <Icon name="mdi:emoticon-sad-outline" class="icon mx-auto" />
     <h2 class="mb-m">{t("site.notFound")}</h2>
     <a href={localizePath("/")} class="link--primary text-icon-container">
       {t("site.backHome")}
@@ -29,12 +29,11 @@ changeLanguage("zh");
     font-size: 2rem;
     font-weight: normal;
   }
-  .icon {
-    width: 5rem;
-
-    color: #999;
-  }
   .container {
     max-width: 32rem;
+  }
+  .icon {
+    color: #ccc;
+    font-size: 5rem;
   }
 </style>
