@@ -1,31 +1,51 @@
 ---
 title: Unity开发规范
 slug: unity-style-guide
-pubDate: 2023-06-04
-description: UMa工作室拟采用的Unity游戏开发规范，版本v0.1
+pubDate: 2024-07-03
+description: UMa工作室拟采用的Unity游戏开发规范，版本v0.1.5
 tags: ["gamedev", "unity"]
 ---
 
-<!-- # Unity 开发规范 -->
+版本v0.1.5
 
 ## 项目文件夹
 
+根目录：
+
+- `Build` 各平台的打包文件
+  - `Windows`
+  - `macOS.app`
+  - `WebGL`
+
+Assets:
+
 - `Animations` 动画(`.anim`)以及控制器(`.controller`)
-- `Audio`
+- `Audio` 
   - `BGM` 背景音乐
   - `SE` 音效
+- `Data` ScriptableObject数据文件
 - `Fonts` 字体
 - `Materials` 材质
+- `Models` 3D模型
 - `Prefabs` 预制体(Prefab)
-- `Scripts` 代码
 - `Scenes` 场景
+- `Scripts` 代码
+- `Settings` 设置
+  - `Localization` 本地化相关
 - `Shaders`
-- `Sprites` 图片素材
+- `Textures` 图片素材
+  - `UI`
 
 ## 素材格式
 
 - 图片：使用`.png`，尺寸为**4**的倍数
 - 音乐音效：使用`.ogg`，响度归一化为 **-18** LUFS
+
+## 命名
+
+【**不提倡拼音命名**】美术等需要交接的素材优先使用**中文**，其次英文
+
+例：`玩家1_身体.png`
 
 ## 编程规范
 
@@ -43,7 +63,7 @@ tags: ["gamedev", "unity"]
 - 临时变量和函数参数使用**驼峰**拼写法：首字母小写，中间单词首字母大写
 
   ```csharp
-  void Function(int count)
+  private void Function(int count)
   {
       string message = "";
       count++;
@@ -69,6 +89,12 @@ tags: ["gamedev", "unity"]
   private GameObject _gameObject;
   ```
 
+- `[SerializeField]`变量使用驼峰拼写法，且写在一行内
+
+  ```csharp
+  [SerializeField] private GameObject gameObject;
+  ```
+
 - `bool`变量以**动词**前缀：
 
   ```csharp
@@ -89,7 +115,7 @@ tags: ["gamedev", "unity"]
   ```csharp
   player = GetComponent<Player>();
   player.HpChanged += Player_HpChanged;
-
+  
   private void Player_HpChanged()
   {
       //Handle the event
@@ -123,7 +149,7 @@ tags: ["gamedev", "unity"]
   3. 常量`readonly, const`
   4. 属性
   5. 字段
-  6. Unity 函数：`Awake, Start, Update`等
+  6. Unity函数：`Awake, Start, Update`等
   7. 其他函数
 
 - 当函数的参数太多时，换行并对齐：（两种方式）
@@ -135,7 +161,7 @@ tags: ["gamedev", "unity"]
   {
       // Function
   }
-
+  
   // 2.换行，统一缩进一个Tab(4空格)
   void Function(
       int longArgumentName,
@@ -148,7 +174,7 @@ tags: ["gamedev", "unity"]
 ### 示例
 
 - 考虑封装性，变量优先`private`，不提倡使用`public`字段
-  - 需要在 Unity 中设置时，在`private`字段上使用`[SerializeField]`
+  - 需要在Unity中设置时，在`private`字段上使用`[SerializeField]`
   - 需要给其他类访问时，使用属性
 
 ```csharp
@@ -163,28 +189,26 @@ public class Player : MonoBehaviour
         Player,
         Enemy
     }
-
+    
     // 事件
     public event Action HpChanged;
-
+	
     // 常量
     private readonly int _maxHp = 5;
-
+    
     // 属性
     public int Hp { get; private set; }
     public Type UnitType { get; }
-
+    
     // 字段
-    [SerializeField]
-    private Enemy _enemy;
-
-    [SerializeField]
-    private int _startHp = 3;
-
+    [SerializeField] private Enemy enemy;
+    
+    [SerializeField] private int startHp = 3;
+	
     private Vector3 _position;
     private Animator _animator;
-
-
+    
+    
     // 函数部分: 空两行
     // Unity函数
     private void Awake()
@@ -193,28 +217,28 @@ public class Player : MonoBehaviour
         _position = transform.position;
         _animator = GetComponent<Animator>();
     }
-
+    
     private void Start()
     {
         // Start中访问其他类
-
+        
         // 订阅事件
         _enemy.Died += Enemy_Died;
     }
-
+    
     private void Update() {}
-
+    
     // 其他函数: public在前，private在后
     public void Attack()
     {
         Debug.Log("AAAAttack!");
     }
-
+    
     public void TakeDamage(int damage)
     {
         Debug.Log($"Ahh! HP - {damage}")
 	}
-
+    
     private void Enemy_Died()
     {
         Debug.Log("好耶！");
