@@ -46,9 +46,9 @@ MVP变换把顶点从模型局部空间转到裁剪空间。
 
 ```cpp
 Eigen::Matrix4f perspective_projection;
-perspective_projection << near, 0, 0, 0,
-                          0, near, 0, 0,
-                          0, 0, (far + near), -(far * near),
+perspective_projection << -near, 0, 0, 0,
+                          0, -near, 0, 0,
+                          0, 0, -(far + near), -(far * near),
                           0, 0, 1, 0;
 ```
 
