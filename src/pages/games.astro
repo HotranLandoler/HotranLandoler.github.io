@@ -10,22 +10,19 @@ import beltRushCard from "../images/belt-rush/BeltRushCard.webp";
 import touchexCard from "../images/touchex/TouchExCard.webp";
 import deadZoneCard from "../images/dead-zone/DeadZoneCard.jpg";
 import poopyBirdCard from "../images/poopy-bird/PoopyBirdCard.jpg";
+import crashPunkCard from "../images/crash-punk/CrashPunkCard.jpg";
 
 changeLanguage("zh");
 ---
 
 <SubPageLayout titleKey="site.games">
-  <div class="container games">
+  <div class="games container">
     <GameCard
       gameKey="cquHorror"
       imgSrc={cquhorrorCard}
       href={localizePath("/games/cquhorror")}
     />
-    <GameCard
-      gameKey="sb"
-      imgSrc={sbCard}
-      href={localizePath("/games/sb")}
-    />
+    <GameCard gameKey="sb" imgSrc={sbCard} href={localizePath("/games/sb")} />
     <GameCard
       gameKey="intoSoil"
       imgSrc={intoSoilCard}
@@ -50,6 +47,11 @@ changeLanguage("zh");
       gameKey="poopybird"
       imgSrc={poopyBirdCard}
       href={localizePath("/games/poopybird")}
+    />
+    <GameCard
+      gameKey="crashpunk"
+      imgSrc={crashPunkCard}
+      href={localizePath("/games/crashpunk")}
     />
   </div>
 </SubPageLayout>

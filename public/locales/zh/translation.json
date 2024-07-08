@@ -130,6 +130,18 @@
       "howTo": "键盘WASD移动，鼠标控制射击方向。",
       "note": "2024年Global Game Jam北京火箭拳站作品，主题为Make Me Laugh。作为一个粪游戏，游玩体验十分解压。",
       "team": "<0>RabbitKingdom：策划，美术</0><1>Megrez：美术，音乐</1><2>沐雨：程序</2><3>楼朝立：程序</3>"
+    },
+    "crashpunk": {
+      "title": "Crash Punk",
+      "desc": "击碎他们！",
+      "action": "马上开玩",
+      "genre": "射击",
+      "session": "3分钟",
+      "controls": "键盘/手柄",
+      "intro": "击碎他们！",
+      "howTo": "手柄左摇杆/键盘WASD瞄准八方向，手柄A/键盘空格键射击！",
+      "note": "2024年CiGA Game Jam广州攻壳站作品，主题为Limited and Limitedless。融合了Techno工业电子音乐的超炫酷动作反应游戏！",
+      "team": "<0>Megrez：技术美术</0><1>吕小斩：技术音频，程序</1><2>楼朝立：程序</2>"
     }
   },
   "tools": {

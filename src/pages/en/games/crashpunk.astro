@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import { t, changeLanguage } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Icon } from "astro-icon/components";
+import GameLayout from "../../../layouts/GameLayout.astro";
+import banner from "../../../images/crash-punk/CrashPunkBanner.jpg";
+import icon from "../../../images/crash-punk/Cursor.png";
+
+changeLanguage("en");
+
+const gameKey = "crashpunk";
+const surfaceColor = "#464646";
+---
+
+<GameLayout
+  gameKey={gameKey}
+  bannerSrc={banner}
+  gameLink="https://uma-studio.itch.io/crash-punk"
+  srcLink="https://gitee.com/uma-studio/cgj2024"
+  pubDate="2024-7-7"
+  textColor="white"
+  backgroundColor="#323232"
+  foregroundColor="#323232"
+  primaryColor="#dd0000"
+  primaryDarkColor="#f91c1c"
+  onPrimaryColor="white"
+  surfaceColor={surfaceColor}>
+  <p>
+    {t(`games.${gameKey}.intro`)}
+  </p>
+  <div slot="info-main">
+    <section>
+      <header class="flex-gap-s mb-s">
+        <Image class="heading-icon" src={icon} alt="Tape" />
+        <h2>{t("games.howToPlay")}</h2>
+      </header>
+      <p>
+        {t(`games.${gameKey}.howTo`)}
+      </p>
+    </section>
+    <section>
+      <header class="flex-gap-s mb-s">
+        <Image class="heading-icon" src={icon} alt="Triangle" />
+        <h2>{t("games.note")}</h2>
+      </header>
+      <p>
+        {t(`games.${gameKey}.note`)}
+      </p>
+    </section>
+    <iframe
+      class="video"
+      src="https://player.bilibili.com/player.html?isOutside=true&aid=1106167617&bvid=BV1Tw4m1Y7dw&cid=1608137591&p=1&autoplay=0"
+      allow="fullscreen"
+      title="Bilibili video for Crash Punk"></iframe>
+  </div>
+
+  <span slot="platforms">
+    <Icon name="mdi:microsoft-windows" title="Windows" />
+    <Icon name="mdi:apple" title="macOS" />
+    <Icon name="simple-icons:webgl" title="Web" />
+  </span>
+  <span slot="language">English</span>
+  <ul slot="team">
+    <Trans i18nKey={`games.${gameKey}.team`}>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </Trans>
+  </ul>
+</GameLayout>
+
+<style define:vars={{ surfaceColor }}>
+  .video {
+    background-color: var(--surfaceColor);
+  }
+</style>

@@ -130,6 +130,18 @@
       "howTo": "Use keyboard WASD to move, left mouse button to shoot.",
       "note": "Entry for the Global Game Jam 2024 Beijing Rocketpunch site, where the theme of the jam is Make Me Laugh. As a shit game, it provides a more than stress-relieving game experience.",
       "team": "<0>RabbitKingdom: Design, Art</0><1>Megrez: Art, Music</1><2>ChopWoodFish: Coding</2><3>Chaoli: Coding</3>"
+    },
+    "crashpunk": {
+      "title": "Crash Punk",
+      "desc": "Crash them all!",
+      "action": "Play Now",
+      "genre": "Shooter",
+      "session": "3 min",
+      "controls": "Keyboard / Gamepad",
+      "intro": "Crash them all!",
+      "howTo": "Aim (8 directions) with Keyboard WASD or Gamepad Left Stick. Shoot / Accept with Keyboard Space or Gamepad Button South / Right Trigger.",
+      "note": "Entry for CiGA Game Jam 2024 Guangzhou Gamker site, where the theme is Limited and Limitedless. It's a super awesome game with techno music!",
+      "team": "<0>Megrez: Technical Art</0><1>吕小斩: Technical Audio, Coding</1><2>Chaoli: Coding</2>"
     }
   },
   "tools": {
