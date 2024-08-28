@@ -10,13 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.1.5",
-    "@astrojs/svelte": "^5.5.0",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/svelte": "^5.7.0",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/noto-sans-sc": "^5.0.6",
     "@iconify-json/mdi": "^1.1.64",
     "@iconify-json/simple-icons": "^1.1.90",
-    "astro": "^4.10.2",
+    "astro": "^4.14.5",
     "astro-i18next": "1.0.0-beta.21",
     "astro-icon": "^1.1.0",
     "i18next": "^22.5.1",
