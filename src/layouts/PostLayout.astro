@@ -6,14 +6,13 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <main class="post" lang="zh">
-    <article class="container">
+  <main class="pt-32" lang="zh">
+    <article class="prose prose-xl container">
       <header class="post-header">
         <h1>{frontmatter.title}</h1>
         <p>{frontmatter.description}</p>
         <p class="date">
-          <time>{frontmatter.pubDate.toLocaleDateString(i18next.language)}</time
-          >
+          <time>{frontmatter.pubDate.toLocaleDateString(i18next.language)}</time>
         </p>
       </header>
       <slot />
@@ -21,7 +20,7 @@ const { frontmatter } = Astro.props;
   </main>
 </BaseLayout>
 
-<style lang="scss" is:global>
+<!-- <style lang="scss" is:global>
   .post {
     padding-top: 8rem;
     margin-bottom: 5rem;
@@ -97,4 +96,4 @@ const { frontmatter } = Astro.props;
       border-radius: 1rem;
     }
   }
-</style>
+</style> -->
