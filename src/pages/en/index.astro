@@ -15,7 +15,11 @@ import photosImage from "~/images/photos.webp";
 changeLanguage("en");
 
 const allPosts = await getCollection("posts");
-const firstPosts = allPosts.slice(0, 2);
+const firstPosts = allPosts
+    .sort(function compareDate(a, b) {
+    return b.data.pubDate.getTime() - a.data.pubDate.getTime();
+})
+    .slice(0, 2);
 ---
 
 <BaseLayout title={t("site.home")}>
@@ -60,7 +64,7 @@ const firstPosts = allPosts.slice(0, 2);
             firstPosts.map((post) => (
               <li>
                 <BlogCard
-                  url={"/posts/" + post.slug}
+                  url={"/posts/" + post.id}
                   title={post.data.title}
                   pubDate={post.data.pubDate}
                   desc={post.data.description}
