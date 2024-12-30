@@ -16,10 +16,10 @@ changeLanguage("zh");
 
 const allPosts = await getCollection("posts");
 const firstPosts = allPosts
-  .sort(function compareDate(a, b) {
+    .sort(function compareDate(a, b) {
     return b.data.pubDate.getTime() - a.data.pubDate.getTime();
-  })
-  .slice(0, 2);
+})
+    .slice(0, 2);
 ---
 
 <BaseLayout title={t("site.home")}>

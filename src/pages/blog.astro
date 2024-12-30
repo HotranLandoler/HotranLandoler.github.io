@@ -8,7 +8,7 @@ changeLanguage("zh");
 
 const allPosts = (await getCollection("posts")).sort(function compareDate(a, b) {
     return b.data.pubDate.getTime() - a.data.pubDate.getTime();
-  });
+});
 ---
 
 <SubPageLayout titleKey="site.blog">
