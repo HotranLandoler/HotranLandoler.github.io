@@ -6,7 +6,9 @@ import BlogCard from "../components/BlogCard.astro";
 
 changeLanguage("zh");
 
-const allPosts = await getCollection("posts");
+const allPosts = (await getCollection("posts")).sort(function compareDate(a, b) {
+    return b.data.pubDate.getTime() - a.data.pubDate.getTime();
+  });
 ---
 
 <SubPageLayout titleKey="site.blog">
@@ -16,7 +18,7 @@ const allPosts = await getCollection("posts");
         allPosts.map((post) => (
           <li>
             <BlogCard
-              url={"/posts/" + post.slug}
+              url={"/posts/" + post.id}
               title={post.data.title}
               pubDate={post.data.pubDate}
               desc={post.data.description}

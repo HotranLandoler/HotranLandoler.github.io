@@ -64,7 +64,7 @@ const firstPosts = allPosts
             firstPosts.map((post) => (
               <li>
                 <BlogCard
-                  url={"/posts/" + post.slug}
+                  url={"/posts/" + post.id}
                   title={post.data.title}
                   pubDate={post.data.pubDate}
                   desc={post.data.description}
