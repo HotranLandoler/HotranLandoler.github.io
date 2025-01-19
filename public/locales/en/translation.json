@@ -142,6 +142,18 @@
       "howTo": "Aim (8 directions) with Keyboard WASD or Gamepad Left Stick. Shoot / Accept with Keyboard Space or Gamepad Button South / Right Trigger.",
       "note": "Entry for CiGA Game Jam 2024 Guangzhou Gamker site, where the theme is Limited and Limitedless. It's a super awesome game with techno music!",
       "team": "<0>Megrez: Technical Art</0><1>吕小斩: Technical Audio, Coding</1><2>Chaoli: Coding</2>"
+    },
+    "youchat": {
+      "title": "Youchat.exe",
+      "desc": "Type: type",
+      "action": "Download",
+      "genre": "Action",
+      "session": "2 min",
+      "controls": "Keyboard",
+      "intro": "Type: type",
+      "howTo": "Any Key to type text, Enter/Return to send message!",
+      "note": "Entry for Global Game Jam 2025 Shanghai Coconut Island site, where the theme is Bubble. It's a super awesome retro style action platformer game!",
+      "team": "<0>Megrez: Art</0><1>RabbitKingdom: Design, Music, Art</1><2>ChopWoodFish: Coding</2><3>Chaoli: Coding</3>"
     }
   },
   "tools": {

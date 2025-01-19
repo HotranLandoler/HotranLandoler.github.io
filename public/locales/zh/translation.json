@@ -142,6 +142,18 @@
       "howTo": "手柄左摇杆/键盘WASD瞄准八方向，手柄A/键盘空格键射击！",
       "note": "2024年CiGA Game Jam广州攻壳站作品，主题为Limited and Limitedless。融合了Techno工业电子音乐的超炫酷动作反应游戏！",
       "team": "<0>Megrez：技术美术</0><1>吕小斩：技术音频，程序</1><2>楼朝立：程序</2>"
+    },
+    "youchat": {
+      "title": "Youchat.exe",
+      "desc": "打字打字",
+      "action": "下载游戏",
+      "genre": "动作",
+      "session": "2分钟",
+      "controls": "键盘",
+      "intro": "打字打字",
+      "howTo": "任意键打字，回车键发送！",
+      "note": "2025年Global Game Jam上海椰岛站作品，主题为Bubble。超炫酷的复古风动作反应平台跳跃游戏！",
+      "team": "<0>Megrez：技术美术</0><1>RabbitKingdom：策划，音乐，美术</1><2>木鱼：程序</2><3>楼朝立：程序</3>"
     }
   },
   "tools": {
