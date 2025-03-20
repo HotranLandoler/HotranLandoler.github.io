@@ -154,6 +154,18 @@
       "howTo": "Any Key to type text, Enter/Return to send message!",
       "note": "Entry for Global Game Jam 2025 Shanghai Coconut Island site, where the theme is Bubble. It's a super awesome retro style action platformer game!",
       "team": "<0>Megrez: Art</0><1>RabbitKingdom: Design, Music, Art</1><2>ChopWoodFish: Coding</2><3>Chaoli: Coding</3>"
+    },
+    "livezone": {
+      "title": "Live Zone",
+      "desc": "Awesome retro style shooter game!",
+      "action": "Play Now",
+      "genre": "Shooter",
+      "session": "2 min",
+      "controls": "Keyboard, Mouse",
+      "intro": "You are isolated and helpless, and can only use your weapons to try to survive.",
+      "howTo": "Press WASD to move, press mouse left button to shoot, press Num 1 2 3 to switch weapon",
+      "note": "Awesome retro style shooter game!",
+      "team": "<0>Chaoli: Coding, Art, Design</0>"
     }
   },
   "tools": {
