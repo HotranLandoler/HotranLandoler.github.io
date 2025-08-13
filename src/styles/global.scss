@@ -4,46 +4,86 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-background: white;
-  --color-on-background: #011432;
-  --color-surface: white;
-  --color-surface-translucent: #{$color-milk};
-  --color-primary: hsl(341.87 85% 61%);
-  --color-on-primary: white;
-  --color-primary-shadow: hsl(341.87 85% 61% / 0.5);
-  --color-primary-dark: hsl(341.87 85% 61%);
-  --color-secondary: hsl(153.32 54% 87%);
-  --color-on-secondary: #011432;
+@layer reset, theme, base, layout, modules, utilities;
 
-  --font-size-base: 1rem;
-  --font-size-scale: 1.2;
-  --font-size-h6: calc(var(--font-size-base) * var(--font-size-scale));
-  --font-size-h5: calc(var(--font-size-h6) * var(--font-size-scale));
-  --font-size-h4: calc(var(--font-size-h5) * var(--font-size-scale));
-  --font-size-h3: calc(var(--font-size-h4) * var(--font-size-scale));
-  --font-size-h2: calc(var(--font-size-h3) * var(--font-size-scale));
-  --font-size-h1: calc(var(--font-size-h2) * var(--font-size-scale));
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  --border-radius-s: 5px;
-}
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #{$color-gray-dark};
-    --color-on-background: #{$color-white};
-    --color-surface: #{$color-milk};
-    --color-surface-translucent: #{$color-milk};
-    --color-primary: #{$color-green};
-    --color-on-primary: #{$color-white};
-    --color-primary-dark: #{$color-green-dark};
+  img,
+  picture,
+  svg,
+  canvas {
+    display: block;
+    max-inline-size: 100%;
+    height: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer theme {
+  :root {
+    --color-background: white;
+    --color-on-background: #011432;
+    --color-surface: white;
+    --color-surface-translucent: #{$color-milk};
+    --color-primary: hsl(341.87 85% 61%);
+    --color-on-primary: white;
+    --color-primary-shadow: hsl(341.87 85% 61% / 0.5);
+    --color-primary-dark: hsl(341.87 85% 61%);
+    --color-secondary: hsl(153.32 54% 87%);
+    --color-on-secondary: #011432;
+
+    --font-size-base: 1rem;
+    --font-size-scale: 1.2;
+    --font-size-h6: calc(var(--font-size-base) * var(--font-size-scale));
+    --font-size-h5: calc(var(--font-size-h6) * var(--font-size-scale));
+    --font-size-h4: calc(var(--font-size-h5) * var(--font-size-scale));
+    --font-size-h3: calc(var(--font-size-h4) * var(--font-size-scale));
+    --font-size-h2: calc(var(--font-size-h3) * var(--font-size-scale));
+    --font-size-h1: calc(var(--font-size-h2) * var(--font-size-scale));
+
+    --border-radius-s: 5px;
+
+    accent-color: var(--color-primary);
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: #{$color-gray-dark};
+      --color-on-background: #{$color-white};
+      --color-surface: #{$color-milk};
+      --color-surface-translucent: #{$color-milk};
+      --color-primary: #{$color-green};
+      --color-on-primary: #{$color-white};
+      --color-primary-dark: #{$color-green-dark};
+
+      color-scheme: dark;
+    }
+  }
 }
 
 body {
