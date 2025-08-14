@@ -1,10 +1,10 @@
-@import "./globalVar.scss";
+@import './globalVar.scss';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer reset, theme, base, layout, modules, utilities;
+@layer reset, theme, base, components, utilities;
 
 @layer reset {
   *,
@@ -86,6 +86,15 @@
   }
 }
 
+@layer base {
+}
+
+@layer components {
+}
+
+@layer utilities {
+}
+
 body {
   position: relative;
   display: flex;
@@ -148,7 +157,7 @@ img {
 //   gap: 0.5rem;
 // }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   width: 1.5rem;
   height: 1.5rem;
 
@@ -313,7 +322,7 @@ input[type="checkbox"] {
   border-bottom: 2px solid transparent;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     bottom: 0;
