@@ -1,52 +1,60 @@
 ---
-import { getCollection } from "astro:content";
-import { t, changeLanguage } from "i18next";
-import { localizePath } from "astro-i18next";
-import { Icon } from "astro-icon/components";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import MainHero from "../components/MainHero.astro";
-import WorkCard from "../components/WorkCard.astro";
-import BlogCard from "../components/BlogCard.astro";
-import ToolCard from "../components/ToolCard.astro";
-import gamesImage from "~/images/CquHorror.webp";
-import artImage from "~/images/Island.webp";
-import photosImage from "~/images/photos.webp";
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
 
-changeLanguage("zh");
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MainHero from '../../components/MainHero.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import gamesImage from '~/images/CquHorror.webp';
+import artImage from '~/images/Island.webp';
+import photosImage from '~/images/photos.webp';
 
-const allPosts = await getCollection("posts");
+import {
+  getCurrentLocale,
+  getLocaleStaticPaths,
+  getTranslations,
+  getRelativeLocaleUrl,
+} from '~/i18n';
+
+const locale = getCurrentLocale(Astro.params);
+export const getStaticPaths = getLocaleStaticPaths;
+const t = getTranslations(locale);
+
+const allPosts = await getCollection('posts');
 const firstPosts = allPosts
-    .sort(function compareDate(a, b) {
+  .sort(function compareDate(a, b) {
     return b.data.pubDate.getTime() - a.data.pubDate.getTime();
-})
-    .slice(0, 2);
+  })
+  .slice(0, 2);
 ---
 
-<BaseLayout title={t("site.home")}>
+<BaseLayout title={t.site.home}>
   <main>
     <MainHero />
     <!-- 作品 -->
     <section class="page-section">
       <div class="container">
         <header>
-          <span class="subheading">{t("homepage.workSubheading")}</span>
-          <h2 class="heading-secondary">{t("homepage.workHeading")}</h2>
+          <span class="subheading">{t.homepage.workSubheading}</span>
+          <h2 class="heading-secondary">{t.homepage.workHeading}</h2>
         </header>
         <div class="works">
           <WorkCard
-            href={localizePath("/games/")}
+            href={getRelativeLocaleUrl(locale, '/games/')}
             imgSrc={gamesImage}
-            title={t("site.games")}
+            title={t.site.games}
           />
           <WorkCard
-            href={localizePath("/art/")}
+            href={getRelativeLocaleUrl(locale, '/art/')}
             imgSrc={artImage}
-            title={t("site.art")}
+            title={t.site.art}
           />
           <WorkCard
-            href={localizePath("/photos/")}
+            href={getRelativeLocaleUrl(locale, '/photos/')}
             imgSrc={photosImage}
-            title={t("site.photos")}
+            title={t.site.photos}
           />
         </div>
       </div>
@@ -56,15 +64,15 @@ const firstPosts = allPosts
       <!-- 博客 -->
       <section class="blog-section">
         <header>
-          <span class="subheading">{t("homepage.blogSubheading")}</span>
-          <h2 class="heading-secondary">{t("homepage.blogHeading")}</h2>
+          <span class="subheading">{t.homepage.blogSubheading}</span>
+          <h2 class="heading-secondary">{t.homepage.blogHeading}</h2>
         </header>
         <ul class="posts">
           {
             firstPosts.map((post) => (
               <li>
                 <BlogCard
-                  url={"/posts/" + post.id}
+                  url={'/posts/' + post.id}
                   title={post.data.title}
                   pubDate={post.data.pubDate}
                   desc={post.data.description}
@@ -75,9 +83,9 @@ const firstPosts = allPosts
         </ul>
         <div class="more-tools">
           <a
-            href={localizePath("/blog/")}
+            href={getRelativeLocaleUrl(locale, '/blog/')}
             class="link--primary text-icon-container">
-            {t("homepage.morePosts")}
+            {t.homepage.morePosts}
             <Icon name="mdi:arrow-right" />
           </a>
         </div>
@@ -86,21 +94,21 @@ const firstPosts = allPosts
       <section class="tool-section">
         <header>
           <span class="subheading heading-tools">
-            {t("homepage.toolsSubheading")}
+            {t.homepage.toolsSubheading}
           </span>
           <h2 class="heading-secondary heading-tools">
-            {t("homepage.toolsHeading")}
+            {t.homepage.toolsHeading}
           </h2>
         </header>
         <div class="tools">
           <ToolCard
             titleKey="tools.namesFight.title"
-            href={localizePath("/tools/namefight")}
+            href={getRelativeLocaleUrl(locale, '/tools/namefight')}
             icon="mdi:sword-fight"
           />
           <ToolCard
             titleKey="tools.pomodoro.title"
-            href={localizePath("/tools/pomodoro")}
+            href={getRelativeLocaleUrl(locale, '/tools/pomodoro')}
             icon="mdi:alarm"
           />
           <!-- <ToolCard
@@ -110,25 +118,25 @@ const firstPosts = allPosts
           /> -->
           <ToolCard
             titleKey="tools.random.title"
-            href={localizePath("/tools/random")}
+            href={getRelativeLocaleUrl(locale, '/tools/random')}
             icon="mdi:dice"
           />
           <ToolCard
             titleKey="tools.spacecleaner.title"
-            href={localizePath("/tools/spacecleaner")}
+            href={getRelativeLocaleUrl(locale, '/tools/spacecleaner')}
             icon="mdi:keyboard-space"
           />
           <ToolCard
             titleKey="tools.squid.title"
-            href={localizePath("/tools/squid")}
+            href={getRelativeLocaleUrl(locale, '/tools/squid')}
             icon="squid"
           />
         </div>
         <div class="more-tools">
           <a
-            href={localizePath("/tools/")}
+            href={getRelativeLocaleUrl(locale, '/tools/')}
             class="link--primary text-icon-container">
-            {t("homepage.moreTools")}
+            {t.homepage.moreTools}
             <Icon name="mdi:arrow-right" />
           </a>
         </div>
