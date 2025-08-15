@@ -63,9 +63,6 @@ importers:
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
-      prettier-plugin-astro:
-        specifier: ^0.13.0
-        version: 0.13.0
       prettier-plugin-tailwindcss:
         specifier: ^0.5.14
         version: 0.5.14(prettier-plugin-astro@0.13.0)(prettier@3.6.2)
@@ -2699,7 +2696,8 @@ snapshots:
 
   '@antfu/utils@8.1.1': {}
 
-  '@astrojs/compiler@1.8.2': {}
+  '@astrojs/compiler@1.8.2':
+    optional: true
 
   '@astrojs/compiler@2.12.2': {}
 
@@ -4887,6 +4885,7 @@ snapshots:
       '@astrojs/compiler': 1.8.2
       prettier: 3.6.2
       sass-formatter: 0.7.9
+    optional: true
 
   prettier-plugin-tailwindcss@0.5.14(prettier-plugin-astro@0.13.0)(prettier@3.6.2):
     dependencies:
@@ -5071,13 +5070,15 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  s.color@0.0.15: {}
+  s.color@0.0.15:
+    optional: true
 
   safer-buffer@2.1.2: {}
 
   sass-formatter@0.7.9:
     dependencies:
       suf-log: 2.5.3
+    optional: true
 
   sass@1.90.0:
     dependencies:
@@ -5201,6 +5202,7 @@ snapshots:
   suf-log@2.5.3:
     dependencies:
       s.color: 0.0.15
+    optional: true
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
