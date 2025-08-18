@@ -15,7 +15,7 @@ import {
   getCurrentLocale,
   getLocaleStaticPaths,
   getTranslations,
-  getRelativeLocaleUrl,
+  getLocaleUrl,
 } from '~/i18n';
 
 const locale = getCurrentLocale(Astro.params);
@@ -42,17 +42,17 @@ const firstPosts = allPosts
         </header>
         <div class="works">
           <WorkCard
-            href={getRelativeLocaleUrl(locale, '/games/')}
+            href={getLocaleUrl(locale, '/games/')}
             imgSrc={gamesImage}
             title={t.site.games}
           />
           <WorkCard
-            href={getRelativeLocaleUrl(locale, '/art/')}
+            href={getLocaleUrl(locale, '/art/')}
             imgSrc={artImage}
             title={t.site.art}
           />
           <WorkCard
-            href={getRelativeLocaleUrl(locale, '/photos/')}
+            href={getLocaleUrl(locale, '/photos/')}
             imgSrc={photosImage}
             title={t.site.photos}
           />
@@ -83,7 +83,7 @@ const firstPosts = allPosts
         </ul>
         <div class="more-tools">
           <a
-            href={getRelativeLocaleUrl(locale, '/blog/')}
+            href={getLocaleUrl(locale, '/blog/')}
             class="link--primary text-icon-container">
             {t.homepage.morePosts}
             <Icon name="mdi:arrow-right" />
@@ -103,12 +103,12 @@ const firstPosts = allPosts
         <div class="tools">
           <ToolCard
             titleKey="tools.namesFight.title"
-            href={getRelativeLocaleUrl(locale, '/tools/namefight')}
+            href={getLocaleUrl(locale, '/tools/namefight')}
             icon="mdi:sword-fight"
           />
           <ToolCard
             titleKey="tools.pomodoro.title"
-            href={getRelativeLocaleUrl(locale, '/tools/pomodoro')}
+            href={getLocaleUrl(locale, '/tools/pomodoro')}
             icon="mdi:alarm"
           />
           <!-- <ToolCard
@@ -118,23 +118,23 @@ const firstPosts = allPosts
           /> -->
           <ToolCard
             titleKey="tools.random.title"
-            href={getRelativeLocaleUrl(locale, '/tools/random')}
+            href={getLocaleUrl(locale, '/tools/random')}
             icon="mdi:dice"
           />
           <ToolCard
             titleKey="tools.spacecleaner.title"
-            href={getRelativeLocaleUrl(locale, '/tools/spacecleaner')}
+            href={getLocaleUrl(locale, '/tools/spacecleaner')}
             icon="mdi:keyboard-space"
           />
           <ToolCard
             titleKey="tools.squid.title"
-            href={getRelativeLocaleUrl(locale, '/tools/squid')}
+            href={getLocaleUrl(locale, '/tools/squid')}
             icon="squid"
           />
         </div>
         <div class="more-tools">
           <a
-            href={getRelativeLocaleUrl(locale, '/tools/')}
+            href={getLocaleUrl(locale, '/tools/')}
             class="link--primary text-icon-container">
             {t.homepage.moreTools}
             <Icon name="mdi:arrow-right" />

@@ -7,7 +7,7 @@ export type Translations = typeof zh;
 export const locales = ['zh', 'en'] as const;
 export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = 'zh';
+export const defaultLocale = 'zh';
 
 export function getLocaleFromUrl(url: string): Locale {
   const locale = url.split('/')[1] as Locale;
@@ -28,7 +28,7 @@ export const getLocaleStaticPaths = function getLocalePaths() {
   }));
 } satisfies GetStaticPaths;
 
-export function getRelativeLocaleUrl(locale: Locale, url: string): string {
+export function getLocaleUrl(locale: Locale, url: string): string {
   return `/${locale}${url}`;
 }
 

@@ -1,16 +1,26 @@
 ---
-import i18next from "i18next";
-import { localizePath } from "astro-i18next";
+import type { Locale } from '~/i18n';
+import { locales } from '~/i18n';
+import { defaultLocale, getLocaleUrl } from '~/i18n';
 
 const { pathname } = Astro.url;
+const localeInUrl = Astro.url.pathname.split('/')[1];
+let locale = localeInUrl;
+let pathnameWithoutLocale = pathname;
 
-const title = i18next.language == "zh" ? "Switch to English" : "切换为中文";
-const text = i18next.language == "zh" ? "EN" : "中文";
-const targetLocale = i18next.language == "zh" ? "en" : "zh";
+if (locales.includes(locale as Locale)) {
+  pathnameWithoutLocale = pathname.slice(locale.length + 1);
+} else {
+  locale = defaultLocale;
+}
+
+const title = locale === 'zh' ? 'Switch to English' : '切换为中文';
+const text = locale === 'zh' ? 'EN' : '中文';
+const targetLocale = locale === 'zh' ? 'en' : 'zh';
 ---
 
 <a
-  href={localizePath(pathname, targetLocale)}
+  href={getLocaleUrl(targetLocale, pathnameWithoutLocale)}
   class="hover-link--color"
   title={title}>
   {text}

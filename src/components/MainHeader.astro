@@ -1,9 +1,17 @@
 ---
-import i18next, { t } from "i18next";
-import { localizePath } from "astro-i18next";
-import Hamburger from "./Hamburger.astro";
-import LanguageSwitch from "./LanguageSwitch.astro";
-import Logo from "./Logo.astro";
+import Hamburger from './Hamburger.astro';
+import LanguageSwitch from './LanguageSwitch.astro';
+import Logo from './Logo.astro';
+import {
+  getCurrentLocale,
+  getLocaleStaticPaths,
+  getTranslations,
+  getLocaleUrl,
+} from '~/i18n';
+
+const locale = getCurrentLocale(Astro.params);
+export const getStaticPaths = getLocaleStaticPaths;
+const t = getTranslations(locale);
 ---
 
 <header class="main-header">
@@ -12,11 +20,11 @@ import Logo from "./Logo.astro";
     <nav class="main-nav">
       <ul class="nav-list">
         <li>
-          <a href={localizePath("/")} class="link">{t("site.home")}</a>
+          <a href={getLocaleUrl(locale, '/')} class="link">{t.site.home}</a>
         </li>
         <li class="dropdown">
           <a class="link link--dropdown">
-            {t("site.work")}
+            {t.site.work}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -32,103 +40,96 @@ import Logo from "./Logo.astro";
           </a>
           <ul class="submenu" role="menu">
             <li>
-              <a href={localizePath("/games/")} class="link submenu-item"
-                >{t("site.games")}</a
+              <a
+                href={getLocaleUrl(locale, '/games/')}
+                class="link submenu-item">{t.site.games}</a
               >
             </li>
             <li>
-              <a href={localizePath("/art/")} class="link submenu-item"
-                >{t("site.art")}</a
+              <a href={getLocaleUrl(locale, '/art/')} class="link submenu-item"
+                >{t.site.art}</a
               >
             </li>
             <li>
-              <a href={localizePath("/photos/")} class="link submenu-item"
-                >{t("site.photos")}</a
+              <a
+                href={getLocaleUrl(locale, '/photos/')}
+                class="link submenu-item">{t.site.photos}</a
               >
             </li>
           </ul>
         </li>
         <li>
-          <a href={localizePath("/tools/")} class="link">{t("site.tools")}</a>
+          <a href={getLocaleUrl(locale, '/tools/')} class="link">
+            {t.site.tools}
+          </a>
         </li>
         <li>
-          <a href={localizePath("/blog/")} class="link">{t("site.blog")}</a>
+          <a href={getLocaleUrl(locale, '/blog/')} class="link">
+            {t.site.blog}
+          </a>
         </li>
         <li>
-          <a href={localizePath("/about/")} class="link">{t("site.about")}</a>
+          <a href={getLocaleUrl(locale, '/about/')} class="link"
+            >{t.site.about}</a
+          >
         </li>
       </ul>
     </nav>
     <div class="toggles">
       <LanguageSwitch />
-      <!-- <button class="button hover-link--color" title="Dark Mode">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 24 24"
-        width="24"
-        height="24">
-        <path
-          d="M11.01 3.05C6.51 3.54 3 7.36 3 12a9 9 0 0 0 9 9c4.63 0 8.45-3.5 8.95-8c.09-.79-.78-1.42-1.54-.95A5.403 5.403 0 0 1 11.1 7.5c0-1.06.31-2.06.84-2.89c.45-.67-.04-1.63-.93-1.56z"
-          fill="currentColor"></path>
-      </svg>
-    </button> -->
-      <!-- <button class="button button-mobile-nav" type="button" title="Menu">
-      Menu
-    </button> -->
       <Hamburger />
     </div>
     <nav class="mobile-nav">
       <ul class="mobile-nav-list">
         <li>
           <a
-            href={localizePath("/")}
+            href={getLocaleUrl(locale, '/')}
             class="hover-link--underline mobile-nav-link">
-            {t("site.home")}
+            {t.site.home}
           </a>
         </li>
         <li class="divider"></li>
         <li>
           <a
-            href={localizePath("/games/")}
+            href={getLocaleUrl(locale, '/games/')}
             class="hover-link--underline mobile-nav-link">
-            {t("site.games")}
+            {t.site.games}
           </a>
         </li>
         <li>
           <a
-            href={localizePath("/art/")}
+            href={getLocaleUrl(locale, '/art/')}
             class="hover-link--underline mobile-nav-link">
-            {t("site.art")}
+            {t.site.art}
           </a>
         </li>
         <li>
           <a
-            href={localizePath("/photos/")}
+            href={getLocaleUrl(locale, '/photos/')}
             class="hover-link--underline mobile-nav-link">
-            {t("site.photos")}
+            {t.site.photos}
           </a>
         </li>
         <li class="divider"></li>
         <li>
           <a
-            href={localizePath("/tools/")}
+            href={getLocaleUrl(locale, '/tools/')}
             class="hover-link--underline mobile-nav-link">
-            {t("site.tools")}
+            {t.site.tools}
           </a>
         </li>
         <li>
           <a
-            href={localizePath("/blog/")}
+            href={getLocaleUrl(locale, '/blog/')}
             class="hover-link--underline mobile-nav-link">
-            {t("site.blog")}
+            {t.site.blog}
           </a>
         </li>
         <li>
           <a
-            href={localizePath("/about/")}
+            href={getLocaleUrl(locale, '/about/')}
             class="hover-link--underline mobile-nav-link">
-            {t("site.about")}
+            {t.site.about}
           </a>
         </li>
       </ul>
@@ -137,20 +138,20 @@ import Logo from "./Logo.astro";
 </header>
 
 <script lang="ts">
-  const mobileNav = document.querySelector(".mobile-nav");
-  const mobileNavButton = document.querySelector(".button-mobile-nav");
+  const mobileNav = document.querySelector('.mobile-nav');
+  const mobileNavButton = document.querySelector('.button-mobile-nav');
   let mobileNavOpen = false;
   if (!mobileNav || !mobileNavButton) {
-    throw new Error("Element not found!");
+    throw new Error('Element not found!');
   }
 
-  mobileNavButton.addEventListener("click", toggleNav);
+  mobileNavButton.addEventListener('click', toggleNav);
 
   function toggleNav() {
     mobileNavOpen = !mobileNavOpen;
-    mobileNav.classList.toggle("open");
-    mobileNavButton.classList.toggle("is-active");
-    mobileNavButton.ariaExpanded = mobileNavOpen ? "true" : "false";
+    mobileNav.classList.toggle('open');
+    mobileNavButton.classList.toggle('is-active');
+    mobileNavButton.ariaExpanded = mobileNavOpen ? 'true' : 'false';
   }
 </script>
 
@@ -198,7 +199,7 @@ import Logo from "./Logo.astro";
     text-transform: uppercase;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       bottom: 0;
@@ -208,7 +209,8 @@ import Logo from "./Logo.astro";
       transform: scaleX(0);
       transform-origin: left;
       // transition: transform 0.3s ease-out;
-      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+      transition:
+        transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
         transform-origin 0s 0.4s;
     }
     &:hover::after,
@@ -301,7 +303,7 @@ import Logo from "./Logo.astro";
     position: relative;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
