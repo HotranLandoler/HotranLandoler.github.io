@@ -5,6 +5,9 @@ import type { GetStaticPaths } from 'astro';
 export type Translations = typeof zh;
 
 export const locales = ['zh', 'en'] as const;
+export const localesAsObject = Object.fromEntries(
+  locales.map((locale) => [locale, locale]),
+);
 export type Locale = (typeof locales)[number];
 
 export const defaultLocale = 'zh';
@@ -30,6 +33,12 @@ export const getLocaleStaticPaths = function getLocalePaths() {
 
 export function getLocaleUrl(locale: Locale, url: string): string {
   return `/${locale}${url}`;
+}
+
+export function getCurrentTranslations(params: {
+  locale?: Locale;
+}): Translations {
+  return getTranslations(getCurrentLocale(params));
 }
 
 const translations: Record<Locale, Translations> = {

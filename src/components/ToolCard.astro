@@ -1,19 +1,18 @@
 ---
-import { Icon } from "astro-icon/components";
-import { t, changeLanguage } from "i18next";
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
-  titleKey: string;
+  cardTitle: string;
   href: string;
   icon: string;
 }
 
-const { titleKey, href, icon } = Astro.props;
+const { cardTitle, href, icon } = Astro.props;
 ---
 
 <a class="link--card tool-card" href={href}>
   <Icon name={icon} class="icon mx-auto" />
-  <p class="title">{t(titleKey)}</p>
+  <p class="title">{cardTitle}</p>
 </a>
 
 <style lang="scss">

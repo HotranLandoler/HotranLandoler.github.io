@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import Trans from '~/components/Trans.astro';
+import { Icon } from 'astro-icon/components';
+import GameLayout from '~/layouts/GameLayout.astro';
+import banner from '~/images/live-zone/live-zone-banner.avif';
+import icon from '~/images/live-zone/LiveZoneLogo.png';
+import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+const gameKey = 'livezone';
+
+const t = getCurrentTranslations(Astro.params);
+const gameTranslations = t.games[gameKey];
+
+const surfaceColor = '#1F1F1F';
+---
+
+<GameLayout
+  gameKey={gameKey}
+  bannerSrc={banner}
+  gameLink="https://uma-studio.itch.io/live-zone"
+  srcLink="https://gitee.com/hotran/live-zone"
+  pubDate="2025-3-17"
+  textColor="white"
+  backgroundColor="#1A1A1A"
+  foregroundColor="#1A1A1A"
+  primaryColor="#ff9400"
+  primaryDarkColor="#ff9400"
+  onPrimaryColor="white"
+  surfaceColor={surfaceColor}>
+  <p>
+    {gameTranslations.intro}
+  </p>
+  <div slot="info-main">
+    <section>
+      <header class="flex-gap-s mb-s">
+        <Image class="heading-icon" src={icon} alt="" />
+        <h2>{t.games.howToPlay}</h2>
+      </header>
+      <p>
+        {gameTranslations.howTo}
+      </p>
+    </section>
+    <section>
+      <header class="flex-gap-s mb-s">
+        <Image class="heading-icon" src={icon} alt="" />
+        <h2>{t.games.note}</h2>
+      </header>
+      <p>
+        {gameTranslations.note}
+      </p>
+    </section>
+    <iframe
+      class="video"
+      src="https://player.bilibili.com/player.html?isOutside=true&aid=114194556913128&bvid=BV1ZEXNYSEyH&cid=28970585006&p=1&autoplay=0"
+      allow="fullscreen"
+      title="Bilibili video for Live Zone">
+    </iframe>
+  </div>
+
+  <span slot="platforms">
+    <Icon name="simple-icons:webgl" title="Web" />
+  </span>
+  <span slot="language">中文</span>
+  <ul slot="team">
+    <Trans localizedText={gameTranslations.team}>
+      <li></li>
+    </Trans>
+  </ul>
+</GameLayout>
+
+<style define:vars={{ surfaceColor }}>
+  .video {
+    background-color: var(--surfaceColor);
+  }
+</style>

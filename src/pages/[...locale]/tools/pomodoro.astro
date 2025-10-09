@@ -1,0 +1,29 @@
+---
+import SubPageLayout from '~/layouts/SubPageLayout.astro';
+import PomodoroApp from '~/components/tools/Pomodoro.svelte';
+
+import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+const t = getCurrentTranslations(Astro.params);
+const trans = {
+  start: t.tools.pomodoro.start,
+  pause: t.tools.pomodoro.pause,
+  skip: t.tools.pomodoro.skip,
+  working: t.tools.pomodoro.working,
+  break: t.tools.pomodoro.break,
+};
+---
+
+<SubPageLayout title={t.tools.pomodoro.title}>
+  <div class="container">
+    <PomodoroApp client:load {trans} />
+  </div>
+</SubPageLayout>
+
+<style>
+  .container {
+    max-width: 32rem;
+  }
+</style>

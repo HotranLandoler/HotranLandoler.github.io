@@ -2,11 +2,11 @@
 import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import MainHero from '../../components/MainHero.astro';
-import WorkCard from '../../components/WorkCard.astro';
-import BlogCard from '../../components/BlogCard.astro';
-import ToolCard from '../../components/ToolCard.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import MainHero from '~/components/MainHero.astro';
+import WorkCard from '~/components/WorkCard.astro';
+import BlogCard from '~/components/BlogCard.astro';
+import ToolCard from '~/components/ToolCard.astro';
 import gamesImage from '~/images/CquHorror.webp';
 import artImage from '~/images/Island.webp';
 import photosImage from '~/images/photos.webp';
@@ -102,32 +102,32 @@ const firstPosts = allPosts
         </header>
         <div class="tools">
           <ToolCard
-            titleKey="tools.namesFight.title"
+            cardTitle={t.tools.namesFight.title}
             href={getLocaleUrl(locale, '/tools/namefight')}
             icon="mdi:sword-fight"
           />
           <ToolCard
-            titleKey="tools.pomodoro.title"
+            cardTitle={t.tools.pomodoro.title}
             href={getLocaleUrl(locale, '/tools/pomodoro')}
             icon="mdi:alarm"
           />
           <!-- <ToolCard
-            titleKey="tools.unitConverter.title"
-            href={localizePath("/tools/unitconverter")}
-            icon="mdi:sync"
-          /> -->
+      title="tools.unitConverter.title"
+      href={getLocaleUrl("/tools/unitconverter")}
+      icon="mdi:sync"
+    /> -->
           <ToolCard
-            titleKey="tools.random.title"
+            cardTitle={t.tools.random.title}
             href={getLocaleUrl(locale, '/tools/random')}
             icon="mdi:dice"
           />
           <ToolCard
-            titleKey="tools.spacecleaner.title"
+            cardTitle={t.tools.spacecleaner.title}
             href={getLocaleUrl(locale, '/tools/spacecleaner')}
             icon="mdi:keyboard-space"
           />
           <ToolCard
-            titleKey="tools.squid.title"
+            cardTitle={t.tools.squid.title}
             href={getLocaleUrl(locale, '/tools/squid')}
             icon="squid"
           />

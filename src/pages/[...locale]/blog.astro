@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import SubPageLayout from '~/layouts/SubPageLayout.astro';
+import BlogCard from '~/components/BlogCard.astro';
+import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+const allPosts = (await getCollection('posts')).sort(
+  function compareDate(a, b) {
+    return b.data.pubDate.getTime() - a.data.pubDate.getTime();
+  },
+);
+
+const t = getCurrentTranslations(Astro.params);
+---
+
+<SubPageLayout title={t.site.blog}>
+  <div class="container">
+    <ul class="posts">
+      {
+        allPosts.map((post) => (
+          <li>
+            <BlogCard
+              url={'/posts/' + post.id}
+              title={post.data.title}
+              pubDate={post.data.pubDate}
+              desc={post.data.description}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</SubPageLayout>
+
+<style>
+  .container {
+    max-width: 48rem;
+  }
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>

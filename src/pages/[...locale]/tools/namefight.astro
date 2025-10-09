@@ -1,0 +1,21 @@
+---
+import SubPageLayout from '~/layouts/SubPageLayout.astro';
+import NameFight from '~/components/tools/NameFight.svelte';
+import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+const t = getCurrentTranslations(Astro.params);
+---
+
+<SubPageLayout title={t.tools.namesFight.title}>
+  <div class="container" lang="zh">
+    <NameFight client:load />
+  </div>
+</SubPageLayout>
+
+<style>
+  .container {
+    max-width: 48rem;
+  }
+</style>

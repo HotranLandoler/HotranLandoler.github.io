@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import Trans from '~/components/Trans.astro';
+import { Icon } from 'astro-icon/components';
+import GameLayout from '~/layouts/GameLayout.astro';
+import banner from '~/images/touchex/TouchEx.webp';
+import icon1 from '~/images/touchex/TouchPlayer.webp';
+import icon2 from '~/images/touchex/TouchHand.webp';
+import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+const gameKey = 'touchex';
+
+const t = getCurrentTranslations(Astro.params);
+const gameTranslations = t.games[gameKey];
+---
+
+<GameLayout
+  gameKey={gameKey}
+  bannerSrc={banner}
+  gameLink="https://uma-studio.itch.io/touchex"
+  srcLink="https://gitee.com/dubhe-team/cgj2023"
+  pubDate="2023-7-9"
+  textColor="#372109"
+  backgroundColor="#f4dfa5"
+  foregroundColor="#f4dfa5"
+  primaryColor="#fa5c5c"
+  primaryDarkColor="#e54747"
+  onPrimaryColor="white"
+  surfaceColor="#ddc88e">
+  <p>
+    {gameTranslations.intro}
+  </p>
+  <div slot="info-main">
+    <section>
+      <header class="flex-gap-s mb-s">
+        <Image class="heading-icon" src={icon1} alt="戴帽子的黑色史莱姆" />
+        <h2>{t.games.howToPlay}</h2>
+      </header>
+      <p>
+        {gameTranslations.howTo}
+      </p>
+    </section>
+    <section>
+      <header class="flex-gap-s mb-s">
+        <Image class="heading-icon" src={icon2} alt="红色的手" />
+        <h2>{t.games.note}</h2>
+      </header>
+      <p>{gameTranslations.note}</p>
+    </section>
+  </div>
+  <span slot="platforms">
+    <Icon name="mdi:microsoft-windows" title="Windows" />
+    <Icon name="mdi:apple" title="macOS" />
+    <Icon name="simple-icons:webgl" title="Web" />
+  </span>
+  <span slot="language">中文</span>
+  <ul slot="team">
+    <Trans localizedText={gameTranslations.team}>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </Trans>
+  </ul>
+</GameLayout>
+
+<style>
+  .side-img {
+    max-width: 10rem;
+  }
+</style>

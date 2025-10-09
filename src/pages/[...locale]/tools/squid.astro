@@ -1,0 +1,26 @@
+---
+import SubPageLayout from '~/layouts/SubPageLayout.astro';
+import SquidDetectorApp from '~/components/tools/SquidDetector.svelte';
+
+import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+const t = getCurrentTranslations(Astro.params);
+const trans = {
+  detect: t.tools.squid.detect,
+  output: t.tools.squid.output,
+};
+---
+
+<SubPageLayout title={t.tools.squid.title}>
+  <div class="container">
+    <SquidDetectorApp client:load trans={trans} />
+  </div>
+</SubPageLayout>
+
+<style>
+  .container {
+    max-width: 32rem;
+  }
+</style>

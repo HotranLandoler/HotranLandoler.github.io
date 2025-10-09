@@ -1,23 +1,27 @@
 ---
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
-import { t } from "i18next";
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import type { Translations } from '~/i18n';
+import { getCurrentTranslations } from '~/i18n';
 
 export interface Props {
-  gameKey: string;
+  gameKey: keyof Translations['games'];
   imgSrc: ImageMetadata;
   href: string;
 }
 
 const { gameKey, imgSrc, href } = Astro.props;
+const t = getCurrentTranslations(Astro.params);
+
+type Game = (typeof t.games)['cquHorror'];
 ---
 
 <a class="link--card" href={href}>
   <figure class="game-card">
     <Image src={imgSrc} alt="" />
     <figcaption class="info">
-      <p class="game-title">{t(`games.${gameKey}.title`)}</p>
-      <p class="game-desc">{t(`games.${gameKey}.desc`)}</p>
+      <p class="game-title">{(t.games[gameKey] as Game).title}</p>
+      <p class="game-desc">{(t.games[gameKey] as Game).desc}</p>
     </figcaption>
   </figure>
 </a>

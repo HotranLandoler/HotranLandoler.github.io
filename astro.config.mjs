@@ -1,26 +1,20 @@
 import { defineConfig } from 'astro/config';
-import astroI18next from 'astro-i18next';
 import icon from 'astro-icon';
 import svelte from '@astrojs/svelte';
 import sitemap from '@astrojs/sitemap';
 
 import tailwind from '@astrojs/tailwind';
+import { locales, defaultLocale, localesAsObject } from './src/i18n';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    astroI18next(),
     svelte(),
     icon(),
     sitemap({
       i18n: {
-        defaultLocale: 'zh',
-        // 所有不包含 `es` 或 `fr` 的链接都将被视为默认语言环境，即 `en`
-        locales: {
-          zh: 'zh',
-          // `defaultLocale` 的值必须在 `locales` 键中存在
-          en: 'en',
-        },
+        defaultLocale: defaultLocale,
+        locales: localesAsObject,
       },
     }),
     tailwind({
@@ -30,7 +24,7 @@ export default defineConfig({
   site: 'https://chaoli.io',
   scopedStyleStrategy: 'class',
   i18n: {
-    locales: ['zh', 'en'],
-    defaultLocale: 'zh',
+    locales: locales,
+    defaultLocale: defaultLocale,
   },
 });

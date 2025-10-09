@@ -1,25 +1,27 @@
 ---
-import { t } from "i18next";
-import { localizePath } from "astro-i18next";
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
+import { getCurrentLocale, getTranslations, getLocaleUrl } from '~/i18n';
+
+const locale = getCurrentLocale(Astro.params);
+const t = getTranslations(locale);
 ---
 
 <section class="hero-section hero-container">
   <div class="container">
     <div class="hero-left">
-      <h1 class="hero-heading">{t("homepage.heroHeading")}</h1>
-      <p class="hero-text">{t("homepage.heroDesc")}</p>
+      <h1 class="hero-heading">{t.homepage.heroHeading}</h1>
+      <p class="hero-text">{t.homepage.heroDesc}</p>
       <div class="links">
         <a
-          href={localizePath("/about/")}
+          href={getLocaleUrl(locale, '/about/')}
           class="link--primary text-icon-container action-link">
-          {t("homepage.aboutme")}
+          {t.homepage.aboutme}
           <Icon name="mdi:arrow-right" />
         </a>
         <a
           href="/resume.pdf"
           class="link--secondary text-icon-container action-link">
-          {t("site.resume")}
+          {t.site.resume}
           <Icon name="mdi:arrow-right" />
         </a>
       </div>
@@ -38,7 +40,7 @@ import { Icon } from "astro-icon/components";
     max-width: 72rem;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       right: 6rem;
       top: 0;

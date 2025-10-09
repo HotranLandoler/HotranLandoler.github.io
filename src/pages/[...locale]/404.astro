@@ -1,0 +1,48 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import {
+  getCurrentLocale,
+  getCurrentTranslations,
+  getLocaleStaticPaths,
+  getLocaleUrl,
+} from '~/i18n';
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+const locale = getCurrentLocale(Astro.params);
+const t = getCurrentTranslations(Astro.params);
+---
+
+<BaseLayout title="404">
+  <main class="container">
+    <Icon name="mdi:emoticon-sad-outline" class="icon mx-auto" />
+    <h2 class="mb-m">{t.site.notFound}</h2>
+    <a
+      href={getLocaleUrl(locale, '/')}
+      class="link--primary text-icon-container">
+      {t.site.backHome}
+      <Icon name="mdi:arrow-left" />
+    </a>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+
+    text-align: center;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: normal;
+  }
+  .container {
+    max-width: 32rem;
+  }
+  .icon {
+    color: #ccc;
+    font-size: 5rem;
+  }
+</style>

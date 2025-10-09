@@ -1,18 +1,20 @@
 ---
-import { t } from "i18next";
-import BaseLayout from "./BaseLayout.astro";
+import { getCurrentTranslations } from '~/i18n';
+import BaseLayout from './BaseLayout.astro';
 
 export interface Props {
-  titleKey: string;
+  title: string;
 }
 
-const { titleKey } = Astro.props;
+const { title } = Astro.props;
+
+const t = getCurrentTranslations(Astro.params);
 ---
 
-<BaseLayout title={t(titleKey)}>
+<BaseLayout title={title}>
   <main class="page-main">
     <header class="page-header">
-      <h1 class="page-heading">{t(titleKey)}</h1>
+      <h1 class="page-heading">{title}</h1>
     </header>
     <slot />
   </main>

@@ -1,0 +1,61 @@
+---
+import SubPageLayout from '~/layouts/SubPageLayout.astro';
+import ToolCard from '~/components/ToolCard.astro';
+import {
+  getCurrentLocale,
+  getTranslations,
+  getLocaleUrl,
+  getLocaleStaticPaths,
+} from '~/i18n';
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+const locale = getCurrentLocale(Astro.params);
+const t = getTranslations(locale);
+---
+
+<SubPageLayout title={t.site.tools}>
+  <div class="tools container">
+    <ToolCard
+      cardTitle={t.tools.namesFight.title}
+      href={getLocaleUrl(locale, '/tools/namefight')}
+      icon="mdi:sword-fight"
+    />
+    <ToolCard
+      cardTitle={t.tools.pomodoro.title}
+      href={getLocaleUrl(locale, '/tools/pomodoro')}
+      icon="mdi:alarm"
+    />
+    <!-- <ToolCard
+      title="tools.unitConverter.title"
+      href={getLocaleUrl("/tools/unitconverter")}
+      icon="mdi:sync"
+    /> -->
+    <ToolCard
+      cardTitle={t.tools.random.title}
+      href={getLocaleUrl(locale, '/tools/random')}
+      icon="mdi:dice"
+    />
+    <ToolCard
+      cardTitle={t.tools.spacecleaner.title}
+      href={getLocaleUrl(locale, '/tools/spacecleaner')}
+      icon="mdi:keyboard-space"
+    />
+    <ToolCard
+      cardTitle={t.tools.squid.title}
+      href={getLocaleUrl(locale, '/tools/squid')}
+      icon="squid"
+    />
+  </div>
+</SubPageLayout>
+
+<style>
+  .container {
+    max-width: 32rem;
+  }
+  .tools {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+</style>

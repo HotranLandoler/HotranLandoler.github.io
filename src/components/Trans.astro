@@ -1,0 +1,50 @@
+---
+export interface Props {
+  localizedText: string;
+}
+
+const { localizedText } = Astro.props;
+
+const referenceString = await Astro.slots.render('default');
+
+function interpolate(localizedText: string, referenceString: string): string {
+  const localizedString = localizedText;
+  const tagsRegex = /<([\w\d]+)([^>]*)>/gi;
+  const referenceStringMatches = referenceString.match(tagsRegex);
+
+  if (!referenceStringMatches) {
+    console.warn(
+      'default slot does not include any HTML tag to interpolate! You should use the `t` function directly.',
+    );
+    return localizedString;
+  }
+
+  const referenceTags: { name: string; attributes: string }[] = [];
+  referenceStringMatches.forEach((tagNode) => {
+    const [, name, attributes] = tagsRegex.exec(tagNode)!;
+    referenceTags.push({ name, attributes });
+
+    // reset regex state
+    tagsRegex.exec('');
+  });
+
+  let interpolatedString = localizedString;
+  for (let index = 0; index < referenceTags.length; index++) {
+    const referencedTag = referenceTags[index];
+    // Replace opening tags
+    interpolatedString = interpolatedString.replaceAll(
+      `<${index}>`,
+      `<${referencedTag.name}${referencedTag.attributes}>`,
+    );
+    // Replace closing tags
+    interpolatedString = interpolatedString.replaceAll(
+      `</${index}>`,
+      `</${referencedTag.name}>`,
+    );
+  }
+
+  return interpolatedString;
+}
+---
+
+<Fragment set:html={interpolate(localizedText, referenceString)} />

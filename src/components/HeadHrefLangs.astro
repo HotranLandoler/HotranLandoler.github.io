@@ -1,0 +1,26 @@
+---
+import { locales, type Locale } from '~/i18n';
+
+function localizeUrl(locale: Locale): string {
+  const pathname = Astro.url.pathname;
+  const [, shouldBeLocale, ...restPathnames] = pathname.split('/');
+  let result = Astro.url.origin;
+  if (locales.includes(shouldBeLocale as Locale)) {
+    result += `/${locale}/` + restPathnames.join('/');
+  } else {
+    result += `/${locale}` + pathname;
+  }
+
+  return result;
+}
+---
+
+{
+  locales.map((supportedLanguage) => (
+    <link
+      rel="alternate"
+      hreflang={supportedLanguage}
+      href={localizeUrl(supportedLanguage)}
+    />
+  ))
+}

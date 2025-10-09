@@ -1,5 +1,10 @@
 ---
-import i18next from "i18next";
+import {
+  getCurrentLocale,
+  getLocaleStaticPaths,
+  getTranslations,
+  getLocaleUrl,
+} from '~/i18n';
 
 export interface Props {
   url: string;
@@ -7,6 +12,8 @@ export interface Props {
   pubDate: Date;
   desc: string;
 }
+
+const locale = getCurrentLocale(Astro.params);
 
 const { url, title, pubDate, desc } = Astro.props;
 ---
@@ -16,7 +23,7 @@ const { url, title, pubDate, desc } = Astro.props;
     <div class="card-header">
       <h3 class="card-title">{title}</h3>
       <p class="pub-date">
-        <time>{pubDate.toLocaleDateString(i18next.language)}</time>
+        <time>{pubDate.toLocaleDateString(locale)}</time>
       </p>
     </div>
     <p>{desc}</p>

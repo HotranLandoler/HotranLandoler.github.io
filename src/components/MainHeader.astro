@@ -9,7 +9,10 @@ import {
   getLocaleUrl,
 } from '~/i18n';
 
+type Props = Record<string, never>;
+
 const locale = getCurrentLocale(Astro.params);
+
 export const getStaticPaths = getLocaleStaticPaths;
 const t = getTranslations(locale);
 ---

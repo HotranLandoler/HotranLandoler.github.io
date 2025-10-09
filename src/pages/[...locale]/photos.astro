@@ -1,0 +1,73 @@
+---
+import SubPageLayout from '~/layouts/SubPageLayout.astro';
+import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+const t = getCurrentTranslations(Astro.params);
+const columns = [
+  ['cat', 'cats'],
+  ['snow', 'mountain'],
+  ['moon', 'village'],
+];
+---
+
+<SubPageLayout title={t.site.photos}>
+  <div class="gallery container">
+    {
+      columns.map((column) => (
+        <div class="column">
+          {column.map((imgName) => (
+            <a
+              class="link image-item"
+              target="_blank"
+              href={`/images/photos/${imgName}-1500.jpg`}>
+              <img
+                src={`/images/photos/${imgName}-1500.jpg`}
+                width="1500"
+                alt=""
+              />
+            </a>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</SubPageLayout>
+
+<style lang="scss">
+  .container {
+    max-width: 72rem;
+  }
+  .gallery {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .image-item {
+    padding: 0;
+  }
+  .image-item img {
+    display: block;
+    width: 100%;
+
+    border-radius: 0.5rem;
+
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 48em) {
+    .gallery {
+      flex-direction: column;
+    }
+  }
+</style>

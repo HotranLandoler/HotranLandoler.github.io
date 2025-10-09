@@ -17,11 +17,11 @@ if (locales.includes(locale as Locale)) {
 const title = locale === 'zh' ? 'Switch to English' : '切换为中文';
 const text = locale === 'zh' ? 'EN' : '中文';
 const targetLocale = locale === 'zh' ? 'en' : 'zh';
+
+const href =
+  localeInUrl === 'posts' ? pathname : getLocaleUrl(targetLocale, pathname);
 ---
 
-<a
-  href={getLocaleUrl(targetLocale, pathnameWithoutLocale)}
-  class="hover-link--color"
-  title={title}>
+<a href={href} class="hover-link--color" title={title}>
   {text}
 </a>

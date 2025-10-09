@@ -1,8 +1,18 @@
 ---
-import { Icon } from "astro-icon/components";
-import i18next, { t } from "i18next";
-import { localizePath } from "astro-i18next";
-import Logo from "./Logo.astro";
+import { Icon } from 'astro-icon/components';
+import Logo from './Logo.astro';
+import {
+  getCurrentLocale,
+  getLocaleStaticPaths,
+  getTranslations,
+  getLocaleUrl,
+} from '~/i18n';
+
+type Props = Record<string, never>;
+
+const locale = getCurrentLocale(Astro.params);
+export const getStaticPaths = getLocaleStaticPaths;
+const t = getTranslations(locale);
 
 const { pathname } = Astro.url;
 ---
@@ -11,60 +21,66 @@ const { pathname } = Astro.url;
   <div class="footer-grid container">
     <div class="logo-area">
       <Logo />
-      <p class="mb-m">{t("site.description")}</p>
+      <p class="mb-m">{t.site.description}</p>
     </div>
     <div>
-      <p class="footer-heading">{t("site.links")}</p>
+      <p class="footer-heading">{t.site.links}</p>
       <ul class="footer-nav-list">
         <li>
-          <a href={localizePath("/games/")} class="hover-link--underline"
-            >{t("site.games")}</a
+          <a
+            href={getLocaleUrl(locale, '/games/')}
+            class="hover-link--underline">{t.site.games}</a
           >
         </li>
         <li>
-          <a href={localizePath("/tools/")} class="hover-link--underline"
-            >{t("site.tools")}</a
+          <a
+            href={getLocaleUrl(locale, '/tools/')}
+            class="hover-link--underline">{t.site.tools}</a
           >
         </li>
         <li>
-          <a href={localizePath("/art/")} class="hover-link--underline">
-            {t("site.art")}
+          <a href={getLocaleUrl(locale, '/art/')} class="hover-link--underline">
+            {t.site.art}
           </a>
         </li>
         <li>
-          <a href={localizePath("/blog/")} class="hover-link--underline">
-            {t("site.blog")}
+          <a
+            href={getLocaleUrl(locale, '/blog/')}
+            class="hover-link--underline">
+            {t.site.blog}
           </a>
         </li>
         <li>
-          <a href={localizePath("/photos/")} class="hover-link--underline"
-            >{t("site.photos")}</a
+          <a
+            href={getLocaleUrl(locale, '/photos/')}
+            class="hover-link--underline">{t.site.photos}</a
           >
         </li>
         <li>
-          <a href={localizePath("/about/")} class="hover-link--underline"
-            >{t("site.about")}</a
+          <a
+            href={getLocaleUrl(locale, '/about/')}
+            class="hover-link--underline">{t.site.about}</a
           >
         </li>
       </ul>
     </div>
     <div>
-      <p class="footer-heading">{t("language")}</p>
+      <p class="footer-heading">{t.language}</p>
       <ul class="mb-m">
         <li>
-          <a href={localizePath(pathname, "zh")} class="hover-link--underline">
+          <a href={getLocaleUrl('zh', pathname)} class="hover-link--underline">
             中文
           </a>
         </li>
         <li>
-          <a href={localizePath(pathname, "en")} class="hover-link--underline">
+          <a href={getLocaleUrl('en', pathname)} class="hover-link--underline">
             English
           </a>
         </li>
       </ul>
     </div>
     <div class="footer-contact">
-      <p class="footer-heading">{t("site.contact")}</p>
+      <p class="footer-heading">{t.site.contact}</p>
       <address>
         <ul class="emails">
           <li>
