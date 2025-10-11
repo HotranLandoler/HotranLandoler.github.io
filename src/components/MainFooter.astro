@@ -18,11 +18,11 @@ const { pathname } = Astro.url;
 ---
 
 <footer class="main-footer">
-  <div class="footer-grid container">
-    <div class="logo-area">
-      <Logo />
-      <p class="mb-m">{t.site.description}</p>
-    </div>
+  <div class="logo-area">
+    <Logo />
+    <p class="mb-m">{t.site.description}</p>
+  </div>
+  <div class="footer-grid">
     <div>
       <p class="footer-heading">{t.site.links}</p>
       <ul class="footer-nav-list">
@@ -123,6 +123,7 @@ const { pathname } = Astro.url;
       </address>
     </div>
   </div>
+
   <div class="bottom-row" lang="en">
     <div class="container flex">
       <small>© 2025 LOU Chaoli</small>
@@ -133,13 +134,13 @@ const { pathname } = Astro.url;
 
 <style lang="scss">
   .main-footer {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 2;
     border-top: 1px solid #eee;
+    padding-inline: 1rem;
 
     color: var(--color-on-background);
-  }
-
-  .container {
-    max-width: 72rem;
   }
 
   .footer-grid {
@@ -147,7 +148,7 @@ const { pathname } = Astro.url;
     padding-bottom: 2rem;
 
     display: grid;
-    grid-template-columns: 3.5fr 1fr 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: flex-start;
     justify-items: flex-start;
     gap: 4rem;
@@ -159,17 +160,7 @@ const { pathname } = Astro.url;
     margin-bottom: 1rem;
   }
 
-  .footer-nav-list {
-    margin-bottom: 2rem;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 1rem;
-  }
-
   .bottom-row {
-    color: var(--color-on-primary);
-    background-color: var(--color-primary);
     padding: 2rem 0;
   }
 

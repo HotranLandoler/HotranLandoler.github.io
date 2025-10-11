@@ -26,9 +26,14 @@ const t = getCurrentTranslations(Astro.params);
     padding-bottom: 8rem;
   }
   .page-header {
-    padding-top: 8rem;
-    padding-bottom: 2rem;
-    text-align: center;
+    text-align: start;
+  }
+  .page-heading {
+    font-size: 5rem;
+    color: var(--color-on-background-light);
+    text-transform: uppercase;
+
+    transform: translateY(-1.25rem);
   }
 
   @media (max-width: 48em) {

@@ -19,7 +19,9 @@ const text = locale === 'zh' ? 'EN' : '中文';
 const targetLocale = locale === 'zh' ? 'en' : 'zh';
 
 const href =
-  localeInUrl === 'posts' ? pathname : getLocaleUrl(targetLocale, pathname);
+  localeInUrl === 'posts'
+    ? pathname
+    : getLocaleUrl(targetLocale, pathnameWithoutLocale);
 ---
 
 <a href={href} class="hover-link--color" title={title}>

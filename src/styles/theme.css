@@ -1,0 +1,30 @@
+:root {
+  --color-background: oklch(0.996 0.0135 109.55);
+  --color-background2: oklch(91.279% 0.0001 271.152);
+  --color-background3: oklch(96.821% 0.02925 96.423);
+  --color-on-background: oklch(31.586% 0.02832 206.777);
+  --color-on-background-light: oklch(78.109% 0.01689 206.69);
+
+  --color-main-header: oklch(99.626% 0.01434 111.024 / 0.052);
+
+  --color-surface: white;
+  --color-primary: hsl(341.87 85% 61%);
+  --color-on-primary: white;
+  --color-primary-shadow: hsl(341.87 85% 61% / 0.5);
+  --color-primary-dark: hsl(341.87 85% 61%);
+  --color-secondary: hsl(153.32 54% 87%);
+  --color-on-secondary: #011432;
+
+  --font-main: 'Noto Sans SC Variable', sans-serif;
+
+  --border-radius-s: 5px;
+
+  accent-color: var(--color-primary);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}

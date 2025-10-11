@@ -18,48 +18,17 @@ const t = getTranslations(locale);
 ---
 
 <header class="main-header">
-  <div class="container">
-    <Logo />
+  <Logo />
+  <div class="flex items-center right">
     <nav class="main-nav">
-      <ul class="nav-list">
+      <ul class="flex items-center gap-s">
         <li>
           <a href={getLocaleUrl(locale, '/')} class="link">{t.site.home}</a>
         </li>
-        <li class="dropdown">
-          <a class="link link--dropdown">
-            {t.site.work}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="icon">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
-            </svg>
-          </a>
-          <ul class="submenu" role="menu">
-            <li>
-              <a
-                href={getLocaleUrl(locale, '/games/')}
-                class="link submenu-item">{t.site.games}</a
-              >
-            </li>
-            <li>
-              <a href={getLocaleUrl(locale, '/art/')} class="link submenu-item"
-                >{t.site.art}</a
-              >
-            </li>
-            <li>
-              <a
-                href={getLocaleUrl(locale, '/photos/')}
-                class="link submenu-item">{t.site.photos}</a
-              >
-            </li>
-          </ul>
+        <li>
+          <a href={getLocaleUrl(locale, '/games/')} class="link submenu-item"
+            >{t.site.games}</a
+          >
         </li>
         <li>
           <a href={getLocaleUrl(locale, '/tools/')} class="link">
@@ -78,69 +47,70 @@ const t = getTranslations(locale);
         </li>
       </ul>
     </nav>
-    <div class="toggles">
+    <div class="flex items-center toggles">
       <LanguageSwitch />
       <Hamburger />
     </div>
-    <nav class="mobile-nav">
-      <ul class="mobile-nav-list">
-        <li>
-          <a
-            href={getLocaleUrl(locale, '/')}
-            class="hover-link--underline mobile-nav-link">
-            {t.site.home}
-          </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a
-            href={getLocaleUrl(locale, '/games/')}
-            class="hover-link--underline mobile-nav-link">
-            {t.site.games}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getLocaleUrl(locale, '/art/')}
-            class="hover-link--underline mobile-nav-link">
-            {t.site.art}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getLocaleUrl(locale, '/photos/')}
-            class="hover-link--underline mobile-nav-link">
-            {t.site.photos}
-          </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a
-            href={getLocaleUrl(locale, '/tools/')}
-            class="hover-link--underline mobile-nav-link">
-            {t.site.tools}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getLocaleUrl(locale, '/blog/')}
-            class="hover-link--underline mobile-nav-link">
-            {t.site.blog}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getLocaleUrl(locale, '/about/')}
-            class="hover-link--underline mobile-nav-link">
-            {t.site.about}
-          </a>
-        </li>
-      </ul>
-    </nav>
   </div>
+
+  <nav class="mobile-nav">
+    <ul class="mobile-nav-list">
+      <li>
+        <a
+          href={getLocaleUrl(locale, '/')}
+          class="hover-link--underline mobile-nav-link">
+          {t.site.home}
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a
+          href={getLocaleUrl(locale, '/games/')}
+          class="hover-link--underline mobile-nav-link">
+          {t.site.games}
+        </a>
+      </li>
+      <li>
+        <a
+          href={getLocaleUrl(locale, '/art/')}
+          class="hover-link--underline mobile-nav-link">
+          {t.site.art}
+        </a>
+      </li>
+      <li>
+        <a
+          href={getLocaleUrl(locale, '/photos/')}
+          class="hover-link--underline mobile-nav-link">
+          {t.site.photos}
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a
+          href={getLocaleUrl(locale, '/tools/')}
+          class="hover-link--underline mobile-nav-link">
+          {t.site.tools}
+        </a>
+      </li>
+      <li>
+        <a
+          href={getLocaleUrl(locale, '/blog/')}
+          class="hover-link--underline mobile-nav-link">
+          {t.site.blog}
+        </a>
+      </li>
+      <li>
+        <a
+          href={getLocaleUrl(locale, '/about/')}
+          class="hover-link--underline mobile-nav-link">
+          {t.site.about}
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
 
-<script lang="ts">
+<script>
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileNavButton = document.querySelector('.button-mobile-nav');
   let mobileNavOpen = false;
@@ -152,114 +122,47 @@ const t = getTranslations(locale);
 
   function toggleNav() {
     mobileNavOpen = !mobileNavOpen;
-    mobileNav.classList.toggle('open');
-    mobileNavButton.classList.toggle('is-active');
-    mobileNavButton.ariaExpanded = mobileNavOpen ? 'true' : 'false';
+    mobileNav!.classList.toggle('open');
+    mobileNavButton!.classList.toggle('is-active');
+    mobileNavButton!.ariaExpanded = mobileNavOpen ? 'true' : 'false';
   }
 </script>
 
-<style lang="scss">
+<style>
   .main-header {
-    position: fixed;
-    width: 100%;
+    position: sticky;
+    top: 0;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 2;
+    align-items: center;
+
+    padding-inline: 1rem;
 
     z-index: 2;
 
-    // TODO
-    background-color: rgba(255, 255, 255, 0.8);
-
-    backdrop-filter: blur(15px);
-
-    transition: all 0.3s;
-  }
-  body.sticky .main-header {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    background-color: var(--color-main-header);
+    backdrop-filter: blur(2px);
   }
 
-  .container {
-    display: flex;
-    align-items: center;
+  .right {
     justify-content: space-between;
-    max-width: 72rem;
   }
 
-  .nav-list,
-  .toggles {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    // gap: 1.5rem;
+  .main-nav {
+    transform: translateX(-1rem);
   }
+
   .toggles {
     gap: 2rem;
   }
-  .link {
-    position: relative;
 
-    padding: 1.5rem;
+  .link {
+    padding: 1rem;
     font-size: 1.2rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      background-color: var(--color-primary);
-      width: 100%;
-      height: 0.2rem;
-      transform: scaleX(0);
-      transform-origin: left;
-      // transition: transform 0.3s ease-out;
-      transition:
-        transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
-        transform-origin 0s 0.4s;
-    }
-    &:hover::after,
-    &:active::after {
-      transform: scaleX(1);
-      transform-origin: right;
-    }
-  }
-  .link--dropdown {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    .icon {
-      width: 1rem;
-    }
-  }
-  .dropdown {
-    position: relative;
-
-    .submenu {
-      list-style: none;
-
-      background: #fff;
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-      left: 0;
-      opacity: 0;
-      position: absolute;
-      top: 120%;
-      transition: all 0.2s ease 0s;
-      visibility: hidden;
-      width: 100%;
-      z-index: 9;
-      text-align: left;
-    }
-
-    &:hover .submenu {
-      opacity: 1;
-      top: 100%;
-      visibility: visible;
-    }
-  }
-  .submenu-item {
-    width: 100%;
-    text-align: center;
-    padding: 1rem;
   }
 
   .mobile-nav {
@@ -278,7 +181,6 @@ const t = getTranslations(locale);
     background-color: var(--color-background);
     padding: 2rem 3rem;
     overflow: hidden;
-    // transform: scaleY(0);
     transform-origin: top;
     transition: all 0.2s ease-out;
 
@@ -299,26 +201,17 @@ const t = getTranslations(locale);
       transition: all 0.2s;
     }
   }
+
   .mobile-nav-link {
     display: block;
-  }
-  .divider {
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 0.2rem;
-      background-color: var(--color-secondary);
-    }
   }
 
   @media (max-width: 72em) {
     .toggles {
       gap: 1.5rem;
+    }
+    .right {
+      justify-content: flex-end;
     }
     .main-nav {
       display: none;

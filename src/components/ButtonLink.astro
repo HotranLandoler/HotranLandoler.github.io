@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  href: string;
+  title: string;
+}
+
+const { href, title } = Astro.props;
+---
+
+<a class="items-center" href={href} title={title}>
+  <slot />
+  <Icon name="mdi:arrow-right" />
+</a>
+
+<style>
+  a {
+    display: inline-flex;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    &:hover [data-icon] {
+      transform: translateX(20%);
+    }
+  }
+
+  [data-icon] {
+    width: 2rem;
+    transition: transform 0.3s;
+  }
+</style>

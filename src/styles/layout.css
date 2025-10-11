@@ -1,0 +1,14 @@
+body {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  min-height: 100svh;
+}
+
+main {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 2;
+
+  padding-inline: 1rem;
+  padding-block: 10rem 5rem;
+}
