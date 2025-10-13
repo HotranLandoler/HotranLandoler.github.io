@@ -1,0 +1,63 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+export interface Props {
+  imgSrc: ImageMetadata;
+  href: string;
+  gameTitle: string;
+  isSpecial?: boolean;
+}
+
+const { imgSrc, href, gameTitle, isSpecial } = Astro.props;
+---
+
+<a class="game-card" class:list={[{ special: isSpecial }]} href={href}>
+  <figure>
+    <Image src={imgSrc} alt="" />
+    <figcaption class="flex info">
+      <Icon name="mdi:arrow-right" />
+      {gameTitle}
+    </figcaption>
+  </figure>
+</a>
+
+<style>
+  .game-card {
+    /* border-radius: 0.5rem; */
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.3s;
+    grid-column: span 2;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    &:hover [data-icon] {
+      width: 1.2rem;
+    }
+  }
+
+  .special {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+
+  .game-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    margin-bottom: 0.5rem;
+  }
+
+  .info {
+    padding: 0.5rem 0.5rem 0.8rem 0;
+  }
+
+  [data-icon] {
+    width: 0;
+
+    transition: width 0.3s;
+  }
+</style>

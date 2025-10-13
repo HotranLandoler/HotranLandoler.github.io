@@ -4,12 +4,17 @@ import { Icon } from 'astro-icon/components';
 
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import MainHero from '~/components/MainHero.astro';
-import WorkCard from '~/components/WorkCard.astro';
+
+import GameCardFeatured from '~/components/GameCardFeatured.astro';
+import cquhorrorCard from '~/images/cqu-horror/cquhorrorCard.webp';
+import intoSoilCard from '~/images/into-soil/IntoSoilCard.webp';
+import poopyBirdCard from '~/images/poopy-bird/PoopyBirdCard.jpg';
+import crashPunkCard from '~/images/crash-punk/CrashPunkCard.jpg';
+import youchatCard from '~/images/youchat/YouchatCard.avif';
+import livezoneCard from '~/images/live-zone/live-zone-card.jpg';
+
 import BlogCard from '~/components/BlogCard.astro';
 import ToolCard from '~/components/ToolCard.astro';
-import gamesImage from '~/images/CquHorror.webp';
-import artImage from '~/images/Island.webp';
-import photosImage from '~/images/photos.webp';
 
 import {
   getCurrentLocale,
@@ -17,6 +22,8 @@ import {
   getTranslations,
   getLocaleUrl,
 } from '~/i18n';
+import PageSection from '~/components/PageSection.astro';
+import ButtonLink from '~/components/ButtonLink.astro';
 
 const locale = getCurrentLocale(Astro.params);
 export const getStaticPaths = getLocaleStaticPaths;
@@ -27,38 +34,72 @@ const firstPosts = allPosts
   .sort(function compareDate(a, b) {
     return b.data.pubDate.getTime() - a.data.pubDate.getTime();
   })
-  .slice(0, 2);
+  .slice(0, 5);
+
+function localizePath(path: string) {
+  return getLocaleUrl(locale, path);
+}
 ---
 
 <BaseLayout title={t.site.home}>
   <main>
     <MainHero />
     <!-- 作品 -->
-    <section class="page-section">
-      <div class="container">
-        <header>
-          <span class="subheading">{t.homepage.workSubheading}</span>
-          <h2 class="heading-secondary">{t.homepage.workHeading}</h2>
-        </header>
-        <div class="works">
-          <WorkCard
-            href={getLocaleUrl(locale, '/games/')}
-            imgSrc={gamesImage}
-            title={t.site.games}
-          />
-          <WorkCard
-            href={getLocaleUrl(locale, '/art/')}
-            imgSrc={artImage}
-            title={t.site.art}
-          />
-          <WorkCard
-            href={getLocaleUrl(locale, '/photos/')}
-            imgSrc={photosImage}
-            title={t.site.photos}
-          />
-        </div>
+    <PageSection heading={t.homepage.workHeading}>
+      <ButtonLink slot="links" href={localizePath('/games')} title="全部游戏"
+        >{t.homepage.allGames}</ButtonLink
+      >
+      <div class="works">
+        <GameCardFeatured
+          isSpecial
+          imgSrc={cquhorrorCard}
+          href={localizePath('/games/cquhorror')}
+          gameTitle={t.games.cquHorror.title}
+        />
+        <GameCardFeatured
+          imgSrc={intoSoilCard}
+          href={localizePath('/games/intosoil')}
+          gameTitle={t.games.intoSoil.title}
+        />
+        <GameCardFeatured
+          imgSrc={poopyBirdCard}
+          href={localizePath('/games/poopybird')}
+          gameTitle={t.games.poopybird.title}
+        />
+        <GameCardFeatured
+          imgSrc={crashPunkCard}
+          href={localizePath('/games/crashpunk')}
+          gameTitle={t.games.crashpunk.title}
+        />
+        <GameCardFeatured
+          imgSrc={youchatCard}
+          href={localizePath('/games/youchat')}
+          gameTitle={t.games.youchat.title}
+        />
+        <GameCardFeatured
+          imgSrc={livezoneCard}
+          href={localizePath('/games/livezone')}
+          gameTitle={t.games.livezone.title}
+        />
       </div>
-    </section>
+    </PageSection>
+
+    <PageSection heading={t.homepage.blogHeading}>
+      <ul class="posts">
+        {
+          firstPosts.map((post) => (
+            <li>
+              <BlogCard
+                url={'/posts/' + post.id}
+                title={post.data.title}
+                pubDate={post.data.pubDate}
+                desc={post.data.description}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </PageSection>
 
     <div class="grid-blog-toolbox container">
       <!-- 博客 -->
@@ -67,20 +108,7 @@ const firstPosts = allPosts
           <span class="subheading">{t.homepage.blogSubheading}</span>
           <h2 class="heading-secondary">{t.homepage.blogHeading}</h2>
         </header>
-        <ul class="posts">
-          {
-            firstPosts.map((post) => (
-              <li>
-                <BlogCard
-                  url={'/posts/' + post.id}
-                  title={post.data.title}
-                  pubDate={post.data.pubDate}
-                  desc={post.data.description}
-                />
-              </li>
-            ))
-          }
-        </ul>
+
         <div class="more-tools">
           <a
             href={getLocaleUrl(locale, '/blog/')}
@@ -145,25 +173,17 @@ const firstPosts = allPosts
   </main>
 </BaseLayout>
 
-<style lang="scss">
-  .container {
-    max-width: 72rem;
-  }
-  .page-section {
-    padding-top: 5rem;
-    padding-bottom: 6rem;
-  }
+<style>
   .works {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 2rem;
   }
   .grid-blog-toolbox {
     padding: 2rem;
     padding-bottom: 6rem;
 
     display: grid;
-    // align-items: flex-start;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
   }

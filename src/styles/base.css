@@ -1,29 +1,14 @@
 body {
   font-family: var(--font-main);
+  font-weight: 500;
   color: var(--color-on-background);
 
-  background-color: var(--color-background);
-}
-
-body {
   background-image: radial-gradient(
     circle farthest-corner at 50% 20%,
     var(--color-background3) 0%,
     var(--color-background2) 25.2%,
     var(--color-background) 100.1%
   );
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 a:any-link {

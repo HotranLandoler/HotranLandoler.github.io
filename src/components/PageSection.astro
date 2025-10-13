@@ -1,0 +1,36 @@
+---
+export interface Props {
+  heading: string;
+}
+
+const { heading } = Astro.props;
+---
+
+<section class="page-section">
+  <header>
+    <h2 class="heading">{heading}</h2>
+    <slot name="links" />
+  </header>
+  <div>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .page-section {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 2;
+  }
+
+  .heading {
+    font-size: 4rem;
+    color: var(--color-on-background-light);
+    text-transform: uppercase;
+
+    transform: translateY(-1.25rem);
+  }
+</style>

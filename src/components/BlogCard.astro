@@ -20,7 +20,7 @@ const { url, title, pubDate, desc } = Astro.props;
 
 <a href={url} class="link--card" title={title}>
   <article class="card">
-    <div class="card-header">
+    <div class="card-header mb-s">
       <h3 class="card-title">{title}</h3>
       <p class="pub-date">
         <time>{pubDate.toLocaleDateString(locale)}</time>
@@ -35,23 +35,16 @@ const { url, title, pubDate, desc } = Astro.props;
     display: block;
 
     background-color: var(--color-surface);
-    border-radius: 1rem;
-    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
-    padding: 2rem 3rem;
+    padding: 1.5rem;
 
     transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-    }
   }
   .card-header {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
   }
   .card-title {
-    font-size: var(--font-size-h4);
+    font-size: 1.2rem;
   }
   .pub-date {
     color: var(--color-primary-dark);

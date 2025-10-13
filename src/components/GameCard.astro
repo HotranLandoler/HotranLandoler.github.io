@@ -35,7 +35,6 @@ type Game = (typeof t.games)['cquHorror'];
     height: auto;
   }
   .game-card {
-    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     height: 100%;
     overflow: hidden;
@@ -43,11 +42,6 @@ type Game = (typeof t.games)['cquHorror'];
 
     display: grid;
     grid-template-rows: auto 1fr;
-
-    &:hover {
-      transform: translateY(-0.5rem);
-      box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.15);
-    }
   }
   .game-title {
     font-size: 1.2rem;

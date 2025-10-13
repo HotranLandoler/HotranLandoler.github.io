@@ -9,13 +9,13 @@ const locale = getCurrentLocale(Astro.params);
   class="link--card"
   href={getLocaleUrl(locale, '/')}
   title="Back to home page">
-  <!-- <Image class="logo" src="/favicon.svg" width="48" height="48" alt="Logo" /> -->
+  <Image class="logo" src="/favicon.svg" width="48" height="48" alt="Logo" />
   Chaoli
 </a>
 
-<style lang="scss">
+<style>
   a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
 
@@ -34,7 +34,5 @@ const locale = getCurrentLocale(Astro.params);
   .logo {
     width: 3rem;
     height: 3rem;
-
-    fill: black;
   }
 </style>
