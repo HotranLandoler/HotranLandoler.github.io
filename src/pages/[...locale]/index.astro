@@ -44,11 +44,12 @@ function localizePath(path: string) {
 <BaseLayout title={t.site.home}>
   <main>
     <MainHero />
+
     <!-- 作品 -->
     <PageSection heading={t.homepage.workHeading}>
-      <ButtonLink slot="links" href={localizePath('/games')} title="全部游戏"
-        >{t.homepage.allGames}</ButtonLink
-      >
+      <ButtonLink slot="links" href={localizePath('/games')} title="全部游戏">
+        {t.homepage.allGames}
+      </ButtonLink>
       <div class="works">
         <GameCardFeatured
           isSpecial
@@ -85,6 +86,9 @@ function localizePath(path: string) {
     </PageSection>
 
     <PageSection heading={t.homepage.blogHeading}>
+      <ButtonLink slot="links" href={localizePath('/blog')} title="更多博文">
+        {t.homepage.morePosts}
+      </ButtonLink>
       <ul class="posts">
         {
           firstPosts.map((post) => (
@@ -101,75 +105,38 @@ function localizePath(path: string) {
       </ul>
     </PageSection>
 
-    <div class="grid-blog-toolbox container">
-      <!-- 博客 -->
-      <section class="blog-section">
-        <header>
-          <span class="subheading">{t.homepage.blogSubheading}</span>
-          <h2 class="heading-secondary">{t.homepage.blogHeading}</h2>
-        </header>
-
-        <div class="more-tools">
-          <a
-            href={getLocaleUrl(locale, '/blog/')}
-            class="link--primary text-icon-container">
-            {t.homepage.morePosts}
-            <Icon name="mdi:arrow-right" />
-          </a>
-        </div>
-      </section>
-      <!-- 工具箱 -->
-      <section class="tool-section">
-        <header>
-          <span class="subheading heading-tools">
-            {t.homepage.toolsSubheading}
-          </span>
-          <h2 class="heading-secondary heading-tools">
-            {t.homepage.toolsHeading}
-          </h2>
-        </header>
-        <div class="tools">
-          <ToolCard
-            cardTitle={t.tools.namesFight.title}
-            href={getLocaleUrl(locale, '/tools/namefight')}
-            icon="mdi:sword-fight"
-          />
-          <ToolCard
-            cardTitle={t.tools.pomodoro.title}
-            href={getLocaleUrl(locale, '/tools/pomodoro')}
-            icon="mdi:alarm"
-          />
-          <!-- <ToolCard
-      title="tools.unitConverter.title"
-      href={getLocaleUrl("/tools/unitconverter")}
-      icon="mdi:sync"
-    /> -->
-          <ToolCard
-            cardTitle={t.tools.random.title}
-            href={getLocaleUrl(locale, '/tools/random')}
-            icon="mdi:dice"
-          />
-          <ToolCard
-            cardTitle={t.tools.spacecleaner.title}
-            href={getLocaleUrl(locale, '/tools/spacecleaner')}
-            icon="mdi:keyboard-space"
-          />
-          <ToolCard
-            cardTitle={t.tools.squid.title}
-            href={getLocaleUrl(locale, '/tools/squid')}
-            icon="squid"
-          />
-        </div>
-        <div class="more-tools">
-          <a
-            href={getLocaleUrl(locale, '/tools/')}
-            class="link--primary text-icon-container">
-            {t.homepage.moreTools}
-            <Icon name="mdi:arrow-right" />
-          </a>
-        </div>
-      </section>
-    </div>
+    <PageSection heading={t.homepage.toolsHeading}>
+      <ButtonLink slot="links" href={localizePath('/tools')} title="更多工具">
+        {t.homepage.moreTools}
+      </ButtonLink>
+      <div class="tools">
+        <ToolCard
+          cardTitle={t.tools.namesFight.title}
+          href={getLocaleUrl(locale, '/tools/namefight')}
+          icon="mdi:sword-fight"
+        />
+        <ToolCard
+          cardTitle={t.tools.pomodoro.title}
+          href={getLocaleUrl(locale, '/tools/pomodoro')}
+          icon="mdi:alarm"
+        />
+        <ToolCard
+          cardTitle={t.tools.random.title}
+          href={getLocaleUrl(locale, '/tools/random')}
+          icon="mdi:dice"
+        />
+        <ToolCard
+          cardTitle={t.tools.spacecleaner.title}
+          href={getLocaleUrl(locale, '/tools/spacecleaner')}
+          icon="mdi:keyboard-space"
+        />
+        <ToolCard
+          cardTitle={t.tools.squid.title}
+          href={getLocaleUrl(locale, '/tools/squid')}
+          icon="squid"
+        />
+      </div>
+    </PageSection>
   </main>
 </BaseLayout>
 
@@ -178,17 +145,6 @@ function localizePath(path: string) {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: 2rem;
-  }
-  .grid-blog-toolbox {
-    padding: 2rem;
-    padding-bottom: 6rem;
-
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-  }
-  .blog-section {
-    padding: 2rem 0;
   }
   .posts {
     margin-bottom: 2rem;
@@ -204,9 +160,8 @@ function localizePath(path: string) {
   }
   .tools {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 0.5rem;
-    margin-bottom: 4rem;
   }
   .more-tools {
     text-align: right;

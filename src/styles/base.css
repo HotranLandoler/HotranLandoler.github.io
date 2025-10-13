@@ -3,11 +3,12 @@ body {
   font-weight: 500;
   color: var(--color-on-background);
 
+  background-color: var(--color-background);
   background-image: radial-gradient(
     circle farthest-corner at 50% 20%,
     var(--color-background3) 0%,
     var(--color-background2) 25.2%,
-    var(--color-background) 100.1%
+    var(--color-background) 100%
   );
 }
 

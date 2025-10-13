@@ -10,35 +10,36 @@ export interface Props {
 const { cardTitle, href, icon } = Astro.props;
 ---
 
-<a class="link--card tool-card" href={href}>
-  <Icon name={icon} class="icon mx-auto" />
+<a class="tool-card" href={href}>
+  <Icon name={icon} class="icon" />
   <p class="title">{cardTitle}</p>
 </a>
 
-<style lang="scss">
+<style>
   .tool-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 1rem;
 
-    text-align: center;
-
-    background-color: var(--color-background);
-    border-radius: 1rem;
-    cursor: pointer;
+    background-color: var(--color-surface);
     transition: all 0.3s;
 
     &:hover {
-      box-shadow: 0 0 0 0.2rem var(--color-primary);
+      border-radius: 2rem;
     }
 
     &:hover .icon {
-      color: var(--color-primary);
+      transform: translateY(-0.5rem);
     }
   }
   .title {
     font-size: 1.2rem;
   }
   .icon {
-    width: 2rem;
-    transition: color 0.3s;
+    /* margin: 0 auto; */
+
+    width: 3rem;
+    transition: all 0.3s;
   }
 </style>

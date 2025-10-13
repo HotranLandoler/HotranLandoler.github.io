@@ -5,6 +5,7 @@ import {
   getTranslations,
   getLocaleUrl,
 } from '~/i18n';
+import HoverArrowText from './HoverArrowText.astro';
 
 export interface Props {
   url: string;
@@ -20,24 +21,26 @@ const { url, title, pubDate, desc } = Astro.props;
 
 <a href={url} class="link--card" title={title}>
   <article class="card">
-    <div class="card-header mb-s">
-      <h3 class="card-title">{title}</h3>
+    <header class="card-header mb-s">
+      <h3 class="card-title">
+        <HoverArrowText>
+          {title}
+        </HoverArrowText>
+      </h3>
       <p class="pub-date">
         <time>{pubDate.toLocaleDateString(locale)}</time>
       </p>
-    </div>
+    </header>
     <p>{desc}</p>
   </article>
 </a>
 
-<style lang="scss">
+<style>
   .card {
     display: block;
-
-    background-color: var(--color-surface);
     padding: 1.5rem;
 
-    transition: box-shadow 0.3s;
+    border: 2px solid var(--color-on-background-light);
   }
   .card-header {
     display: flex;
@@ -47,7 +50,7 @@ const { url, title, pubDate, desc } = Astro.props;
     font-size: 1.2rem;
   }
   .pub-date {
-    color: var(--color-primary-dark);
+    color: var(--color-on-background-light);
     margin-left: auto;
   }
 
