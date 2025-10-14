@@ -81,13 +81,10 @@ function localizePath(path: string) {
 </SubPageLayout>
 
 <style>
-  .container {
-    max-width: 48rem;
-  }
   .games {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   @media (max-width: 60em) {
@@ -96,13 +93,4 @@ function localizePath(path: string) {
       grid-template-columns: 1fr 1fr;
     }
   }
-
-  /* @media (max-width: 40em) {
-    .games {
-      padding-left: 6rem;
-      padding-right: 6rem;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-  } */
 </style>

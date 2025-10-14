@@ -3,6 +3,7 @@ import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import type { Translations } from '~/i18n';
 import { getCurrentTranslations } from '~/i18n';
+import HoverArrowText from './HoverArrowText.astro';
 
 export interface Props {
   gameKey: keyof Translations['games'];
@@ -16,29 +17,28 @@ const t = getCurrentTranslations(Astro.params);
 type Game = (typeof t.games)['cquHorror'];
 ---
 
-<a class="link--card" href={href}>
+<a href={href}>
   <figure class="game-card">
     <Image src={imgSrc} alt="" />
     <figcaption class="info">
-      <p class="game-title">{(t.games[gameKey] as Game).title}</p>
+      <p class="game-title">
+        <HoverArrowText>
+          {(t.games[gameKey] as Game).title}
+        </HoverArrowText>
+      </p>
       <p class="game-desc">{(t.games[gameKey] as Game).desc}</p>
     </figcaption>
   </figure>
 </a>
 
-<style lang="scss">
+<style>
   img {
     aspect-ratio: 3 / 4;
 
-    display: block;
-    width: 100%;
-    height: auto;
+    margin-bottom: 0.5rem;
   }
   .game-card {
-    border-radius: 0.5rem;
-    height: 100%;
     overflow: hidden;
-    transition: all 0.3s;
 
     display: grid;
     grid-template-rows: auto 1fr;
@@ -50,7 +50,8 @@ type Game = (typeof t.games)['cquHorror'];
     margin-bottom: 0.5rem;
   }
   .info {
-    padding: 0.7rem 0.8rem 0.8rem 0.8rem;
     position: relative;
+
+    font-size: 0.8rem;
   }
 </style>
