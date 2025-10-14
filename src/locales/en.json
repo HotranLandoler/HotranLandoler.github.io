@@ -16,7 +16,8 @@
     "links": "Links",
     "contact": "Contact",
     "notFound": "Page not found",
-    "backHome": "Go to homepage"
+    "backHome": "Go to homepage",
+    "relatedSites": "Related Sites"
   },
   "homepage": {
     "heroHeading": "Hey there, I'm <0>Lou Chaoli</0>, an indie game developer.",
