@@ -8,6 +8,7 @@ import {
   getLocaleStaticPaths,
   getLocaleUrl,
 } from '~/i18n';
+import ButtonLink from '~/components/ButtonLink.astro';
 
 const locale = getCurrentLocale(Astro.params);
 export const getStaticPaths = getLocaleStaticPaths;
@@ -16,17 +17,12 @@ const t = getCurrentTranslations(Astro.params);
 
 <SubPageLayout title={t.site.about}>
   <div class="container">
-    <h2 class="fullname">
-      <ruby>
-        楼 <rp>(</rp><rt>Lóu</rt><rp>)</rp>
-        朝 <rp>(</rp><rt>Cháo</rt><rp>)</rp>
-        立 <rp>(</rp><rt>Lì</rt><rp>)</rp>
-      </ruby>
-    </h2>
-    <a href="/resume.pdf" class="link--primary text-icon-container resume">
-      {t.site.resume}
-      <Icon name="mdi:arrow-right" />
-    </a>
+    <h2 class="fullname">楼朝立</h2>
+    <div class="resume">
+      <ButtonLink href="/resume.pdf" title={t.site.resume}>
+        {t.site.resume}
+      </ButtonLink>
+    </div>
     <article class="intro">
       <h3>{t.about.heading}</h3>
       <p>{t.about.intro1}</p>
@@ -43,25 +39,13 @@ const t = getCurrentTranslations(Astro.params);
   p {
     margin-bottom: 1rem;
 
-    font-size: 1.2rem;
     line-height: 2;
   }
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .fullname ruby {
+  .fullname {
     font-size: 2rem;
     letter-spacing: 10px;
   }
-  .fullname rt {
-    color: var(--color-primary-dark);
-    letter-spacing: 0;
-    font-weight: normal;
-  }
   .container {
-    max-width: 60rem;
     display: grid;
     grid-template-columns: 3fr 1fr;
     align-items: flex-start;
@@ -69,7 +53,7 @@ const t = getCurrentTranslations(Astro.params);
     row-gap: 1rem;
   }
   .resume {
-    justify-self: flex-start;
+    justify-self: flex-end;
   }
   @media (max-width: 28em) {
     aside {
