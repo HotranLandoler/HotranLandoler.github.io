@@ -4,10 +4,8 @@ import Trans from '~/components/Trans.astro';
 import { Icon } from 'astro-icon/components';
 import GameLayout from '~/layouts/GameLayout.astro';
 import banner from '~/images/cqu-horror/cqu-horror-title.webp';
-import divider from '~/images/cqu-horror/SkillUnlock.png';
 import icon1 from '~/images/cqu-horror/HP.png';
 import icon2 from '~/images/cqu-horror/San.png';
-import sideImg from '~/images/cqu-horror/CY_look.png';
 import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
 
 export const getStaticPaths = getLocaleStaticPaths;
@@ -35,12 +33,9 @@ const gameTranslations = t.games[gameKey];
   <p>
     {t.games.cquHorror.intro}
   </p>
-  <div class="center divider-container mb-m">
-    <Image class="pixel divider" src={divider} alt="" />
-  </div>
   <div slot="info-main">
     <section>
-      <header class="flex-gap-s mb-s">
+      <header class="text-icon-container mb-s">
         <Image class="heading-icon pixel" src={icon1} alt="Health" />
         <h2>{t.games.howToPlay}</h2>
       </header>
@@ -52,7 +47,7 @@ const gameTranslations = t.games[gameKey];
       </p>
     </section>
     <section>
-      <header class="flex-gap-s mb-s">
+      <header class="text-icon-container mb-s">
         <Image class="heading-icon pixel" src={icon2} alt="Sanity" />
         <h2>{t.games.note}</h2>
       </header>
@@ -72,7 +67,6 @@ const gameTranslations = t.games[gameKey];
       <li>HYW：策划</li>
     </Trans>
   </ul>
-  <Image class="pixel side-img" slot="side-img" src={sideImg} alt="" />
 </GameLayout>
 
 <style>

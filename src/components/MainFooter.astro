@@ -6,6 +6,8 @@ import {
   getLocaleStaticPaths,
   getTranslations,
   getLocaleUrl,
+  type Locale,
+  locales,
 } from '~/i18n';
 import HoverArrowText from './HoverArrowText.astro';
 
@@ -16,6 +18,13 @@ export const getStaticPaths = getLocaleStaticPaths;
 const t = getTranslations(locale);
 
 const { pathname } = Astro.url;
+
+const localeInUrl = Astro.url.pathname.split('/')[1];
+let pathnameWithoutLocale = pathname;
+
+if (locales.includes(localeInUrl as Locale)) {
+  pathnameWithoutLocale = pathname.slice(locale.length + 1);
+}
 ---
 
 <footer class="main-footer">
@@ -59,10 +68,10 @@ const { pathname } = Astro.url;
       <p class="footer-heading">{t.language}</p>
       <ul class="footer-list">
         <li>
-          <a href={getLocaleUrl('zh', pathname)}>中文</a>
+          <a href={getLocaleUrl('zh', pathnameWithoutLocale)}>中文</a>
         </li>
         <li>
-          <a href={getLocaleUrl('en', pathname)}>English</a>
+          <a href={getLocaleUrl('en', pathnameWithoutLocale)}>English</a>
         </li>
       </ul>
     </div>

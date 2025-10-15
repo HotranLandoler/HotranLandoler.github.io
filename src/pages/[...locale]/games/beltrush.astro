@@ -6,7 +6,6 @@ import GameLayout from '~/layouts/GameLayout.astro';
 import banner from '~/images/belt-rush/BeltRush.webp';
 import icon1 from '~/images/belt-rush/tape.webp';
 import icon2 from '~/images/belt-rush/triangle.webp';
-import sideImg from '~/images/belt-rush/pack.webp';
 import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
 
 export const getStaticPaths = getLocaleStaticPaths;
@@ -36,14 +35,8 @@ const surfaceColor = '#5779d5';
     {gameTranslations.intro}
   </p>
   <div slot="info-main">
-    <iframe
-      class="mb-m video"
-      src="//player.bilibili.com/player.html?aid=825964426&bvid=BV1Ag4y1L7s8&cid=1124747994&page=1&autoplay=0"
-      allow="fullscreen"
-      title="Bilibili video for IntoSoil">
-    </iframe>
     <section>
-      <header class="flex-gap-s mb-s">
+      <header class="text-icon-container mb-s">
         <Image class="heading-icon" src={icon1} alt="Tape" />
         <h2>{t.games.howToPlay}</h2>
       </header>
@@ -52,7 +45,7 @@ const surfaceColor = '#5779d5';
       </p>
     </section>
     <section>
-      <header class="flex-gap-s mb-s">
+      <header class="text-icon-container mb-s">
         <Image class="heading-icon" src={icon2} alt="Triangle" />
         <h2>{t.games.note}</h2>
       </header>
@@ -66,6 +59,12 @@ const surfaceColor = '#5779d5';
         </Trans>
       </p>
     </section>
+    <iframe
+      class="mb-m video"
+      src="//player.bilibili.com/player.html?aid=825964426&bvid=BV1Ag4y1L7s8&cid=1124747994&page=1&autoplay=0"
+      allow="fullscreen"
+      title="Bilibili video for IntoSoil">
+    </iframe>
   </div>
   <span slot="platforms">
     <Icon name="mdi:microsoft-windows" title="Windows" />
@@ -83,13 +82,9 @@ const surfaceColor = '#5779d5';
       <li></li>
     </Trans>
   </ul>
-  <Image class="side-img" slot="side-img" src={sideImg} alt="" />
 </GameLayout>
 
 <style define:vars={{ surfaceColor }}>
-  .side-img {
-    max-width: 6rem;
-  }
   .video {
     background-color: var(--surfaceColor);
   }

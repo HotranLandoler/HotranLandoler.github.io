@@ -6,7 +6,6 @@ import GameLayout from '~/layouts/GameLayout.astro';
 import banner from '~/images/into-soil/IntoSoil.webp';
 import icon1 from '~/images/into-soil/mineIcon.png';
 import icon2 from '~/images/into-soil/starIcon.png';
-import sideImg from '~/images/into-soil/treeM.png';
 import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
 
 export const getStaticPaths = getLocaleStaticPaths;
@@ -37,7 +36,7 @@ const surfaceColor = '#e7923c';
   </p>
   <div slot="info-main">
     <section>
-      <header class="flex-gap-s mb-s">
+      <header class="text-icon-container mb-s">
         <Image class="heading-icon" src={icon1} alt="Mineral" />
         <h2>{t.games.howToPlay}</h2>
       </header>
@@ -46,7 +45,7 @@ const surfaceColor = '#e7923c';
       </p>
     </section>
     <section>
-      <header class="flex-gap-s mb-s">
+      <header class="text-icon-container mb-s">
         <Image class="heading-icon" src={icon2} alt="Star" />
         <h2>{t.games.note}</h2>
       </header>
@@ -82,13 +81,9 @@ const surfaceColor = '#e7923c';
       <li></li>
     </Trans>
   </ul>
-  <Image class="pixel side-img" slot="side-img" src={sideImg} alt="" />
 </GameLayout>
 
 <style define:vars={{ surfaceColor }}>
-  .side-img {
-    width: 40%;
-  }
   .video {
     background-color: var(--surfaceColor);
   }

@@ -1,7 +1,7 @@
 body {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  gap: 1rem;
+  gap: 5rem;
   min-height: 100svh;
 }
 
@@ -11,5 +11,5 @@ main {
   grid-column: span 2;
 
   padding-inline: 1rem;
-  padding-block: 10rem 5rem;
+  padding-block: 5rem;
 }

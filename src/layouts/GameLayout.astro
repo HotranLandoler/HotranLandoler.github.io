@@ -3,7 +3,6 @@ import { Icon } from 'astro-icon/components';
 import BaseLayout from './BaseLayout.astro';
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import type { ValueOf } from 'node_modules/astro/dist/type-utils';
 import {
   getCurrentLocale,
   getCurrentTranslations,
@@ -49,170 +48,152 @@ const gameTranlations = t.games[gameKey] as Game;
 ---
 
 <BaseLayout title={gameTranlations.title}>
-  <main class="game">
-    <div class="mb-m container">
-      <Image class="banner" src={bannerSrc} alt="Game banner" />
-      <article>
-        <header class="flex-gap-s mb-m">
-          <h1 class="title">{gameTranlations.title}</h1>
-          <a
-            class="link--primary text-icon-container button-play"
-            target="_blank"
-            href={gameLink}>
-            {gameTranlations.action}
-            <Icon name="mdi:arrow-right" />
-          </a>
-        </header>
+  <main>
+    <div class="left">
+      <h1 class="title">{gameTranlations.title}</h1>
+      <a class="gap-s button-play" target="_blank" href={gameLink}>
+        {gameTranlations.action}
+        <Icon name="mdi:arrow-right" />
+      </a>
+      <div class="description">
         <slot />
+      </div>
+    </div>
+
+    <Image class="banner" src={bannerSrc} alt="Game banner" />
+
+    <aside class="info-side">
+      <dl class="info-meta">
+        <dt>{t.games.genre}</dt>
+        <dd>{gameTranlations.genre}</dd>
+
+        <dt>{t.games.platform}</dt>
+        <dd class="platforms"><slot name="platforms" /></dd>
+
+        <dt>{t.language}</dt>
+        <dd><slot name="language" /></dd>
+
+        <dt>{t.games.engine}</dt>
+        <dd>Unity</dd>
+
+        <dt>{t.games.pubDate}</dt>
+        <dd><time>{pubDate}</time></dd>
+
+        <dt>{t.games.sessionTime}</dt>
+        <dd>{gameTranlations.session}</dd>
+
+        <dt>{t.games.controls}</dt>
+        <dd>{gameTranlations.controls}</dd>
+
+        <dt>{t.games.src}</dt>
+        <dd>
+          <a class="base-link" target="_blank" href={srcLink}>
+            {t.games.repo}
+          </a>
+        </dd>
+
+        <dt>{t.games.team}</dt>
+        <dd>
+          <slot name="team" />
+        </dd>
+      </dl>
+      <div class="img-side-container">
+        <slot name="side-img" />
+      </div>
+    </aside>
+
+    <div class="content">
+      <article>
         <div class="info">
           <slot name="info-main" />
-          <aside class="info-side">
-            <dl class="info-meta">
-              <dt>{t.games.genre}</dt>
-              <dd>{gameTranlations.genre}</dd>
-
-              <dt>{t.games.platform}</dt>
-              <dd class="platforms"><slot name="platforms" /></dd>
-
-              <dt>{t.language}</dt>
-              <dd><slot name="language" /></dd>
-
-              <dt>{t.games.engine}</dt>
-              <dd>Unity</dd>
-
-              <dt>{t.games.pubDate}</dt>
-              <dd><time>{pubDate}</time></dd>
-
-              <dt>{t.games.sessionTime}</dt>
-              <dd>{gameTranlations.session}</dd>
-
-              <dt>{t.games.controls}</dt>
-              <dd>{gameTranlations.controls}</dd>
-
-              <dt>{t.games.src}</dt>
-              <dd>
-                <a class="base-link" target="_blank" href={srcLink}>
-                  {t.games.repo}
-                </a>
-              </dd>
-
-              <dt>{t.games.team}</dt>
-              <dd>
-                <slot name="team" />
-              </dd>
-            </dl>
-            <div class="img-side-container">
-              <slot name="side-img" />
-            </div>
-          </aside>
         </div>
       </article>
     </div>
-    <div class="text-center">
-      <a href={getLocaleUrl(locale, '/games/')} class="hover-link more-games">
-        <span class="text-icon-container">
-          <Icon name="mdi:arrow-left" />
-          {t.games.moregames}
-        </span>
-      </a>
-    </div>
+
+    <a
+      href={getLocaleUrl(locale, '/games/')}
+      class="text-icon-container more-games">
+      <Icon name="mdi:arrow-left" />
+      {t.games.moregames}
+    </a>
   </main>
 </BaseLayout>
 
 <style
-  lang="scss"
   define:vars={{
-    textColor,
-    foregroundColor,
     backgroundColor,
     primaryColor,
-    primaryDarkColor,
     onPrimaryColor,
-    surfaceColor,
   }}
 >
   main {
-    --color-primary-shadow: var(--primaryColor);
-
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-
-    color: var(--textColor);
-
-    background-color: var(--backgroundColor);
-  }
-  article {
-    padding: 2rem;
-    padding-top: 0;
-  }
-  .game {
-    :global(p) {
-      margin-bottom: 1.5rem;
-
-      line-height: 2;
-    }
-
-    --color-primary: var(--primaryColor);
-    --color-primary-dark: var(--primaryColor);
+    row-gap: 2rem;
   }
 
-  .container {
-    max-width: 48rem;
-    padding: 0;
+  main :global(p) {
+    margin-bottom: 1rem;
 
-    background-color: var(--foregroundColor);
-    border-radius: 0.5rem;
+    line-height: 2;
   }
+  main :global(section) {
+    margin-bottom: 3rem;
+  }
+
+  .left {
+    justify-items: start;
+  }
+
   .banner {
     display: block;
-    margin-bottom: 2rem;
     width: 100%;
     height: auto;
 
     background-color: var(--backgroundColor);
   }
-  .title {
-    font-size: 2rem;
-  }
-  .button-play {
-    margin-left: auto;
 
+  .title {
+    font-size: 4rem;
+    line-height: 1;
+
+    margin-bottom: 1.5rem;
+  }
+
+  .button-play {
+    display: inline-flex;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 3rem;
+
+    font-size: 1.2rem;
     color: var(--onPrimaryColor);
 
     background-color: var(--primaryColor);
-  }
-  .info {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-  }
-  .info-side {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    gap: 1rem;
+
+    transition: border-radius 0.2s ease-out;
+
+    &:hover {
+      border-radius: 3rem;
+    }
   }
 
   .info-meta {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: flex-start;
-    padding: 1rem;
+    gap: 1rem;
 
-    background-color: var(--surfaceColor);
     border-radius: 0.5rem;
-
-    :global([data-icon]) {
-      font-size: 1.5rem;
-    }
   }
+
+  .info-meta :global([data-icon]) {
+    font-size: 1.5rem;
+  }
+
   .info-meta dt,
   .info-meta dd {
     display: inline-block;
-    padding: 0.5rem;
   }
   .info-meta dt {
     font-weight: bold;
-    text-align: right;
   }
 
   .img-side-container {
@@ -220,17 +201,25 @@ const gameTranlations = t.games[gameKey] as Game;
     justify-content: center;
     align-items: center;
   }
-  .more-games {
-    color: var(--textColor);
 
-    border-color: var(--primaryColor);
-  }
   :global(.side-img) {
     height: auto;
   }
 
+  :global(.heading-icon) {
+    width: 3rem;
+  }
+
   .platforms :global(span) {
     display: flex;
+  }
+
+  .more-games {
+    justify-self: start;
+    padding-top: 6rem;
+
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
   @media (max-width: 32em) {
