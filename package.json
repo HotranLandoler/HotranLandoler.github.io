@@ -10,14 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.4.2",
-    "@astrojs/svelte": "^7.1.0",
-    "@fontsource-variable/noto-sans-sc": "^5.2.6",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/svelte": "^7.2.0",
+    "@fontsource-variable/noto-sans-sc": "^5.2.9",
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.47",
-    "astro": "^5.12.9",
+    "@iconify-json/simple-icons": "^1.2.54",
+    "astro": "^5.14.5",
     "astro-icon": "^1.1.5",
-    "sass": "^1.90.0",
     "sharp": "^0.33.5",
     "svelte": "^5.38.1",
     "worker-timers": "^7.1.8"
