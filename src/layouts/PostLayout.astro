@@ -7,19 +7,87 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <main class="pt-32" lang="zh">
-    <article class="container prose prose-xl">
-      <header class="post-header">
-        <h1>{frontmatter.title}</h1>
-        <p>{frontmatter.description}</p>
-        <p class="date">
-          <time>{frontmatter.pubDate.toLocaleDateString(locale)}</time>
-        </p>
-      </header>
+  <main lang="zh">
+    <header class="post-header">
+      <h1>{frontmatter.title}</h1>
+      <p class="date">
+        <time>{frontmatter.pubDate.toLocaleDateString(locale)}</time>
+      </p>
+      <p class="description">{frontmatter.description}</p>
+    </header>
+    <article class="post">
       <slot />
     </article>
   </main>
 </BaseLayout>
+
+<style>
+  h1 {
+    margin-bottom: 3rem;
+    font-size: 4rem;
+    color: var(--color-on-background-light);
+  }
+  .description {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  .date {
+    margin-bottom: 1rem;
+    color: var(--color-on-background-light);
+  }
+</style>
+
+<style is:global>
+  .post {
+    *:nth-child(1) {
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.75;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h3,
+    h4 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    ul,
+    ol {
+      padding-left: 1rem;
+      list-style: disc;
+
+      margin-bottom: 0.5rem;
+    }
+    li {
+      line-height: 1.5;
+    }
+
+    ul ul,
+    ol ol {
+      list-style: circle;
+    }
+
+    pre {
+      margin-bottom: 1rem;
+      padding: 2rem;
+    }
+
+    code {
+      font-family:
+        'Fira Code', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo,
+        Consolas, 'DejaVu Sans Mono', 'Noto Sans SC', monospace;
+      font-weight: 400;
+    }
+  }
+</style>
 
 <!-- <style lang="scss" is:global>
   .post {
