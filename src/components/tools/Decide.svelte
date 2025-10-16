@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { scale, slide } from "svelte/transition";
-  import { flip } from "svelte/animate";
-  import { getRandomElement } from "./utils";
+  import { scale, slide } from 'svelte/transition';
+  import { flip } from 'svelte/animate';
+  import { getRandomElement } from './utils';
 
   export let trans: {
     dice: string;
@@ -29,13 +29,13 @@
 
   let diceFrom = 1;
   let diceTo = 6;
-  let diceResult = "0";
+  let diceResult = '0';
   let diceInt = true;
 
-  let decideResult = "";
-  let optionInput = "";
+  let decideResult = '';
+  let optionInput = '';
   let options: Option[] = [];
-  $: isOptionInputEmpty = optionInput === "";
+  $: isOptionInputEmpty = optionInput === '';
   $: isOptionsEmpty = options.length === 0;
 
   function dice() {
@@ -56,7 +56,7 @@
       content: optionInput,
     });
     options = options;
-    optionInput = "";
+    optionInput = '';
   }
 
   function clearOptions() {
@@ -118,16 +118,7 @@
 <fieldset class="field-set">
   <legend>{trans.decideHelper}</legend>
 
-  {#key decideId}
-    <div class="decide-result text-center mb-s animate-pop">
-      {#if decideResult !== ""}
-        <strong>{decideResult}</strong>
-      {:else}
-        {trans.addBelow}
-      {/if}
-    </div>
-  {/key}
-  <div class="mb-s">
+  <div class="flex gap-s mb-s">
     <button
       class="center button-primary button-decide"
       type="button"
@@ -135,6 +126,15 @@
       on:click={decide}>
       {trans.makeDecide}
     </button>
+    {#key decideId}
+      <div class="decide-result text-center mb-s animate-pop">
+        {#if decideResult !== ''}
+          <strong>{decideResult}</strong>
+        {:else}
+          {trans.addBelow}
+        {/if}
+      </div>
+    {/key}
   </div>
   <div class="decide-input-box mb-s">
     <input
@@ -168,6 +168,7 @@
           class="button button-remove"
           type="button"
           on:click={() => removeOption(option.id)}
+          aria-label={trans.remove}
           title={trans.remove}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +184,11 @@
   </ul>
 </fieldset>
 
-<style lang="scss">
+<style>
+  input {
+    padding: 0.5rem;
+  }
+
   fieldset {
     border: 2px solid #ccc;
     border-radius: 5px;
@@ -193,6 +198,13 @@
   }
   legend {
     font-size: 1.2rem;
+  }
+
+  .button-remove {
+    background-color: transparent;
+  }
+  .to {
+    width: 4rem;
   }
   .nowrap {
     white-space: nowrap;
@@ -214,6 +226,7 @@
   }
   .decide-result {
     color: #ccc;
+    flex-grow: 1;
 
     strong {
       color: var(--color-on-background);
@@ -250,6 +263,22 @@
       margin-left: auto;
 
       color: rgba(240, 55, 83, 0.5);
+    }
+  }
+
+  .animate-pop {
+    animation: scale 0.5s;
+  }
+
+  @keyframes scale {
+    0%,
+    100% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: scale(150%);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
     }
   }
 </style>

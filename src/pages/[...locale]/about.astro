@@ -1,16 +1,9 @@
 ---
-import { Icon } from 'astro-icon/components';
 import SubPageLayout from '~/layouts/SubPageLayout.astro';
 
-import {
-  getCurrentLocale,
-  getCurrentTranslations,
-  getLocaleStaticPaths,
-  getLocaleUrl,
-} from '~/i18n';
+import { getCurrentTranslations, getLocaleStaticPaths } from '~/i18n';
 import ButtonLink from '~/components/ButtonLink.astro';
 
-const locale = getCurrentLocale(Astro.params);
 export const getStaticPaths = getLocaleStaticPaths;
 const t = getCurrentTranslations(Astro.params);
 ---

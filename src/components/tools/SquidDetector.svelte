@@ -5,7 +5,7 @@
   };
 
   let id = 0;
-  let result = "";
+  let result = '';
 
   function detect() {
     id++;
@@ -13,11 +13,14 @@
   }
 </script>
 
-<article>
+<article class="flex gap-l">
+  <button class="button-primary" type="button" on:click={detect}>
+    {trans.detect}
+  </button>
   {#key id}
     <strong
       class="flex items-center justify-center gap-2 text-3xl mb-4 animate-pop min-h-16">
-      {#if result !== ""}
+      {#if result !== ''}
         <div class="animate-wiggle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +40,27 @@
       {/if}
     </strong>
   {/key}
-  <button class="button-primary w-full" type="button" on:click={detect}>
-    {trans.detect}
-  </button>
 </article>
+
+<style>
+  article {
+    align-items: flex-start;
+  }
+  button {
+    padding: 0.5rem 2rem;
+    font-size: 1.5rem;
+  }
+  .animate-wiggle {
+    animation: wiggle 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-12deg);
+    }
+    50% {
+      transform: rotate(12deg);
+    }
+  }
+</style>

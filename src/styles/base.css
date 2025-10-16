@@ -23,3 +23,24 @@ h1 {
 h2 {
   font-size: 1.5rem;
 }
+
+input[type='checkbox'] {
+  width: 1.5rem;
+  aspect-ratio: 1 / 1;
+}
+
+.button-primary {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  gap: 0.5rem;
+
+  transition: border-radius 0.2s ease-out;
+
+  &:enabled:hover {
+    border-radius: 1rem;
+  }
+
+  &:disabled {
+    background-color: var(--color-background-disabled);
+  }
+}

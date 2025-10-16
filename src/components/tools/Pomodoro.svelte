@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { setInterval, clearInterval } from "worker-timers";
+  import { setInterval, clearInterval } from 'worker-timers';
 
   export let trans: {
     start: string;
@@ -10,12 +10,12 @@
   };
 
   const workingState = {
-    name: "working",
+    name: 'working',
     descText: trans.working,
     minutes: 25,
   };
   const breakState = {
-    name: "break",
+    name: 'break',
     descText: trans.break,
     minutes: 5,
   };
@@ -35,7 +35,7 @@
 
   function start() {
     if (timerId) {
-      alert("Timer id exists!");
+      alert('Timer id exists!');
     } else {
       checkNotification();
       // Start immediately
@@ -44,10 +44,10 @@
   }
 
   function checkNotification() {
-    if (window.Notification && Notification.permission === "default") {
+    if (window.Notification && Notification.permission === 'default') {
       Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-          const _ = new Notification("Pomodoro started.");
+        if (permission === 'granted') {
+          const _ = new Notification('Pomodoro started.');
         }
       });
     }
@@ -76,8 +76,8 @@
   function timeOut() {
     toggleState();
 
-    if (window.Notification && Notification.permission === "granted") {
-      const _ = new Notification("Pomodoro ended.");
+    if (window.Notification && Notification.permission === 'granted') {
+      const _ = new Notification('Pomodoro ended.');
     }
   }
 
@@ -97,8 +97,8 @@
         class="button play-button"
         type="button"
         on:click={pause}
-        title={trans.pause}
-      >
+        aria-label={trans.pause}
+        title={trans.pause}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -106,17 +106,15 @@
           class="icon"
           ><path
             d="M8 19c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2s-2 .9-2 2v10c0 1.1.9 2 2 2zm6-12v10c0 1.1.9 2 2 2s2-.9 2-2V7c0-1.1-.9-2-2-2s-2 .9-2 2z"
-            fill="currentColor"
-          /></svg
-        >
+            fill="currentColor" /></svg>
       </button>
     {:else}
       <button
         class="button play-button"
         type="button"
         on:click={start}
-        title={trans.start}
-      >
+        aria-label={trans.start}
+        title={trans.start}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -124,17 +122,15 @@
           class="icon"
           ><path
             d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"
-            fill="currentColor"
-          /></svg
-        >
+            fill="currentColor" /></svg>
       </button>
     {/if}
     <button
       class="button"
       type="button"
       on:click={toggleState}
-      title={trans.skip}
-    >
+      aria-label={trans.skip}
+      title={trans.skip}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -142,22 +138,23 @@
         class="icon"
         ><path
           d="M7.58 16.89l5.77-4.07c.56-.4.56-1.24 0-1.63L7.58 7.11C6.91 6.65 6 7.12 6 7.93v8.14c0 .81.91 1.28 1.58.82zM16 7v10c0 .55.45 1 1 1s1-.45 1-1V7c0-.55-.45-1-1-1s-1 .45-1 1z"
-          fill="currentColor"
-        /></svg
-      >
+          fill="currentColor" /></svg>
     </button>
   </div>
   <p class="state">{state.descText}</p>
 </article>
 
-<style lang="scss">
+<style>
+  button {
+    background-color: transparent;
+  }
+
   .pomodoro {
     padding: 2rem 5rem;
 
     text-align: center;
     color: white;
 
-    // background-color: rgb(250, 100, 100);
     background: linear-gradient(to right, #fc5b5b 50%, #5a92fa 50%);
     background-size: 200% 100%;
     background-position: left;
@@ -165,12 +162,12 @@
 
     transition: background-position 0.3s ease-out;
 
-    &[data-state="break"] {
+    &[data-state='break'] {
       background-position: right;
     }
   }
   .time {
-    font-family: Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 5rem;
   }
   .button-row {

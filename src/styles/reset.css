@@ -19,11 +19,26 @@ h6 {
   line-height: 1;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
 button,
 input,
 textarea,
 select {
   font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: none;
 }
 
 img,

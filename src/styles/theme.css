@@ -1,7 +1,8 @@
 :root {
-  --color-background: oklch(99.626% 0.01434 111.024 / 0.497);
-  --color-background2: oklch(91.279% 0.0001 271.152 / 0.664);
+  --color-background: oklch(99.626% 0.01434 111.024);
+  --color-background2: oklch(91.279% 0.0001 271.152);
   --color-background3: oklch(96.821% 0.02925 96.423);
+  --color-background-disabled: oklch(65.125% 0.01012 106.797);
   --color-on-background: oklch(31.586% 0.02832 206.777);
   --color-on-background-light: oklch(78.109% 0.01689 206.69);
 

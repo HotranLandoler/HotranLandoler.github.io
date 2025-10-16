@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { slide, fade } from "svelte/transition";
-  import { delay } from "./utils";
-  import { gameLoop } from "./NameFight";
+  import { slide, fade } from 'svelte/transition';
+  import { delay } from './utils';
+  import { gameLoop } from './NameFight';
 
   interface Log {
     id: number;
@@ -11,11 +11,11 @@
   const maxHp = 100;
   let fighters = [
     {
-      name: "玩家1",
+      name: '玩家1',
       hp: 100,
     },
     {
-      name: "玩家2",
+      name: '玩家2',
       hp: 100,
     },
   ];
@@ -59,20 +59,21 @@
   }
 </script>
 
-<section class="health-section mb-4">
+<section class="health-section mb-m">
   <div class="fighter">
     <input
-      class="focus-outline input-outlined name-input text-center mb-2"
+      class="name-input text-center mb-s"
       type="text"
       bind:value={fighters[0].name} />
-    <progress class="hp-bar" max={maxHp} value={fighters[0].hp} />
+    <div class="hp-bar" style="--hp: {(fighters[0].hp / maxHp) * 100}%"></div>
   </div>
   <div class="fighter">
     <input
-      class="focus-outline input-outlined name-input text-center mb-2"
+      class="name-input text-center mb-s"
       type="text"
       bind:value={fighters[1].name} />
-    <progress class="hp-bar flipx" max={maxHp} value={fighters[1].hp} />
+    <div class="hp-bar flipx" style="--hp: {(fighters[1].hp / maxHp) * 100}%">
+    </div>
   </div>
 </section>
 <section class="button-section mb-s">
@@ -93,7 +94,10 @@
   </ul>
 </section>
 
-<style lang="scss">
+<style>
+  .name-input {
+    padding: 0.5rem;
+  }
   .flipx {
     transform: scale(-1, 1);
   }
@@ -103,10 +107,41 @@
     gap: 2rem;
   }
   .hp-bar {
+    position: relative;
     display: block;
     width: 100%;
+    height: 1rem;
+
+    background-color: var(--color-background2);
+    border-radius: 1rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: var(--hp, 100%);
+      height: 100%;
+
+      background-color: var(--color-surface);
+      border-radius: 1rem;
+
+      transition: width 0.2s 0.3s ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: var(--hp, 100%);
+      height: 100%;
+
+      background-color: var(--color-primary);
+      border-radius: 1rem;
+
+      transition: width 0.1s linear;
+    }
   }
   .start-button {
+    display: block;
+    margin-inline: auto;
     padding: 0.5rem 2rem;
 
     color: white;
@@ -114,11 +149,6 @@
 
     background-color: #f03752;
     border-radius: 10rem;
-
-    &:hover {
-      // background-color: #82202b;
-      box-shadow: 0 0.5rem 1.5rem rgba(240, 55, 83, 0.5);
-    }
 
     &:disabled {
       background-color: #ccc;
