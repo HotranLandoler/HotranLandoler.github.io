@@ -147,7 +147,7 @@
     color: white;
     font-size: 2rem;
 
-    background-color: #f03752;
+    background-color: oklch(62.861% 0.15919 22.773);
     border-radius: 10rem;
 
     &:disabled {

@@ -155,7 +155,11 @@
     text-align: center;
     color: white;
 
-    background: linear-gradient(to right, #fc5b5b 50%, #5a92fa 50%);
+    background: linear-gradient(
+      to right,
+      oklch(68.499% 0.1267 23.875) 50%,
+      oklch(67.101% 0.12558 261.677) 50%
+    );
     background-size: 200% 100%;
     background-position: left;
     border-radius: 2rem;
