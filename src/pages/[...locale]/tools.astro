@@ -55,4 +55,10 @@ const t = getTranslations(locale);
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
   }
+
+  @media (width <= 425px) {
+    .tools {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 </style>

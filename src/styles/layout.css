@@ -13,3 +13,14 @@ main {
   padding-inline: 1rem;
   padding-block: 5rem;
 }
+
+@media (width <= 768px) {
+  body {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  main {
+    display: block;
+  }
+}

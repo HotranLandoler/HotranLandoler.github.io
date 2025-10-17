@@ -34,9 +34,14 @@ const t = getCurrentTranslations(Astro.params);
     text-transform: uppercase;
   }
 
-  @media (max-width: 48em) {
+  @media (width <= 768px) {
     .page-header {
-      padding-top: 10rem;
+      margin-bottom: 2rem;
+    }
+  }
+  @media (width <= 425px) {
+    .page-heading {
+      font-size: 4rem;
     }
   }
 </style>

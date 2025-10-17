@@ -160,8 +160,7 @@ if (locales.includes(localeInUrl as Locale)) {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
-    padding-right: 3rem;
+    margin-bottom: 2rem;
   }
 
   .footer-grid {
@@ -225,21 +224,18 @@ if (locales.includes(localeInUrl as Locale)) {
     margin-bottom: 1rem;
   }
 
-  @media (max-width: 60em) {
-    .footer-grid {
-      gap: 1rem;
+  @media (width <= 768px) {
+    .main-footer,
+    .bottom-row {
+      display: block;
     }
-  }
-
-  @media (max-width: 48em) {
     .footer-grid {
       grid-template-columns: 1fr 1fr;
-      row-gap: 0;
-      column-gap: 3rem;
+      gap: 2rem;
     }
   }
 
-  @media (max-width: 28em) {
+  /* @media (max-width: 28em) {
     address {
       display: flex;
       gap: 3rem;
@@ -252,5 +248,5 @@ if (locales.includes(localeInUrl as Locale)) {
     .emails {
       margin-bottom: 0;
     }
-  }
+  } */
 </style>

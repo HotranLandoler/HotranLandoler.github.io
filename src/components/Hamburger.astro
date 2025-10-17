@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <button
@@ -14,14 +15,13 @@
 
 <style>
   .button-mobile-nav {
-    padding: 0.5rem;
     border: none;
     background: none;
     cursor: pointer;
 
     display: none;
   }
-  @media (max-width: 72em) {
+  @media (width <= 768px) {
     .button-mobile-nav {
       display: block;
     }
@@ -68,6 +68,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     height: 1.5rem;
     display: inline-block;
     position: relative;
+
+    transform: translateY(2px);
   }
 
   .hamburger-inner {
@@ -89,7 +91,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   .hamburger-inner::before,
   .hamburger-inner::after {
-    content: "";
+    content: '';
     display: block;
   }
   .hamburger-inner::before {
@@ -103,10 +105,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
   .hamburger--squeeze .hamburger-inner::before {
-    transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+    transition:
+      top 0.075s 0.12s ease,
+      opacity 0.075s ease;
   }
   .hamburger--squeeze .hamburger-inner::after {
-    transition: bottom 0.075s 0.12s ease,
+    transition:
+      bottom 0.075s 0.12s ease,
       transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
@@ -118,12 +123,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   .hamburger--squeeze.is-active .hamburger-inner::before {
     top: 0;
     opacity: 0;
-    transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+    transition:
+      top 0.075s ease,
+      opacity 0.075s 0.12s ease;
   }
   .hamburger--squeeze.is-active .hamburger-inner::after {
     bottom: 0;
     transform: rotate(-90deg);
-    transition: bottom 0.075s ease,
+    transition:
+      bottom 0.075s ease,
       transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 </style>

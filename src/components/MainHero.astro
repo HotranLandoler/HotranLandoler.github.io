@@ -47,17 +47,13 @@ const t = getTranslations(locale);
     margin-bottom: 2rem;
   }
 
-  @media (max-width: 48em) {
+  @media (width <= 768px) {
     .hero-section {
-      padding-bottom: 0;
+      display: block;
+      padding-block: 3rem;
     }
-    .container {
-      display: flex;
-      flex-direction: column;
-
-      &::after {
-        display: none;
-      }
+    .hero-heading {
+      font-size: 2.6rem;
     }
   }
 </style>

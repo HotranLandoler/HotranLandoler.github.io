@@ -24,6 +24,12 @@ const href =
     : getLocaleUrl(targetLocale, pathnameWithoutLocale);
 ---
 
-<a href={href} class="hover-link--color" title={title}>
+<a href={href} title={title}>
   {text}
 </a>
+
+<style>
+  a {
+    padding: 0.5rem;
+  }
+</style>

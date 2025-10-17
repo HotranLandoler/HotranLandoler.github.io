@@ -77,11 +77,6 @@ function localizePath(path: string) {
           href={localizePath('/games/youchat')}
           gameTitle={t.games.youchat.title}
         />
-        <GameCardFeatured
-          imgSrc={livezoneCard}
-          href={localizePath('/games/livezone')}
-          gameTitle={t.games.livezone.title}
-        />
       </div>
     </PageSection>
 
@@ -172,14 +167,13 @@ function localizePath(path: string) {
       padding-bottom: 3rem;
     }
     .works {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.5rem;
     }
-    .grid-blog-toolbox {
-      display: flex;
-      flex-direction: column;
-      gap: 5rem;
+    @media (width <= 425px) {
+      .tools {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   }
 </style>

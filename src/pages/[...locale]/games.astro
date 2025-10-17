@@ -87,10 +87,15 @@ function localizePath(path: string) {
     gap: 1.5rem;
   }
 
-  @media (max-width: 60em) {
+  @media (width <= 768px) {
     .games {
-      max-width: 40rem;
-      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+  @media (width <= 425px) {
+    .games {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
     }
   }
 </style>
