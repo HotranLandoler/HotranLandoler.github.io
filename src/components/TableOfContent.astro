@@ -1,0 +1,112 @@
+---
+import type { MarkdownHeading } from 'astro';
+import { Icon } from 'astro-icon/components';
+import { getCurrentTranslations } from '~/i18n';
+
+export interface Props {
+  headings: MarkdownHeading[];
+}
+
+const t = getCurrentTranslations(Astro.params);
+const { headings } = Astro.props;
+---
+
+<div class="root open">
+  <h2>
+    <button id="collapse-button" class="collapse-button">
+      目录
+      <Icon name="mdi:keyboard-arrow-down" />
+    </button>
+  </h2>
+
+  <nav id="table-of-content" class="table-of-content">
+    <ol>
+      {
+        headings.map((heading) => (
+          <li>
+            <a href={`#${heading.slug}`} data-depth={heading.depth}>
+              {heading.text}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </nav>
+
+  <script>
+    let collapseButton = document.getElementById('collapse-button');
+    let tableOfContent = document.getElementById('table-of-content');
+    let root = document.querySelector('.root');
+
+    tableOfContent?.style.setProperty(
+      '--height',
+      `${tableOfContent.scrollHeight}px`,
+    );
+
+    collapseButton?.addEventListener('click', function toggleTableOfContent() {
+      if (!tableOfContent) {
+        return;
+      }
+
+      root?.classList.toggle('open');
+    });
+  </script>
+
+  <style>
+    h2 {
+      margin-bottom: 1rem;
+      display: block;
+      padding: 1rem;
+
+      background-color: var(--color-surface);
+    }
+
+    .root {
+      margin-bottom: 3rem;
+    }
+
+    .collapse-button {
+      display: flex;
+      gap: 0.5rem;
+      width: 100%;
+
+      text-align: left;
+      background-color: transparent;
+    }
+
+    [data-icon] {
+      transition: transform 0.2s ease-out;
+    }
+
+    .table-of-content {
+      max-height: 0;
+      overflow: hidden;
+
+      transition: max-height 0.2s ease-out;
+
+      a {
+        &[data-depth='2'] {
+          font-weight: 700;
+        }
+        &[data-depth='3'] {
+          padding-left: 1rem;
+        }
+        &[data-depth='4'] {
+          padding-left: 2rem;
+        }
+        &[data-depth='5'] {
+          padding-left: 3rem;
+        }
+      }
+    }
+
+    .open {
+      [data-icon] {
+        transform: rotate(180deg);
+      }
+      .table-of-content {
+        max-height: var(--height, unset);
+      }
+    }
+  </style>
+</div>

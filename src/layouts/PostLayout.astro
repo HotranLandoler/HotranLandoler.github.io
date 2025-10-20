@@ -1,20 +1,33 @@
 ---
 import { getCurrentLocale } from '~/i18n';
 import BaseLayout from './BaseLayout.astro';
+import type { InferEntrySchema } from 'astro:content';
+import type { MarkdownHeading } from 'astro';
+import TableOfContent from '~/components/TableOfContent.astro';
+
+export interface Props {
+  frontmatter: InferEntrySchema<'posts'>;
+  headings: MarkdownHeading[];
+}
 
 const locale = getCurrentLocale(Astro.params);
-const { frontmatter } = Astro.props;
+const { frontmatter, headings } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
   <main lang="zh">
-    <header class="post-header">
-      <h1>{frontmatter.title}</h1>
-      <p class="date">
-        <time>{frontmatter.pubDate.toLocaleDateString(locale)}</time>
-      </p>
-      <p class="description">{frontmatter.description}</p>
-    </header>
+    <div>
+      <header class="post-header">
+        <h1>{frontmatter.title}</h1>
+        <p class="date">
+          <time>{frontmatter.pubDate.toLocaleDateString(locale)}</time>
+        </p>
+        <p class="description">{frontmatter.description}</p>
+      </header>
+
+      <TableOfContent headings={headings} />
+    </div>
+
     <article class="post">
       <slot />
     </article>
@@ -26,6 +39,9 @@ const { frontmatter } = Astro.props;
     margin-bottom: 3rem;
     font-size: 4rem;
     color: var(--color-on-background-light);
+  }
+  .post-header {
+    margin-bottom: 2rem;
   }
   .description {
     margin-bottom: 1rem;
