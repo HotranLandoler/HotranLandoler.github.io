@@ -25,8 +25,11 @@ input[type='checkbox'] {
 
 .button-primary {
   padding: 0.5rem 1rem;
-  background-color: var(--color-primary);
   gap: 0.5rem;
+
+  color: var(--color-on-primary);
+
+  background-color: var(--color-primary);
 
   transition: border-radius 0.2s ease-out;
 

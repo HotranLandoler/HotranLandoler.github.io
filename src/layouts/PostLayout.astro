@@ -3,7 +3,7 @@ import { getCurrentLocale } from '~/i18n';
 import BaseLayout from './BaseLayout.astro';
 import type { InferEntrySchema } from 'astro:content';
 import type { MarkdownHeading } from 'astro';
-import TableOfContent from '~/components/TableOfContent.astro';
+import TableOfContents from '~/components/TableOfContents.astro';
 
 export interface Props {
   frontmatter: InferEntrySchema<'posts'>;
@@ -25,7 +25,7 @@ const { frontmatter, headings } = Astro.props;
         <p class="description">{frontmatter.description}</p>
       </header>
 
-      <TableOfContent headings={headings} />
+      <TableOfContents headings={headings} />
     </div>
 
     <article class="post">

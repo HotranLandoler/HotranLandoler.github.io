@@ -5,13 +5,28 @@ import { getCurrentLocale, getLocaleUrl } from '~/i18n';
 const locale = getCurrentLocale(Astro.params);
 ---
 
-<a
-  class="link--card"
-  href={getLocaleUrl(locale, '/')}
-  title="Back to home page">
-  <Image class="logo" src="/favicon.svg" width="48" height="48" alt="Logo" />
-  Chaoli
-</a>
+<div>
+  <a href={getLocaleUrl(locale, '/')} title="Back to home page">
+    <svg
+      class="logo"
+      width="48"
+      height="48"
+      viewBox="0 0 256 256"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xml:space="preserve"
+      style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+      <g transform="matrix(1.1842,0,0,1.18239,-23.5776,-14.6087)">
+        <path
+          d="M171.465,112.889C189.582,122.039 201.344,136.757 201.344,153.343C201.344,181.066 168.48,203.575 128,203.575C87.52,203.575 54.656,181.066 54.656,153.343C54.656,136.757 66.418,122.039 84.535,112.889C71.727,104.967 63.693,93.596 63.693,80.971C63.693,57.06 92.508,37.647 128,37.647C163.492,37.647 192.307,57.06 192.307,80.971C192.307,93.596 184.273,104.967 171.465,112.889Z"
+          style="fill:none;stroke-width:15.68px;"></path>
+      </g>
+    </svg>
+
+    Chaoli
+  </a>
+</div>
 
 <style>
   a {
@@ -33,5 +48,7 @@ const locale = getCurrentLocale(Astro.params);
   }
   .logo {
     width: 2rem;
+
+    stroke: var(--color-on-background);
   }
 </style>

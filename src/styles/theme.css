@@ -8,8 +8,7 @@
 
   --color-surface: oklch(90.402% 0.03031 177.695);
   --color-primary: oklch(71.488% 0.08843 167.659);
-  --color-on-primary: white;
-
+  --color-on-primary: var(--color-background);
   --font-main: 'Poppins', 'Noto Sans SC Variable', sans-serif;
 
   accent-color: var(--color-primary);
@@ -18,6 +17,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --color-background: oklch(26.14% 0.00439 197.263);
+    --color-background-disabled: oklch(30.125% 0.01012 106.797);
+
+    --color-on-background: oklch(71.586% 0.02832 206.777);
+    --color-on-background-light: oklch(48.109% 0.01689 206.69);
+
+    --color-main-header: transparent;
+
+    --color-surface: oklch(34.402% 0.02031 177.695);
+    --color-primary: oklch(41.488% 0.08843 167.659);
+    --color-on-primary: var(--color-on-background);
+
     color-scheme: dark;
   }
 }
