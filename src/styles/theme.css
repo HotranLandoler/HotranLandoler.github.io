@@ -10,7 +10,7 @@
   --color-primary: oklch(71.488% 0.08843 167.659);
   --color-on-primary: white;
 
-  --font-main: 'Noto Sans SC Variable', sans-serif;
+  --font-main: 'Poppins', 'Noto Sans SC Variable', sans-serif;
 
   accent-color: var(--color-primary);
   color-scheme: light;
