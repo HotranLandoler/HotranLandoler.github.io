@@ -1,12 +1,12 @@
 ---
 title: Unity开发规范
 slug: unity-style-guide
-pubDate: 2024-07-03
-description: UMa工作室拟采用的Unity游戏开发规范，版本v0.1.5
+pubDate: 2026-10-02
+description: UMa工作室拟采用的Unity游戏开发规范，版本v0.1.6
 tags: ["gamedev", "unity"]
 ---
 
-版本v0.1.5
+版本v0.1.6
 
 ## 项目文件夹
 
@@ -39,7 +39,7 @@ Assets:
 ## 素材格式
 
 - 图片：使用`.png`，尺寸为**4**的倍数
-- 音乐音效：使用`.ogg`，响度归一化为 **-18** LUFS
+- 音乐音效：使用`.ogg`，响度归一化为 **-23** LUFS
 
 ## 命名
 
@@ -237,7 +237,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Debug.Log($"Ahh! HP - {damage}")
-    }
+	}
     
     private void Enemy_Died()
     {
